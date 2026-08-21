@@ -1,0 +1,170 @@
+/*
+ * Shared across every page on the site.
+ *
+ * Each app gets its own privacy page, so this is what stops five separate policies drifting
+ * into five different-looking documents. Colours are Roadworthy's, which is fine while it is
+ * the only app; if a second one needs its own palette, override --accent in a page-level
+ * <style> rather than forking this file.
+ */
+
+:root {
+  /* Roadworthy identity - see docs/brand.md in the app repo */
+  --plate-yellow: #FFCE00;
+  --plate-black: #111111;
+  --gb-blue: #003399;
+
+  --bg: #ffffff;
+  --surface: #f6f7f9;
+  --text: #14202B;
+  --muted: #5a6b7a;
+  --rule: #dde3e9;
+  --accent: #003399;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14202B;
+    --surface: #1c2b38;
+    --text: #e8eef4;
+    --muted: #9fb0c0;
+    --rule: #2c3e4e;
+    --accent: #8ab4ff;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0 1.25rem 4rem;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+main { max-width: 42rem; margin: 0 auto; }
+header { padding: 2.5rem 0 1rem; }
+
+/* ---------------------------------------------------------------- wordmark */
+
+/*
+ * The cherished-plate device from the app icon, built from markup rather than an image so it
+ * stays sharp at any size and needs no asset pipeline.
+ */
+.plate {
+  display: inline-flex;
+  align-items: stretch;
+  background: var(--plate-yellow);
+  color: var(--plate-black);
+  border: 2px solid var(--plate-black);
+  border-radius: 6px;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+.plate .band {
+  background: var(--gb-blue);
+  color: #fff;
+  font-size: 0.6rem;
+  padding: 0.55rem 0.4rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  letter-spacing: 0.02em;
+}
+.plate .reg {
+  padding: 0.5rem 0.7rem;
+  font-size: 1.35rem;
+}
+
+/* ------------------------------------------------------------------ typography */
+
+h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.5rem 0 0.4rem; letter-spacing: -0.015em; }
+
+h2 {
+  font-size: 1.2rem;
+  margin: 2.5rem 0 0.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule);
+  letter-spacing: -0.005em;
+}
+/* A rule above the first heading would double up with the header block. */
+h2:first-of-type { border-top: 0; padding-top: 0; }
+
+p { margin: 0 0 1rem; }
+ul { margin: 0 0 1rem; padding-left: 1.25rem; }
+li { margin-bottom: 0.5rem; }
+a { color: var(--accent); }
+code { font-size: 0.9em; }
+
+.tagline { font-size: 1.1rem; color: var(--muted); margin: 0 0 2rem; }
+.updated { color: var(--muted); font-size: 0.9rem; margin: 0 0 1.5rem; }
+
+blockquote {
+  margin: 0 0 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--rule);
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* --------------------------------------------------------------- components */
+
+/* Summary box at the top of a policy, and the status note on an app page. */
+.callout {
+  background: var(--surface);
+  border-left: 3px solid var(--plate-yellow);
+  border-radius: 0 6px 6px 0;
+  padding: 1rem 1.1rem;
+  margin: 0 0 1.5rem;
+}
+.callout ul { margin-bottom: 0; }
+
+/* Lawful-basis pill. Deliberately quiet - it is a legal footnote, not a heading. */
+.basis {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.15rem 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.cards {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  margin-bottom: 1rem;
+}
+.card {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+}
+.card h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+.card p { margin: 0; font-size: 0.95rem; color: var(--muted); }
+
+/* Hub entry - a whole card that is one link. */
+.app {
+  display: block;
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+.app h2 { margin: 0 0 0.3rem; font-size: 1.15rem; color: var(--accent); border-top: 0; padding-top: 0; }
+.app p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
