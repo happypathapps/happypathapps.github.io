@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy policy — Roadworthy</title>
-<meta name="description" content="How the Roadworthy app handles your data. Photographs never leave your device; there is no server and no account.">
+<meta name="description" content="How the Roadworthy app handles your data. Photographs never leave your device, and there is no account.">
 <link rel="canonical" href="https://happypathapps.github.io/roadworthy/privacy.html">
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -17,15 +17,18 @@
     <span class="reg">RO4D&nbsp;W0R7HY</span>
   </span>
   <h1>Privacy policy</h1>
-  <p class="updated">For the Roadworthy Android app. Last updated 21&nbsp;August&nbsp;2026.</p>
+  <p class="updated">For the Roadworthy Android app. Last updated 24&nbsp;August&nbsp;2026.</p>
 </header>
 
 <div class="callout">
   <strong>The short version</strong>
   <ul>
     <li><strong>Photographs never leave your device.</strong> Number plates are read on the phone itself.</li>
-    <li><strong>There is no server and no account.</strong> Nothing to log in to, and nothing stored about you remotely.</li>
-    <li>Vehicle lookups go directly from your device to DVLA's public service.</li>
+    <li><strong>There is no account.</strong> Nothing to log in to, and no profile of you anywhere.</li>
+    <li>Tax and vehicle details go directly from your device to DVLA's public service.</li>
+    <li><strong>MOT history is the one exception</strong> — it passes through a small server we
+      operate, which receives the registration and nothing else. Why, and what is kept, is
+      <a href="#mot-history">set out below</a>.</li>
     <li>Advertising is separate, asks for your consent, and never sees vehicle data.</li>
   </ul>
 </div>
@@ -38,18 +41,44 @@ Insurers' Bureau, or any government body.</p>
 uploaded, never stored, and never sent anywhere.</strong> Only the registration you confirm is
 used, and only to perform a lookup.</p>
 
-<h2>Vehicle lookups</h2>
+<h2>Tax and vehicle details</h2>
 <p>When you check a vehicle, your device contacts DVLA's public Vehicle Enquiry Service
-(<code>vehicleenquiry.service.gov.uk</code>) directly to retrieve tax and MOT status. The request
-comes from your device and your connection — it does not pass through us, because we operate no
-server.</p>
+(<code>vehicleenquiry.service.gov.uk</code>) directly to retrieve tax status, make, colour and
+specification. That request comes from your device and your connection — <strong>it does not pass
+through us.</strong></p>
 <p>Information published there is used under the Open Government Licence v3.0:</p>
 <blockquote>Contains public sector information licensed under the Open Government Licence v3.0.</blockquote>
 <p class="basis">Lawful basis: legitimate interests — providing the check you asked for</p>
 
+<h2 id="mot-history">MOT history</h2>
+<p>MOT test history comes from DVSA's MOT History API. Reaching that service requires credentials,
+and credentials built into an app can be extracted from it — so this one request passes through a
+small server we operate, which holds the credentials and forwards the lookup on your behalf.</p>
+<p><strong>That server receives the registration and nothing else.</strong> No photograph, no
+location, no account, no device identifier and no advertising identifier. It keeps no database of
+vehicles and builds no history of what you have looked up.</p>
+<p>One retention point, stated plainly rather than buried: our hosting provider (Cloudflare)
+records the address of each incoming request so we can see the service is working, and that
+address contains the registration. <strong>Those records are deleted automatically after three
+days.</strong> They exist so we can notice a fault — for example DVSA changing something — before
+it affects you. They are not linked to you, your device or your advertising identifier, and are
+never used to build a profile.</p>
+<p class="basis">Lawful basis: legitimate interests — providing the check you asked for, and
+keeping the service working</p>
+
 <h2>Vehicles you save</h2>
-<p>Saved vehicles are stored <strong>only on your device</strong>. They are not backed up to us and
-not synced. Deleting a vehicle, or the app, removes them.</p>
+<p>Saving a vehicle stores its full check — registration, make, model, colour, tax and MOT status,
+specification and MOT history — <strong>only on your device</strong>, so you can open it again
+without another lookup. It is not backed up to us and not synced. Deleting a vehicle, or the app,
+removes it.</p>
+
+<h2>Your recent checks</h2>
+<p>The app keeps a list of vehicles you have checked recently so you can find them again from the
+home screen. This list is held <strong>only on your device</strong>, is limited to the
+<strong>50 most recent</strong> checks, and older entries are discarded automatically as new ones
+arrive.</p>
+<p>You can clear it at any time in the app, and uninstalling removes it. Nothing in it is sent to
+us.</p>
 
 <h2>Location</h2>
 <p>Location is <strong>optional</strong>. If you allow it, your device's position is converted to a
@@ -61,9 +90,8 @@ is included in a report only if you submit one.</p>
 
 <h2>Reporting a vehicle</h2>
 <p>If you choose to report a vehicle, the details you have reviewed on screen are submitted
-<strong>from your device</strong> to the relevant authority — DVLA for untaxed vehicles, or a
-police force. Nothing is submitted without you tapping submit, and we never submit on your
-behalf.</p>
+<strong>from your device</strong> to the relevant authority — currently DVLA, for an untaxed
+vehicle. Nothing is submitted without you tapping submit, and we never submit on your behalf.</p>
 <p>Those submissions are governed by the receiving authority's own privacy notice. DVLA's untaxed
 vehicle reports are anonymous to the vehicle keeper.</p>
 <p>We are not told whether your report was accepted. It goes from your device to the authority,
@@ -93,9 +121,14 @@ the app's About screen.</p>
 
 <h2>Your rights</h2>
 <p>Under UK GDPR you have rights of access, correction, erasure, restriction and objection.</p>
-<p>Because we hold <strong>no personal data about you on any server</strong>, most of these are
-exercised directly on your device: delete saved vehicles in the app, revoke permissions in Android
-settings, withdraw advertising consent through the app's privacy options, or uninstall.</p>
+<p>We hold <strong>no account and no profile of you</strong>, so most of these are exercised
+directly on your device: delete saved vehicles or clear your recent checks in the app, revoke
+permissions in Android settings, withdraw advertising consent through the app's privacy options,
+or uninstall.</p>
+<p>The only record we hold anywhere else is the three-day request log described under
+<a href="#mot-history">MOT history</a>. It contains a registration and no identifier for you, so
+we generally cannot connect it to a person in order to answer a request about it — but if you
+believe an entry relates to you, contact us and we will help where we can.</p>
 <p>For data held by DVLA, DVSA or MIB, contact them directly — they are the controllers of their
 own records.</p>
 <p>If you are unhappy with how we have handled your data you can complain to the Information
@@ -105,9 +138,10 @@ Commissioner's Office at <a href="https://ico.org.uk/">ico.org.uk</a>.</p>
 <p>Roadworthy is not directed at children and should not be used by anyone under 13.</p>
 
 <h2>Changes to this policy</h2>
-<p>If the data flows change, this page changes with them and the date above is updated. The most
-likely such change is vehicle lookups moving to a server we operate, which would be described here
-before it ships.</p>
+<p>If the data flows change, this page changes with them and the date above is updated.</p>
+<p>The previous version of this page said the most likely such change would be lookups moving to a
+server we operate. That has now happened, for MOT history only, and is described above. Tax and
+vehicle details still go directly from your device to DVLA.</p>
 
 <h2>Contact</h2>
 <p>Happy Path Apps —
