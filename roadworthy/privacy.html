@@ -17,7 +17,7 @@
     <span class="reg">RO4D&nbsp;W0R7HY</span>
   </span>
   <h1>Privacy policy</h1>
-  <p class="updated">For the Roadworthy Android app. Last updated 24&nbsp;August&nbsp;2026.</p>
+  <p class="updated">For the Roadworthy Android app. Last updated 25&nbsp;August&nbsp;2026.</p>
 </header>
 
 <div class="callout">
@@ -29,6 +29,8 @@
     <li><strong>MOT history is the one exception</strong> — it passes through a small server we
       operate, which receives the registration and nothing else. Why, and what is kept, is
       <a href="#mot-history">set out below</a>.</li>
+    <li>If you report a vehicle for having no MOT, your coordinates alone go to two public
+      services to find the right police force. Your registration does not.</li>
     <li>Advertising is separate, asks for your consent, and never sees vehicle data.</li>
   </ul>
 </div>
@@ -86,14 +88,36 @@ street and town so a report can be completed; you can also type the address your
 the permission entirely.</p>
 <p>Your location is used at that moment and <strong>is not stored or transmitted to us</strong>. It
 is included in a report only if you submit one.</p>
+<p>For a <strong>no-MOT report only</strong>, your coordinates are also sent from your device to
+two public services, to work out which police force covers that place:</p>
+<ul>
+  <li><strong>postcodes.io</strong>, to establish whether it is in England, Wales, Scotland or
+    Northern Ireland.</li>
+  <li><strong>data.police.uk</strong>, the Home Office's own service, to identify the covering
+    force.</li>
+</ul>
+<p>Both receive a latitude and longitude and nothing else — no registration, no identifier, and
+nothing that links the request to you or to the vehicle. Neither request happens unless you open a
+no-MOT report, and the app falls back to a national page if they fail. Both are free public
+services published under the Open Government Licence.</p>
 <p class="basis">Lawful basis: consent — you grant the permission, and the app works without it</p>
 
 <h2>Reporting a vehicle</h2>
-<p>If you choose to report a vehicle, the details you have reviewed on screen are submitted
-<strong>from your device</strong> to the relevant authority — currently DVLA, for an untaxed
-vehicle. Nothing is submitted without you tapping submit, and we never submit on your behalf.</p>
-<p>Those submissions are governed by the receiving authority's own privacy notice. DVLA's untaxed
-vehicle reports are anonymous to the vehicle keeper.</p>
+<p>If you choose to report a vehicle, the details you have reviewed on screen go <strong>from your
+device</strong> to the relevant authority. Nothing is submitted without you acting, and we never
+submit on your behalf.</p>
+<p>The two routes work differently, and the app tells you which one you are on:</p>
+<ul>
+  <li><strong>Untaxed</strong> goes to <strong>DVLA</strong>, submitted from the app when you tap
+    submit.</li>
+  <li><strong>No MOT</strong> goes to <strong>the police</strong>, because DVLA and DVSA cannot act
+    on a missing MOT. The app copies the details to your clipboard and opens your police force's
+    own reporting form in your browser. <strong>You</strong> fill it in and submit it. Nothing is
+    sent by the app.</li>
+</ul>
+<p>Those submissions are governed by the receiving authority's own privacy notice, and once you are
+on a police website you are subject to that force's. DVLA's untaxed vehicle reports are anonymous
+to the vehicle keeper.</p>
 <p>We are not told whether your report was accepted. It goes from your device to the authority,
 and no copy reaches us.</p>
 
