@@ -4,25 +4,89 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Happy Path Apps</title>
-<meta name="description" content="Android apps by Happy Path Apps.">
+<meta name="description" content="Happy Path Apps builds software for everyday decisions. Roadworthy checks UK vehicle tax and MOT history from a number plate.">
 <link rel="canonical" href="https://happypathapps.github.io/">
 <link rel="stylesheet" href="style.css">
+<style>
+  /*
+   * Status chip on a product card. Deliberately quiet: it states a fact about the product,
+   * and it is the thing most likely to go stale - Roadworthy's said "in development" for
+   * weeks after it was on Play.
+   */
+  .status {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 0.1rem 0.6rem;
+    margin-left: 0.5rem;
+    color: var(--muted);
+    vertical-align: 0.15em;
+  }
+  .status.live { border-color: #1f6f4a; color: #1f6f4a; }
+  @media (prefers-color-scheme: dark) {
+    .status.live { border-color: #6fcf9b; color: #6fcf9b; }
+  }
+
+  /* A product with nowhere to send people yet: a card, not a link. */
+  .app.soon h2 { color: var(--text); }
+  .principles { margin-top: 2.75rem; }
+
+  /* Four principles in a 2x2, so none is left stranded alone on a row. */
+  .principles + .cards { grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
+</style>
 </head>
 <body>
 <main>
 
 <header>
   <h1>Happy Path Apps</h1>
-  <p class="tagline">Android apps, built in the UK.</p>
+  <p class="tagline">We build software for everyday decisions — and keep you on the happy path.</p>
 </header>
 
 <a class="app" href="roadworthy/">
-  <h2>Roadworthy →</h2>
-  <p>UK vehicle tax and MOT checks from a photo of the number plate. In development.</p>
+  <h2>Roadworthy →<span class="status live">On Google Play</span></h2>
+  <p>Check any UK vehicle from its number plate: tax, MOT history, every advisory the tester
+  wrote, and what a year's road tax costs. Read from DVLA and DVSA records, with the tax figure
+  worked out from the legislation rather than copied from a table that goes stale each April.
+  Free, no account, and the photograph never leaves your phone.</p>
 </a>
 
+<!--
+  A second product card goes here when there is one to announce. The .app.soon style above
+  renders it as a card rather than a link, with an "In development" chip.
+-->
+
+<p class="tagline" style="margin-top:1.75rem">More to come.</p>
+
+<h2 class="principles">How we build</h2>
+<div class="cards">
+  <div class="card">
+    <h3>Go to the source</h3>
+    <p>Legislation and official records, not a summary of them. Reading the statute on road tax
+    changed two answers that comparison sites still get wrong.</p>
+  </div>
+  <div class="card">
+    <h3>Say when we don't know</h3>
+    <p>A missing record shows as unknown, never as a guess. Roadworthy will not let you report a
+    vehicle on information it could not verify.</p>
+  </div>
+  <div class="card">
+    <h3>Keep data on the device</h3>
+    <p>Plate photographs are read on the phone and never uploaded. What we do not collect cannot
+    be lost, sold or handed over.</p>
+  </div>
+  <div class="card">
+    <h3>Stay current</h3>
+    <p>Tax bands are re-legislated every April and nothing breaks when they expire — which is
+    why they are tested against the statute rather than trusted.</p>
+  </div>
+</div>
+
 <footer>
-  Each app has its own privacy policy, linked from its page above.<br>
+  Each product has its own privacy policy, linked from its page above.<br>
   <a href="mailto:happypathapps@gmail.com">happypathapps@gmail.com</a>
 </footer>
 
