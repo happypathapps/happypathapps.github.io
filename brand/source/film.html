@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Happy Path film</title>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@600;700&display=block" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #13181F; overflow: hidden; }
+  #stage { position: relative; overflow: hidden; background: #13181F; }
+  svg { position: absolute; inset: 0; }
+  .name { position: absolute; left: 0; width: 100%; text-align: center; font-family: 'Overpass', sans-serif;
+    font-weight: 700; color: #F7F6F2; letter-spacing: -0.5px; }
+  .tag { position: absolute; left: 0; width: 100%; text-align: center; font-family: 'Overpass', sans-serif;
+    font-weight: 600; color: #A3AAB3; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <svg id="svg">
+    <defs>
+      <clipPath id="boxClip"><rect id="clipRect"/></clipPath>
+      <radialGradient id="glow">
+        <stop offset="0" stop-color="#FFC766" stop-opacity="0.7"/>
+        <stop offset="0.4" stop-color="#FFC766" stop-opacity="0.24"/>
+        <stop offset="1" stop-color="#FFC766" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect id="boxFill"/>
+    <g clip-path="url(#boxClip)">
+      <g id="world"></g>
+    </g>
+    <rect id="boxEdge" fill="none"/>
+    <path id="calc" fill="none" stroke="none"/>
+  </svg>
+  <div class="name" id="name">Happy Path Apps</div>
+  <div class="tag" id="tag">Software for everyday decisions</div>
+</div>
+<script>
+// v4. The film opens inside an app icon, the icon opens, and it closes back into the icon.
+// Everything in the world is drawn in world units and placed on screen by one transform:
+//   screen x = (x - cam) * K + CX,   screen y = y * K + SY
+// The smile is the mark's own drawing: centre line (-36,-21), controls (-26,21) (26,21), end
+// (36,-21), road 22 wide. Its centre is the world origin.
+const q = new URLSearchParams(location.search);
+const W = +(q.get('w') || 1080), H = +(q.get('h') || 1920), TALL = H > W;
+const $ = id => document.getElementById(id);
+const NS = 'http://www.w3.org/2000/svg';
+Object.assign($('stage').style, { width: W + 'px', height: H + 'px' });
+$('svg').setAttribute('width', W); $('svg').setAttribute('height', H);
+
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const P = (t, a, b) => clamp((t - a) / (b - a));
+const lerp = (a, b, x) => a + (b - a) * x;
+const soft = x => 0.5 - 0.5 * Math.cos(Math.PI * x);
+const ease = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const hex = (c1, c2, x) => { const a = c1.match(/\w\w/g).map(h => parseInt(h, 16)), b = c2.match(/\w\w/g).map(h => parseInt(h, 16));
+  return '#' + a.map((v, i) => Math.round(lerp(v, b[i], x)).toString(16).padStart(2, '0')).join(''); };
+
+const DUR = 12;
+const T = {
+  open: [2.0, 2.8],       // boxed until 2.0, the camera following him; then the box opens and the camera lets go
+  bend: [2.9, 5.2],       // the road becomes the smile
+  arrive: 6.0,            // he reaches the raised end
+  lamp1: 6.9, lamp2: 7.5, // the eyes, one after the other
+  posts: [7.7, 8.4],      // the lamp columns fade, leaving the lanterns
+  name: [8.1, 9.0], tag: [8.7, 9.6],
+  out: [10.2, 10.6],      // lamps out, name away
+  close: [10.6, 11.8],    // everything folds back into the icon
+};
+const ROAD = 22, LINE = 3.2, DASH = '7 6', PERIOD = 13;
+const WH = 20, STRIDE = 14;                // walker height and stride, world units: about two steps a second
+const S0 = TALL ? 420 : 380;               // the icon on screen, px
+const KF = TALL ? 10.5 : 7.8;              // full-screen scale, px per unit
+const KB = KF * 0.5;                       // boxed scale
+const KI = 0.72 * S0 / 94;                 // the icon: the smile fitted inside it
+const CX = W / 2, CY = H / 2;
+const SYF = CY + 0.02 * H;                 // full-screen height of the road centre
+const LAMPS = [-202, -142, -82, -22, 22];  // world x; the last two become the eyes, spaced as on the storyboard
+
+// --- world elements, made once
+const world = $('world');
+const el = (tag, attrs, parent = world) => { const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
+const lampEls = LAMPS.map(() => { const g = el('g', {});
+  return { g, glow: el('circle', { r: 13, fill: 'url(#glow)' }, g),
+    post: el('path', { stroke: '#56606C', 'stroke-width': 1.3, fill: 'none' }, g),
+    plinth: el('path', { stroke: '#56606C', 'stroke-width': 1.6, fill: 'none' }, g),
+    bar: el('path', { stroke: '#56606C', 'stroke-width': 0.8, fill: 'none' }, g),
+    body: el('path', { stroke: '#56606C', 'stroke-width': 0.5 }, g),
+    cap: el('path', { fill: '#56606C' }, g) }; });
+const roadEl = (c, w) => el('path', { fill: 'none', stroke: c, 'stroke-width': w });
+const stubL = roadEl('#3E4753', ROAD), stubR = roadEl('#3E4753', ROAD), road = roadEl('#3E4753', ROAD), green = roadEl('#4ADE80', ROAD);
+const lines = roadEl('#F7F6F2', LINE), linesL = roadEl('#F7F6F2', LINE), linesR = roadEl('#F7F6F2', LINE);
+for (const e of [lines, linesL, linesR]) e.setAttribute('stroke-dasharray', DASH);
+const parts = ['torso', 'armB', 'legB', 'legF', 'armF'];
+const halo = el('g', { stroke: '#13181F', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', fill: 'none' });
+const body = el('g', { stroke: '#F7F6F2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', fill: 'none' });
+const WHp = {}, WBp = {};
+parts.forEach(p => { WHp[p] = el('path', {}, halo); WBp[p] = el('path', {}, body); });
+WHp.head = el('circle', { fill: '#13181F' }, halo); WBp.head = el('circle', { fill: '#F7F6F2', stroke: 'none' }, body);
+
+// the smile section: straight at b = 0, smiling at b = 1
+const smileD = b => `M-36 ${-21 * b} C-26 ${21 * b} 26 ${21 * b} 36 ${-21 * b}`;
+const calc = $('calc');
+const lenAt = b => { calc.setAttribute('d', smileD(b)); return calc.getTotalLength(); };
+const bendAt = t => soft(P(t, ...T.bend));
+
+// --- his walk: one constant speed V throughout, arriving at the raised end at T.arrive. Before
+// the camera lets go he is on the straight road left of the smile; after, on the smile, whose
+// length changes as it bends, so his progress along it is integrated once, at load.
+let V = 30, fTable = null;
+function buildWalk() {
+  const dt = 1 / 240, t0 = T.open[1], n = Math.round((T.arrive - t0) / dt);
+  let g = 0; const gs = [0];
+  for (let i = 1; i <= n; i++) { g += dt / lenAt(bendAt(t0 + i * dt)); gs.push(g); }
+  V = 1 / g; fTable = gs.map(x => x * V);
+}
+function walkerAt(t) {
+  const t0 = T.open[1];
+  if (t <= t0) return { x: -36 - V * (t0 - t), y: 0, f: 0 };
+  const i = Math.round((t - t0) * 240);
+  const f = i < fTable.length ? fTable[i] : 1;
+  const L = lenAt(bendAt(t));
+  if (f <= 1) { const p = calc.getPointAtLength(f * L); return { x: p.x, y: p.y, f }; }
+  const a = calc.getPointAtLength(L), b = calc.getPointAtLength(L - 1), over = (f - 1) * L;
+  return { x: a.x + (a.x - b.x) * over, y: a.y + (a.y - b.y) * over, f };
+}
+
+function drawWalker(t, x, y, alpha) {
+  const phase = (0.5 + t * V / STRIDE) * Math.PI;         // even steps: the rhythm the soundtrack follows
+  const thigh = WH * 0.25, shin = WH * 0.25, up = WH * 0.17, fore = WH * 0.16;
+  const leg = ph => { const a = 0.46 * Math.sin(ph), k = 0.34 * Math.max(0, Math.sin(ph + 1.9));
+    const kx = Math.sin(a) * thigh, ky = Math.cos(a) * thigh, b = a - k;
+    return [kx, ky, kx + Math.sin(b) * shin, ky + Math.cos(b) * shin]; };
+  const arm = ph => { const a = -0.38 * Math.sin(ph), ex = Math.sin(a) * up, ey = Math.cos(a) * up, b = a + 0.45;
+    return [ex, ey, ex + Math.sin(b) * fore, ey + Math.cos(b) * fore]; };
+  const L1 = leg(phase), L2 = leg(phase + Math.PI), drop = Math.max(L1[3], L2[3]);
+  const hx = x, hy = y - drop, sx = hx + WH * 0.03, sy = hy - WH * 0.3;
+  const A1 = arm(phase), A2 = arm(phase + Math.PI);
+  const seg = (ox, oy, s) => `M${ox} ${oy}L${ox + s[0]} ${oy + s[1]}L${ox + s[2]} ${oy + s[3]}`;
+  const d = { legF: seg(hx, hy, L1), legB: seg(hx, hy, L2), armF: seg(sx, sy, A1), armB: seg(sx, sy, A2), torso: `M${hx} ${hy}L${sx} ${sy}` };
+  for (const p of parts) { WHp[p].setAttribute('d', d[p]); WBp[p].setAttribute('d', d[p]); }
+  for (const h of [WHp.head, WBp.head]) { h.setAttribute('cx', sx + WH * 0.02); h.setAttribute('cy', sy - WH * 0.12); }
+  WBp.head.setAttribute('r', WH * 0.075); WHp.head.setAttribute('r', WH * 0.075 + 0.42);
+  body.setAttribute('stroke-width', WH * 0.075); halo.setAttribute('stroke-width', WH * 0.075 + 0.85);
+  WBp.legB.style.opacity = WBp.armB.style.opacity = 0.55;
+  halo.style.opacity = body.style.opacity = alpha;
+  halo.style.visibility = body.style.visibility = alpha > 0.001 ? 'visible' : 'hidden';
+  window._low = L1[3] > L2[3] ? 'F' : 'B';               // which foot is on the ground
+}
+
+// an old UK street lamp, side on, standing at the far kerb (y = -11). The lantern sits lower and
+// larger than a real one would: lit, the two are the eyes, and the face has to hold the mark's
+// proportions - the storyboard's eyes sat about 17 units above the smile's raised ends.
+const LH = -38;                             // lantern centre
+function drawLamp(L, x, lit, post, alpha) {
+  const s = 1.35, top = LH - 3.4 * s, bot = LH + 2.6 * s;
+  L.g.style.opacity = alpha;
+  L.glow.setAttribute('cx', x); L.glow.setAttribute('cy', LH); L.glow.setAttribute('r', 19); L.glow.style.opacity = lit;
+  L.post.setAttribute('d', `M${x} -11V${bot}`); L.plinth.setAttribute('d', `M${x - 1.8} -11.8H${x + 1.8}`);
+  L.bar.setAttribute('d', `M${x - 2.8} ${bot + 3}H${x + 2.8}`);
+  for (const e of [L.post, L.plinth, L.bar]) e.style.opacity = post;
+  L.body.setAttribute('d', `M${x - 2.6 * s} ${top}L${x - 1.9 * s} ${bot}H${x + 1.9 * s}L${x + 2.6 * s} ${top}Z`);
+  L.body.setAttribute('fill', hex('2A323D', 'FFC766', lit));
+  L.cap.setAttribute('d', `M${x - 3.4 * s} ${top}L${x} ${top - 2.8 * s}L${x + 3.4 * s} ${top}Z`);
+}
+// a lamp coming on: a small flicker, then steady
+const lightUp = (t, t0) => soft(P(t, t0, t0 + 0.25)) * (1 - 0.55 * Math.sin(Math.PI * P(t, t0 + 0.07, t0 + 0.16)));
+
+function renderAt(t) {
+  const open = ease(P(t, ...T.open)), close = ease(P(t, ...T.close));
+  const K = t < T.close[0] ? lerp(KB, KF, open) : lerp(KF, KI, close);
+  const SY = t < T.close[0] ? lerp(CY + 0.12 * S0, SYF, open) : lerp(SYF, CY + 3 * KI, close);
+  const wk = walkerAt(t);
+  const tracked = walkerAt(Math.min(t, T.open[1])).x;
+  const cam = t < T.open[0] ? tracked : t < T.open[1] ? lerp(tracked, 0, open) : 0;
+  $('world').setAttribute('transform', `translate(${CX} ${SY}) scale(${K}) translate(${-cam} 0)`);
+
+  // the box: the icon at the start and the end, the whole frame in between
+  const g = t < T.close[0] ? open : 1 - close;
+  const bw = lerp(S0, W + 4, g), bh = lerp(S0, H + 4, g), br = lerp(S0 * 0.22, 0, g);
+  for (const r of [$('clipRect'), $('boxFill'), $('boxEdge')]) {
+    r.setAttribute('x', CX - bw / 2); r.setAttribute('y', CY - bh / 2);
+    r.setAttribute('width', bw); r.setAttribute('height', bh); r.setAttribute('rx', br); }
+  $('boxFill').setAttribute('fill', hex('1B222B', '13181F', g));
+  $('boxEdge').setAttribute('stroke', '#2C3542'); $('boxEdge').setAttribute('stroke-width', 2.5);
+  $('boxEdge').style.opacity = 1 - g;
+
+  // the road: while boxed, the smile section plus two long stubs make one straight road. After the
+  // camera lets go the stubs pull back into the smile's ends instead of fading - v10 faded them,
+  // and a half-transparent stub over the ground showed as a shade change and a hairline at each
+  // join. Each stub runs along the tangent at its end, so it stays joined as the road bends, and
+  // overlaps the section by one unit so no seam can open. Dashes are phased to run on unbroken.
+  const b = bendAt(t);
+  const stub = t < T.open[1] ? 1 : 1 - soft(P(t, T.open[1], T.open[1] + 0.6));
+  // long enough to fill the boxed view; once the camera has let go, from just past the frame edge
+  const len = t < T.open[1] ? 400 : 30 * (1 - soft(P(t, T.open[1], T.open[1] + 0.8)));
+  for (const e of [road, lines, green]) e.setAttribute('d', smileD(b));
+  const L = lenAt(b);
+  const tl = Math.hypot(10, 42 * b), ux = -10 / tl, uy = -42 * b / tl;     // outward, at the left end
+  const lx = -36, ly = -21 * b;
+  const dL = `M${lx + ux * len} ${ly + uy * len}L${lx - ux} ${ly - uy}`;
+  const rx = 36, ry = -21 * b, vx = 10 / tl, vy = -42 * b / tl;
+  const dRight = `M${rx - vx} ${ry - vy}L${rx + vx * len} ${ry + vy * len}`;
+  for (const e of [stubL, linesL]) e.setAttribute('d', dL);
+  for (const e of [stubR, linesR]) e.setAttribute('d', dRight);
+  linesL.setAttribute('stroke-dashoffset', (PERIOD - len % PERIOD) % PERIOD);      // phase 0 at the left end
+  linesR.setAttribute('stroke-dashoffset', ((L - 1) % PERIOD + PERIOD) % PERIOD);  // continues from the right end
+  lines.setAttribute('stroke-dashoffset', -Math.max(0, t - 6.4) * 2.4);         // markings drift once he has gone
+  for (const e of [stubL, stubR, linesL, linesR]) { e.style.opacity = 1; e.style.visibility = len > 0.5 ? 'visible' : 'hidden'; }
+
+  green.setAttribute('stroke-dasharray', `${Math.min(1, wk.f) * L} ${L + 10}`);
+
+  // lamps: the passers-by slide away as the camera pans; the last two become the eyes
+  LAMPS.forEach((x, i) => {
+    const eye = i >= 3;
+    const lit = eye ? lightUp(t, i === 3 ? T.lamp1 : T.lamp2) * (1 - soft(P(t, ...T.out))) : 0;
+    const post = eye ? 1 - soft(P(t, ...T.posts)) : 1;
+    const alpha = eye ? 1 - soft(P(t, ...T.out)) : stub;
+    drawLamp(lampEls[i], x, lit, post, alpha);
+  });
+
+  // the walker, fading as he reaches the raised end
+  drawWalker(Math.min(t, T.arrive), wk.x, wk.y - LINE * 0.2, 1 - soft(P(t, T.arrive - 0.3, T.arrive + 0.1)));
+
+  // the name, below the face
+  const away = 1 - soft(P(t, ...T.out));
+  const n = soft(P(t, ...T.name)) * away, tg = soft(P(t, ...T.tag)) * away;
+  const ny = SY + 30 * K + (TALL ? 70 : 40);
+  Object.assign($('name').style, { top: ny + 'px', opacity: n, fontSize: (TALL ? 104 : 80) + 'px', transform: `translateY(${lerp(22, 0, n)}px)` });
+  Object.assign($('tag').style, { top: (ny + (TALL ? 132 : 102)) + 'px', opacity: tg, fontSize: (TALL ? 50 : 40) + 'px', transform: `translateY(${lerp(16, 0, tg)}px)` });
+}
+
+// footfalls and the film's fixed moments, read by soundtrack.js
+window.cues = () => { const steps = []; let last = null;
+  for (let i = 0; i <= DUR * 240; i++) { const t = i / 240; renderAt(t);
+    if (+body.style.opacity < 0.3) { last = null; continue; }
+    if (last && window._low !== last) steps.push(+t.toFixed(3));
+    last = window._low; }
+  renderAt(0); return { steps, T, DUR }; };
+
+window.renderAt = renderAt;
+window.ready = document.fonts.ready.then(() => { buildWalk(); renderAt(0); });
+if (!q.has('render')) window.ready.then(() => { const t0 = performance.now();
+  const loop = now => { renderAt(((now - t0) / 1000) % DUR); requestAnimationFrame(loop); }; requestAnimationFrame(loop); });
+</script>
+</body>
+</html>

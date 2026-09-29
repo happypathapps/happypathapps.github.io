@@ -1,0 +1,6 @@
+node_modules/
+out/
+stills/
+cues.json
+soundtrack.wav
+sfx/steps.f32

@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Happy Path stills</title>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@600;700&display=block" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; }
+  html, body { background: #13181F; overflow: hidden; }
+  #stage { position: relative; background: #13181F; }
+  svg { position: absolute; inset: 0; }
+  .name { position: absolute; left: 0; width: 100%; text-align: center; font: 700 96px 'Overpass', sans-serif;
+    color: #F7F6F2; letter-spacing: -0.5px; line-height: 1; }
+  .tag { position: absolute; left: 0; width: 100%; text-align: center; font: 600 38px 'Overpass', sans-serif;
+    color: #A3AAB3; line-height: 1; }
+</style>
+</head>
+<body>
+<div id="stage"><svg id="svg"></svg></div>
+<script>
+// The mark, drawn from the same numbers as film.html: centre line (-36,-21) through (-26,21) and
+// (26,21) to (36,-21), road 22 wide, lane markings 3.2 wide in 7-on 6-off dashes. With the road's
+// width included it spans x -47..47 and y about -32..27, so its visual centre is (0, -2.75).
+//
+//   ?asset=mark&size=1024   profile picture: the circle crop leaves it whole, corners at 0.8 of the radius
+//   ?asset=icon&size=32     favicon: no lane markings and a heavier road, since 32 px cannot hold them
+//   ?asset=cover            1640x856: the mark over the name, centred for Facebook's crops
+const q = new URLSearchParams(location.search);
+const asset = q.get('asset') || 'mark', size = +(q.get('size') || 1024);
+const W = asset === 'cover' ? 1640 : size, H = asset === 'cover' ? 856 : size;
+const stage = document.getElementById('stage'), svg = document.getElementById('svg');
+Object.assign(stage.style, { width: W + 'px', height: H + 'px' });
+svg.setAttribute('width', W); svg.setAttribute('height', H);
+
+const SMILE = 'M-36 -21 C-26 21 26 21 36 -21';
+function smile(cx, cy, k, { road = 22, lines = true } = {}) {
+  let s = `<g transform="translate(${cx} ${cy + 2.75 * k}) scale(${k})">` +
+          `<path d="${SMILE}" fill="none" stroke="#4ADE80" stroke-width="${road}"/>`;
+  // the dash pattern centred on the middle of the road, so both ends of a still mark match
+  if (lines) s += `<path d="${SMILE}" fill="none" stroke="#F7F6F2" stroke-width="3.2" stroke-dasharray="7 6" stroke-dashoffset="${DASH_OFFSET}"/>`;
+  return s + '</g>';
+}
+const DASH_OFFSET = (() => {
+  const p = document.createElementNS('http://www.w3.org/2000/svg', 'path'); p.setAttribute('d', SMILE);
+  svg.appendChild(p); const L = p.getTotalLength(); p.remove();
+  return (((3.5 - L / 2) % 13) + 13) % 13;        // puts the middle of a 7-unit dash at the road's midpoint
+})();
+
+if (asset === 'mark') svg.innerHTML = smile(W / 2, H / 2, 0.66 * W / 94);   // corners at 0.40 of the width from centre: inside the crop
+if (asset === 'icon') svg.innerHTML = smile(W / 2, H / 2, 0.86 * W / 100, { road: 28, lines: false });
+if (asset === 'cover') {
+  svg.innerHTML = smile(W / 2, 290, 360 / 94);
+  stage.insertAdjacentHTML('beforeend',
+    '<div class="name" style="top: 470px">Happy Path Apps</div>' +
+    '<div class="tag" style="top: 596px">Software for everyday decisions</div>');
+}
+window.ready = document.fonts.ready;
+</script>
+</body>
+</html>
