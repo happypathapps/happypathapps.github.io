@@ -31,6 +31,8 @@ _template/           Skeleton for the next app's privacy policy. Start here, not
 roadworthy/
   index.html         App page
   privacy.html       THE privacy policy URL. Do not move it.
+pump-prices/
+  privacy.html       Pump Prices' privacy policy URL. Do not move it. (No app page yet.)
 ```
 
 ## One repo, but one policy per app
@@ -58,8 +60,9 @@ app's code.
 ## The URLs that must never move
 
 <https://happypathapps.github.io/roadworthy/privacy.html>
+<https://happypathapps.github.io/pump-prices/privacy.html>
 
-Referenced from three places that are painful to change once live:
+Each is referenced from three places that are painful to change once live:
 
 1. The Google Play listing
 2. The AdMob account
@@ -72,7 +75,8 @@ If a real domain is ever bought, point it here as a GitHub Pages custom domain. 
 addresses then redirect to it, so links inside already-shipped APKs keep working — which is the
 only reason a custom domain is safe to add later at all.
 
-**Source of truth for Roadworthy's policy is `docs/privacy-policy.md` in the app repo.** Edit
+**Source of truth for each policy is `docs/privacy-policy.md` in that app's repo.** Pump
+Prices' page is generated from it, not copied by hand. Edit
 there first, mirror here, and update the date in both. A stale "last updated" against changed data
 flows is worse than no date at all.
 

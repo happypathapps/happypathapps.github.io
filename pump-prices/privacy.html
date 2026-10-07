@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy — Pump Prices</title>
+<meta name="description" content="How the Pump Prices app handles your data. Your location stays on your phone, and there is no account.">
+<link rel="canonical" href="https://happypathapps.github.io/pump-prices/privacy.html">
+<link rel="icon" href="../brand/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../brand/favicon-180.png">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+
+<header>
+  <h1>Privacy policy</h1>
+  <p class="updated">For the Pump Prices Android app. Last updated 7&nbsp;October&nbsp;2026.</p>
+</header>
+
+<div class="callout">
+  <strong>The short version</strong>
+<ul>
+  <li><strong>There is no account.</strong> Nothing to sign in to, and no profile of you anywhere.</li>
+  <li><strong>Your location stays on your phone.</strong> The app asks only for your approximate location, only when you press a button for it, and uses it on the phone. Our server is asked for the prices in a square of the map about 6 miles across, never where you are within it.</li>
+  <li><strong>We keep no history of where you have been.</strong> Nothing of it is kept on the phone. Our server keeps a routine log of requests for seven days, which shows which map square an internet address asked about, and nothing more exact.</li>
+  <li>Your saved forecourts, recent places, filters, fuel and tank size are kept <strong>on your phone only</strong>. They are not sent to us and not backed up.</li>
+  <li>What you type in Search goes to a postcode lookup service so it can suggest places.</li>
+  <li>The map is Google's. Google is asked for the map of the area on the screen.</li>
+  <li>Advertising is separate. You are asked first, you can say no and still use the app, and the advertising is told nothing about where you are or what you are looking at.</li>
+</ul>
+</div>
+
+<p>Pump Prices is made by Happy Path Apps. It is not affiliated with, endorsed by, or operated by Fuel Finder, the Department for Energy Security and Net Zero, or any government body.</p>
+
+<h2>Fuel prices</h2>
+
+<p>Every price comes from Fuel Finder, the UK government scheme. Our own server collects the prices from Fuel Finder and hands them to the app, because the scheme's credentials cannot safely be built into an app.</p>
+
+<p>The app asks that server for prices by <strong>map square</strong>. The country is divided into a fixed grid of squares about 6 miles across. The app works out on the phone which square to ask about and sends the square's number, and whether it wants the squares next to it or the next two rows of them (the wider area is asked for when your distance filter is set wide). Everyone in the same square with the same setting sends the same request. <strong>The server never receives a position, an account, a device identifier or an advertising identifier.</strong> It has no database of users at all: it holds forecourts and prices and nothing else.</p>
+
+<p>The server is run for us by Cloudflare. Like any web service, it sees the internet address (IP address) each request comes from. It uses that address in two ways:</p>
+
+<ul>
+  <li><strong>To limit how often one address can ask</strong> - 120 requests a minute - so that nobody can copy the whole dataset. The count is kept for that minute and not stored.</li>
+  <li><strong>In its request log.</strong> Cloudflare records each request to our server - when it was made, which map square was asked for, and technical details of the request, including the internet address it came from and the rough area Cloudflare takes that address to be in - so that we can see the service is working and notice a fault. <strong>Those records are deleted automatically after seven days.</strong> We do not use them to work out who anyone is or to build a history of anyone's movements.</li>
+</ul>
+
+<p class="basis">Lawful basis: legitimate interests - providing the prices you asked for, and keeping the service working and protected from misuse.</p>
+
+<p>Fuel Finder's data is used under the Open Government Licence v3.0:</p>
+
+<blockquote>Contains public sector information licensed under the Open Government Licence v3.0.</blockquote>
+
+<h2>Your location</h2>
+
+<p>Location is <strong>optional</strong>. You can search for a postcode or a town instead and refuse the permission outright; every screen that offers "Use my location" also offers Search.</p>
+
+<p>If you allow it:</p>
+
+<ul>
+  <li>The app asks Android for your <strong>approximate location only</strong>. It never asks for your precise location, and Android blurs the position before the app receives it.</li>
+  <li>It asks <strong>only while the app is open</strong>, never in the background.</li>
+  <li>You are asked for permission only when you press something for it: "Use my location", "Allow location", or the Map's centre button.</li>
+  <li>If "Use my location" was the last thing you chose, the app asks the phone again where it is each time you open the app, and when you come back to it after five minutes or more, so the prices are for where you are now. Choosing a place in Search stops this.</li>
+</ul>
+
+<p>Your position is used <strong>on the phone</strong>: to choose which map square to ask our server about, to measure how far away each forecourt is, and to centre the map. It is <strong>not sent to us and not stored</strong> - not on the phone, and not on our server. The one thing the app remembers is the single word "phone" or "place": whether to follow the phone's location when it next opens, never where the phone was.</p>
+
+<p>The name shown for where you are ("Cricklewood, NW2") is worked out on the phone from the nearest forecourt. Your position is not looked up anywhere to get it.</p>
+
+<p>You can withdraw the permission at any time in Android's settings for the app.</p>
+
+<p class="basis">Lawful basis: consent - you grant the permission, and the app works without it.</p>
+
+<h2>Searching for a place</h2>
+
+<p>As you type in Search, what you have typed is sent to <strong>postcodes.io</strong>, a free public postcode lookup run by Ideal Postcodes, so that it can suggest matching postcodes and places. It receives the text you typed and, as any web service does, your internet address. The app sends it nothing else: no location, no identifier, nothing about your phone. postcodes.io publishes no privacy policy of its own, so we cannot tell you how long it keeps a record of requests.</p>
+
+<p>When you press the search button, the text is also given to <strong>your phone's own place lookup</strong> (Android's built-in geocoder), which is provided by the phone's maker - on most Android phones, Google.</p>
+
+<p>Postcodes in Northern Ireland (beginning BT) are never sent to postcodes.io; the phone's own lookup is used for those.</p>
+
+<p class="basis">Lawful basis: legitimate interests - finding the place you asked for.</p>
+
+<h2>Your recent places</h2>
+
+<p>The last <strong>five</strong> places you chose in Search are kept so you can pick them again. Each is its name and its position on the map. They are places you chose to look at, not places your phone has been. They are held <strong>only on your phone</strong>, are never sent to us, and are not backed up.</p>
+
+<p><strong>Clear recent places</strong>, under Privacy on the More screen, removes them. Uninstalling the app removes them too.</p>
+
+<h2>Forecourts you save</h2>
+
+<p>You can save up to <strong>20</strong> forecourts. For each, the app keeps the forecourt's reference number, its name and the map square it is in - <strong>only on your phone</strong>. They are never sent to us and not backed up.</p>
+
+<p>To show their current prices, the app asks our server about the map squares those forecourts are in, in the same way as for prices near you. The server therefore sees which squares were asked about, but never which forecourts you saved.</p>
+
+<h2>Your fuel, tank size and filters</h2>
+
+<p>The fuel you last chose, the tank size you set (if any) and your filters are kept <strong>only on your phone</strong>, so the app opens as you left it. They are not backed up, and they are not sent anywhere - with one exception: a wide distance filter makes the app ask our server for a wider area, as described under <strong>Fuel prices</strong>.</p>
+
+<h2>The map</h2>
+
+<p>The Map screen uses <strong>Google Maps</strong>. To draw a map, Google has to be asked for the map of the area on the screen: the place you are looking around and, if you centre the map on your location, the area around you - exactly as when you move the map there by hand. The app does not send Google your position itself.</p>
+
+<p>Google's map software also collects some information of its own. Google's published description lists: details of the device (operating system version, model, brand), your internet address, an identifier the map software creates for itself, records of crashes inside the map software, and how the map is moved (<a href="https://developers.google.com/maps/documentation/android-sdk/play-data-disclosure">https://developers.google.com/maps/documentation/android-sdk/play-data-disclosure</a>).</p>
+
+<p>The app includes Google Maps features and content. Use of them is subject to the Google Maps End User Additional Terms of Service (<a href="https://maps.google.com/help/terms_maps/">https://maps.google.com/help/terms_maps/</a>) and the Google Privacy Policy (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>).</p>
+
+<p class="basis">Lawful basis: legitimate interests - showing you the map you opened.</p>
+
+<h2>Directions, calling a forecourt and other links</h2>
+
+<p>Some buttons hand you on to another app on your phone. The app passes on only what is needed, and what happens next is governed by that app's or site's own privacy notice.</p>
+
+<ul>
+  <li><strong>Directions</strong> opens Google Maps - the app if you have it, the website if not - with the <strong>forecourt's</strong> position as the destination. Your own position is not passed on by us; the maps app works out your route from wherever it finds you.</li>
+  <li><strong>Call</strong> opens your phone's dialler with the forecourt's number filled in. You place the call.</li>
+  <li><strong>Report a wrong price to Fuel Finder</strong> opens Fuel Finder's own page in your browser. We do not take reports ourselves, and nobody can submit or change a price in this app.</li>
+  <li><strong>Roadworthy</strong> opens our other app's page on Google Play.</li>
+  <li><strong>Contact us</strong> opens your email app.</li>
+</ul>
+
+<h2>Advertising</h2>
+
+<p>The app shows banner advertising supplied by Google AdMob. There are no full-screen advertisements.</p>
+
+<p><strong>Advertising is a separate purpose from showing prices, and you are asked about it separately.</strong> In the United Kingdom and Europe, the first time you open the app you are shown Google's consent form, before the advertising software is started. Whatever you answer, the app works in full: nobody is kept out for saying no. <strong>Ad choices</strong>, on the More screen, reopens the form so you can change your answer at any time.</p>
+
+<ul>
+  <li><strong>If you consent</strong>, Google may use your device's advertising identifier and similar identifiers to choose and measure ads, including ads based on your interests.</li>
+  <li><strong>If you do not consent</strong>, you still see ads, but they are not personalised. Google calls these "limited ads": it says they use no identifier kept on your device to choose them (<a href="https://support.google.com/admob/answer/10105530">https://support.google.com/admob/answer/10105530</a>).</li>
+  <li><strong>If the form cannot be shown at all</strong> - no connection, say - and you have never answered it, the advertising software is not started and no ads are shown.</li>
+  <li><strong>If Google's software finds that no question is needed where your phone is</strong> - outside the United Kingdom and Europe, for example - no form is shown, and ads are shown as Google ordinarily shows them there.</li>
+</ul>
+
+<p>Either way, once you have answered, Google's advertising software runs inside the app and receives what any advertising service must to deliver an ad. Google's published description lists: your internet address, which Google says may be used to estimate the general location of a device; identifiers, as above; how you interact with the app and its ads, such as launches and taps; and diagnostic information such as launch time and crashes inside the advertising software (<a href="https://developers.google.com/admob/android/privacy/play-data-disclosure">https://developers.google.com/admob/android/privacy/play-data-disclosure</a>). See Google's privacy policy for what it does with this.</p>
+
+<p><strong>We tell the advertising nothing about where you are or what you are looking at.</strong> No location, map square, searched place, price, forecourt or saved forecourt is passed to it or used to choose ads. This is enforced in the code, not merely as a policy: the advertising component cannot reach that part of the app, and an automated test fails the build if that separation is broken.</p>
+
+<p class="basis">Lawful basis: consent for anything stored on or read from your device for advertising and for personalised ads; legitimate interests for showing non-personalised ads to pay for a free app.</p>
+
+<h2>Crash reports</h2>
+
+<p>We have added no crash-reporting or analytics software to the app. If you have chosen in your phone's settings to share usage and diagnostics with Google, Google Play may show us anonymous totals of crashes and their technical details; that sharing is between you and Google and is switched off in your phone's settings, not in this app.</p>
+
+<p>The only crash records sent from inside the app are those Google's own map and advertising software send to Google about themselves, described under <strong>The map</strong> and <strong>Advertising</strong>.</p>
+
+<h2>Who receives what</h2>
+
+<ul>
+  <li><strong>Cloudflare, which runs our server</strong> - Map square numbers; your internet address. <em>To serve prices and keep the service working.</em></li>
+  <li><strong>postcodes.io (Ideal Postcodes)</strong> - What you type in Search; your internet address. <em>Place suggestions.</em></li>
+  <li><strong>Your phone's place lookup (usually Google)</strong> - What you search for. <em>Finding the place.</em></li>
+  <li><strong>Google (Maps)</strong> - The area of map on screen; device details; your internet address; a map identifier; map crashes. <em>Drawing the map.</em></li>
+  <li><strong>Google (AdMob)</strong> - Your internet address; interaction and diagnostic data; and, only with your consent, the advertising identifier. <em>Advertising.</em></li>
+</ul>
+
+<p>We do not sell personal data, and we share none beyond what is listed here.</p>
+
+<p>Cloudflare and Google operate worldwide, so information they handle may be processed outside the United Kingdom and the European Economic Area, under the safeguards described in their own privacy notices.</p>
+
+<h2>How long things are kept</h2>
+
+<ul>
+  <li><strong>On your phone:</strong> until you remove them in the app, clear the app's data, or uninstall.</li>
+  <li><strong>Our server's request log:</strong> seven days, then deleted automatically.</li>
+  <li><strong>Our server's database:</strong> holds no information about you at all.</li>
+  <li><strong>Data held by Google or postcodes.io:</strong> for as long as their own policies say.</li>
+</ul>
+
+<h2>Your rights</h2>
+
+<p>Pump Prices is available in the United Kingdom and Ireland. In the UK, UK GDPR gives you rights of access, correction, erasure, restriction and objection. In Ireland, the EU General Data Protection Regulation gives you the same rights.</p>
+
+<p>If you are unhappy with how your data is handled, you can complain to the data protection regulator: the Information Commissioner's Office in the UK (<a href="https://ico.org.uk/make-a-complaint/">https://ico.org.uk/make-a-complaint/</a>) or the Data Protection Commission in Ireland (<a href="https://www.dataprotection.ie/en/individuals/exercising-your-rights/raising-concern-commission">https://www.dataprotection.ie/en/individuals/exercising-your-rights/raising-concern-commission</a>). We would welcome the chance to put it right first, so please contact us too.</p>
+
+<p>We hold <strong>no account and no profile of you</strong>, so most of these are exercised directly on your phone: remove saved forecourts, clear your recent places, withdraw the location permission in Android's settings, withdraw advertising consent through Ad choices, or uninstall.</p>
+
+<p>The only record we hold anywhere else is the seven-day request log described under <strong>Fuel prices</strong>. It holds no name and no account; the internet address is the only thing in it that could relate to you, so we generally cannot connect an entry to a person in order to answer a request about it - but if you believe an entry relates to you, contact us and we will help where we can.</p>
+
+<p>For data held by Google or by postcodes.io, contact them directly - they are responsible for their own records.</p>
+
+<h2>Children</h2>
+
+<p>Pump Prices is not directed at children and should not be used by anyone under 13.</p>
+
+<h2>Changes to this policy</h2>
+
+<p>If the data flows change, this page changes with them and the date above is updated.</p>
+
+<h2>Contact</h2>
+
+<p>Happy Path Apps<br>
+<a href="mailto:happypathapps@gmail.com">happypathapps@gmail.com</a></p>
+
+<footer>
+  <a href="../">Happy Path Apps</a>
+</footer>
+
+</main>
+</body>
+</html>
