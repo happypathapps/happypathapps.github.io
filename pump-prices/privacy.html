@@ -63,6 +63,7 @@
   <li>It asks <strong>only while the app is open</strong>, never in the background.</li>
   <li>You are asked for permission only when you press something for it: "Use my location", "Allow location", or the Map's centre button.</li>
   <li>If "Use my location" was the last thing you chose, the app asks the phone again where it is each time you open the app, and when you come back to it after five minutes or more, so the prices are for where you are now. Choosing a place in Search stops this.</li>
+  <li>If the phone cannot say where it is within a few seconds, the app uses the position Android itself last had, as long as that is less than 30 minutes old. It is approximate in the same way, and the app still stores nothing of where you are.</li>
 </ul>
 
 <p>Your position is used <strong>on the phone</strong>: to choose which map square to ask our server about, to measure how far away each forecourt is, and to centre the map. It is <strong>not sent to us and not stored</strong> - not on the phone, and not on our server. The one thing the app remembers is the single word "phone" or "place": whether to follow the phone's location when it next opens, never where the phone was.</p>
