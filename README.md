@@ -32,6 +32,11 @@ _template/           Skeleton for the next app's privacy policy. Start here, not
 brand/fonts/         Overpass, self-hosted so a visit tells Google nothing (OFL.txt).
 roadworthy/
   index.html         App page (app.css)
+  buying-a-used-car.html   Buyer's guide (app.css), written for a Roadworthy user part-way
+                           through buying a car. Every fact traces to data/sources/. Partner
+                           links go in its "Is a paid check worth it?" panel.
+data/sources/        Verified facts behind the content pages: each with its source, the
+                     wording checked, and the date. Change a fact here first, then the page.
   shots/             Its store screenshots, 420 wide
   icon.png, screenshot.jpg   Shown on the hub
   privacy.html       THE privacy policy URL. Do not move it.

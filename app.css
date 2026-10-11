@@ -106,6 +106,15 @@ img { max-width: 100%; height: auto; }
 .row p, .panel p, .panel li { color: var(--body); font-size: 17px; max-width: 52ch; }
 .row p { margin: 0 0 12px; }
 
+/* ---- a row with no screenshot, and its parts (the buying guide) ---- */
+.row.solo { grid-template-columns: minmax(0, 1fr); }
+.row .facts { margin: 0 0 12px; padding-left: 20px; }
+.row .facts li { color: var(--body); font-size: 17px; max-width: 52ch; margin-bottom: 6px; }
+sup { line-height: 0; }
+sup a { color: var(--green-text); font-weight: 700; text-decoration: none; padding-left: 1px; }
+.sources ol { margin: 0 0 14px; padding-left: 22px; }
+.sources li { font-size: 15px; scroll-margin-top: 16px; }
+
 /* ---- privacy, and anything else said once ---- */
 .panel { background: var(--panel); border-radius: 22px; padding: clamp(24px, 4vw, 40px); margin-block: 8px 56px; }
 .panel h2 { margin: 0 0 10px; font-size: 24px; font-weight: 800; }
