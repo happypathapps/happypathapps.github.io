@@ -6,82 +6,127 @@
 <title>Roadworthy: UK vehicle tax and MOT checks</title>
 <meta name="description" content="Line a number plate up in the box. Check UK tax, MOT and full MOT test history against DVLA and DVSA, and report a vehicle that isn't legal, without retyping anything.">
 <link rel="canonical" href="https://happypathapps.github.io/roadworthy/">
+<meta property="og:title" content="Roadworthy">
+<meta property="og:description" content="UK vehicle tax and MOT checks from a number plate. Free, on Google Play.">
+<meta property="og:image" content="https://happypathapps.github.io/roadworthy/shots/result.jpg">
 <link rel="icon" href="../brand/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../brand/favicon-180.png">
-<link rel="stylesheet" href="../style.css">
+<link rel="preload" href="../brand/fonts/overpass-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../app.css">
 </head>
 <body>
-<main>
 
-<header>
-  <span class="plate" role="img" aria-label="Roadworthy">
-    <span class="band">GB</span>
-    <span class="reg">RO4D&nbsp;W0R7HY</span>
-  </span>
-  <h1>Roadworthy</h1>
-  <p class="tagline">Line a number plate up in the box. Find out whether the vehicle is taxed
-  and has an MOT, and if it isn't, report it without retyping anything.</p>
+<nav class="studio">
+  <div class="wrap">
+    <a href="../">
+      <svg viewBox="-50 -50 100 100" aria-hidden="true">
+        <path d="M-36 -21 C-26 21 26 21 36 -21" stroke="#4ADE80" stroke-width="22" fill="none"/>
+        <path d="M-36 -21 C-26 21 26 21 36 -21" stroke="#F7F6F2" stroke-width="3.2" fill="none" stroke-dasharray="7 6" stroke-dashoffset="3.735"/>
+      </svg>
+      Happy Path Apps
+    </a>
+  </div>
+</nav>
+
+<header class="top">
+  <div class="wrap">
+    <div class="text">
+      <img class="icon" src="icon.png" width="72" height="72" alt="">
+      <h1>Roadworthy</h1>
+      <p class="lede">Line a number plate up in the box. Find out whether the vehicle is taxed and
+      has an MOT, and if it isn't, report it without retyping anything.</p>
+      <div class="actions">
+        <a class="btn" href="https://play.google.com/store/apps/details?id=uk.co.roadworthy">Get it on Google Play</a>
+      </div>
+      <p class="small">Free, for Android, in the UK and Ireland.</p>
+    </div>
+    <div class="phone"><img src="shots/result.jpg" width="420" height="747" alt="A car's tax and MOT, both valid, with its vehicle details"></div>
+  </div>
 </header>
 
-<div class="callout">
-  <strong>On Google Play.</strong>
-  <a href="https://play.google.com/store/apps/details?id=uk.co.roadworthy">Get Roadworthy</a>,
-  free and available in the UK and Ireland.
-</div>
+<main class="wrap">
 
-<div class="cards">
-  <div class="card">
-    <h3>Check</h3>
-    <p>The camera is optional: type the plate instead and the whole app still works.</p>
-    <p>Fill the box with the plate, or type it. Only what is inside the box is read, so a shop
-    sign or the car in the next bay is not mistaken for the one you are checking. Private and
-    dateless plates work, and motorcycles have their own box shape.</p>
-  </div>
-  <div class="card">
-    <h3>History</h3>
-    <p>Every MOT on record: each pass and fail, the mileage at each test, and every advisory in
-    the tester's own words. The part of a used car's past a seller need not mention.</p>
-    <p>A failure and the retest that fixed it are shown as one MOT, because that is what they
-    are. You also see how far it went between tests, and any period it spent with no MOT at
-    all.</p>
-  </div>
-  <div class="card">
-    <h3>Costs</h3>
-    <p>What the vehicle costs to tax for a year, worked out from the legislation rather than a
-    summary of it, including the bands that stopped applying to cars registered after April
-    2017, and the ones that never applied to a car registered before March 2006.</p>
-    <p>And for a car an employer provides, the company car tax band. You supply the P11D value,
-    because it depends on the options fitted to that exact car and no source publishes it.</p>
-  </div>
-  <div class="card">
-    <h3>Save</h3>
-    <p>Keep your own vehicles with expiry warnings, and check their insurance on MIB's own
-    service.</p>
-  </div>
-  <div class="card">
-    <h3>Report</h3>
-    <p>When a vehicle genuinely is untaxed or genuinely has no MOT, the details are assembled
-    for you. Untaxed goes to DVLA; no MOT goes to your police force, since only they can act on
-    it. Either way you review it, and you submit it.</p>
-  </div>
-</div>
+  <section class="row">
+    <div class="text">
+      <p class="label">Check</p>
+      <h2>Put the plate in the box</h2>
+      <p>Fill the box with the plate, or type it. Only what is inside the box is read, so a shop
+      sign or the car in the next bay is not mistaken for the one you are checking.</p>
+      <p>Private and dateless plates work, and motorcycles have their own box shape. The camera
+      is optional: type the plate instead and the whole app still works.</p>
+    </div>
+    <div class="phone"><img src="shots/scan.jpg" width="420" height="747" alt="The camera with a plate lined up in the box" loading="lazy"></div>
+  </section>
 
-<h2>Privacy</h2>
-<p>Photographs never leave your device: plates are read on the phone itself, and there is no
-account. Tax and vehicle details go straight from your phone to DVLA; MOT history passes through
-a small server we run, which receives the registration and nothing else. See the
-<a href="privacy.html">privacy policy</a> for the detail.</p>
+  <section class="row flip">
+    <div class="text">
+      <p class="label">History</p>
+      <h2>Every test, every advisory</h2>
+      <p>Every MOT on record: each pass and fail, the mileage at each test, and every advisory in
+      the tester's own words. The part of a used car's past a seller need not mention.</p>
+      <p>A failure and the retest that fixed it are shown as one MOT, because that is what they
+      are. You also see how far it went between tests, and any period it spent with no MOT at
+      all.</p>
+    </div>
+    <div class="phone"><img src="shots/history.jpg" width="420" height="747" alt="A car's MOT history, with a failure and its defects" loading="lazy"></div>
+  </section>
 
-<h2>Contact</h2>
-<p><a href="mailto:happypathapps@gmail.com">happypathapps@gmail.com</a></p>
+  <section class="row">
+    <div class="text">
+      <p class="label">Costs</p>
+      <h2>What it costs to tax</h2>
+      <p>What the vehicle costs to tax for a year, worked out from the legislation rather than a
+      summary of it, including the bands that stopped applying to cars registered after April
+      2017, and the ones that never applied to a car registered before March 2006.</p>
+      <p>And for a car an employer provides, the company car tax band. You supply the P11D value,
+      because it depends on the options fitted to that exact car and no source publishes it.</p>
+    </div>
+    <div class="phone"><img src="shots/spec.jpg" width="420" height="747" alt="A car's details with its road tax for a year" loading="lazy"></div>
+  </section>
 
-<footer>
-  <a href="../">Happy Path Apps</a><br>
-  Roadworthy is not affiliated with, endorsed by, or operated by the DVLA, DVSA, the Motor
-  Insurers' Bureau, or any government body.<br>
-  Contains public sector information licensed under the Open Government Licence v3.0.
-</footer>
+  <section class="row flip">
+    <div class="text">
+      <p class="label">Save</p>
+      <h2>Keep an eye on your own</h2>
+      <p>Keep your own vehicles with expiry warnings, and check their insurance on MIB's own
+      service.</p>
+    </div>
+    <div class="phone"><img src="shots/saved.jpg" width="420" height="747" alt="Two saved vehicles with their tax and MOT dates" loading="lazy"></div>
+  </section>
+
+  <section class="row">
+    <div class="text">
+      <p class="label">Report</p>
+      <h2>Report it, if you choose to</h2>
+      <p>When a vehicle genuinely is untaxed or genuinely has no MOT, the details are assembled
+      for you. Untaxed goes to DVLA; no MOT goes to your police force, since only they can act on
+      it. Either way you review it, and you submit it.</p>
+    </div>
+    <div class="phone"><img src="shots/problem.jpg" width="420" height="747" alt="A car that is untaxed and whose MOT has expired, with a button to report it" loading="lazy"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Privacy</h2>
+    <p>Photographs never leave your device: plates are read on the phone itself, and there is no
+    account. Tax and vehicle details go straight from your phone to DVLA; MOT history passes
+    through a small server we run, which receives the registration and nothing else. See the
+    <a href="privacy.html">privacy policy</a> for the detail.</p>
+  </section>
 
 </main>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="../">Happy Path Apps</a>
+      <a href="privacy.html">Privacy policy</a>
+      <a href="mailto:happypathapps@gmail.com">happypathapps@gmail.com</a>
+    </div>
+    <p>Roadworthy is not affiliated with, endorsed by, or operated by the DVLA, DVSA, the Motor
+    Insurers' Bureau, or any government body. Contains public sector information licensed under
+    the Open Government Licence v3.0.</p>
+  </div>
+</footer>
+
 </body>
 </html>

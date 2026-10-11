@@ -24,13 +24,15 @@ the point. The published URLs must never depend on where the code happens to sit
 
 ```
 app-ads.txt          AdMob crawls this. Must stay at the ROOT.
-style.css            The older look, still used by the app and privacy pages.
+app.css              The app pages, in the studio brand like the hub.
+style.css            The older look, still used by the privacy pages.
 index.html           Hub, in the studio brand (brand/README.md). Its styles are inline.
 _template/           Skeleton for the next app's privacy policy. Start here, not from
                      Roadworthy's — see below.
 brand/fonts/         Overpass, self-hosted so a visit tells Google nothing (OFL.txt).
 roadworthy/
-  index.html         App page
+  index.html         App page (app.css)
+  shots/             Its store screenshots, 420 wide
   icon.png, screenshot.jpg   Shown on the hub
   privacy.html       THE privacy policy URL. Do not move it.
 pump-prices/
@@ -48,9 +50,10 @@ developer website, so something must own the root. A user site does; a project p
 `/somename/` does not, because the crawler looks at the domain root regardless of the path.
 
 **One policy per app**, because a privacy policy is a factual statement about what a specific app
-does. Roadworthy's says photographs never leave the device and there is no server. That will not
-be true of the next app, and Google check the policy against that app's Data Safety declaration,
-which is filled in per app.
+does. Roadworthy's says photographs never leave the device and MOT history passes through a
+small server; Pump Prices' says its server is asked for a map square, never your position.
+Each describes one app's data flows and neither describes the other's, and Google check the
+policy against that app's Data Safety declaration, which is filled in per app.
 
 The failure mode is drift: ship a third app, widen the shared policy to cover its location
 tracking, and Roadworthy's published policy now describes collection Roadworthy does not do. Every
