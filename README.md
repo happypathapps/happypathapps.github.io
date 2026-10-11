@@ -24,14 +24,17 @@ the point. The published URLs must never depend on where the code happens to sit
 
 ```
 app-ads.txt          AdMob crawls this. Must stay at the ROOT.
-style.css            Shared, so every app's pages read as one family.
-index.html           Hub.
+style.css            The older look, still used by the app and privacy pages.
+index.html           Hub, in the studio brand (brand/README.md). Its styles are inline.
 _template/           Skeleton for the next app's privacy policy. Start here, not from
                      Roadworthy's — see below.
+brand/fonts/         Overpass, self-hosted so a visit tells Google nothing (OFL.txt).
 roadworthy/
   index.html         App page
+  icon.png, screenshot.jpg   Shown on the hub
   privacy.html       THE privacy policy URL. Do not move it.
 pump-prices/
+  icon.png, screenshot.jpg   Shown on the hub
   privacy.html       Pump Prices' privacy policy URL. Do not move it. (No app page yet.)
 ```
 
