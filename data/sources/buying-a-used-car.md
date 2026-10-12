@@ -4,7 +4,8 @@ Reference for `roadworthy/buying-a-used-car.html`. Every factual claim on that p
 to an entry here. Change the page freely; change a fact only after re-reading its source, and
 update the date checked.
 
-Checked: 11-12 October 2026.
+Checked: 11-12 October 2026. Corrected after the commit review of 12 October 2026 (F6, F6a, F9,
+F10, F12).
 
 **How the quotes were taken.** Pages were read through a fetch tool that returns the page text,
 not a raw copy, so treat each quote as checked wording rather than a guaranteed byte-for-byte
@@ -66,7 +67,14 @@ After buying:
 - "Tax the vehicle immediately. You'll need the green 'new keeper' slip from the vehicle's log
   book."
 
+The page's step-by-step navigation ("Step 3: Insure the vehicle") says: "You must have
+insurance before you can use your vehicle on the road." Insurance comes before tax in those steps.
+
 The guide does not mention paid history checks, finance or write-offs.
+
+Page wording built on F1 to F4: the header says only "You've checked the tax and MOT", not
+that the car is "legal to drive". Tax and MOT alone don't make it legal to drive; it also
+needs insurance (above). An earlier draft said "legal to drive" and the commit review caught it.
 
 ## Finance
 
@@ -100,11 +108,31 @@ before the property has passed to them. Where the disposition is "to a private p
 is a purchaser of the motor vehicle in good faith without notice" of the agreement, it takes
 effect as if the creditor's title had vested in the debtor immediately before.
 
-In force. Extent: England, Wales and Scotland (E+W+S). Not Northern Ireland.
+In force. Extent: England, Wales and Scotland (E+W+S). Northern Ireland has its own equivalent
+(F6a).
+
+Scope: s27(1) covers a vehicle under a hire-purchase or conditional sale agreement only. Other
+borrowing against a car (for example a logbook loan, or a lease where the car is never bought)
+is not covered by this section.
 
 Page wording built on this: the protection is limited to a private buyer acting in good faith
-without notice; it does not cover trade or finance purchasers. "Can still mean a dispute with the
-lender" is our plain-English reading, not a quote.
+without notice; it does not cover trade or finance purchasers or other kinds of borrowing. "You
+can end up in a dispute with the lender over who owns it" is our plain-English reading, not a
+quote.
+
+### F6a. The same protection in Northern Ireland
+
+Source: Hire-Purchase Act (Northern Ireland) 1966, section 62,
+<https://www.legislation.gov.uk/apni/1966/42/section/62>
+
+"62 Protection of purchasers of motor vehicles." Subsection (2): "Where the disposition referred
+to in subsection (1) is to a private purchaser, and he is a purchaser of the motor vehicle in good
+faith without notice of the hire-purchase or conditional sale agreement (the "relevant
+agreement") that disposition shall have effect as if the creditor's title to the vehicle had been
+vested in the debtor immediately before that disposition."
+
+In force. Extent: Northern Ireland. Found by the commit review of 12 October 2026, which caught
+an earlier draft telling Northern Ireland readers the protection did not apply to them.
 
 ## Stolen vehicles
 
@@ -158,15 +186,43 @@ from a higher to lower figure or to zero)".
 
 "The offences contained in the DMCCA would apply even if a trader did not know that the indicated
 mileage was incorrect." Defence: the trader "took all reasonable precautions and exercised all
-due diligence".
+due diligence". The page must keep both halves of that test.
+
+Business Companion's guidance covers England, Scotland and Wales.
 
 Not sourced, and kept off the page as a legal claim: anything about private sellers' liability.
 
-### F10. Reading mileage in the MOT history (our reasoning, not a source)
+### F10. Our reasoning, not a source
 
-F2 establishes that each test records the mileage. That a falling reading is "worth asking
-about", and that a replaced instrument cluster or a recording error can explain one, is general
-reasoning, written as advice rather than as a sourced fact.
+Every line on the page that is advice rather than a sourced fact, so nobody mistakes it for one:
+
+- Mileage: F2 establishes that each test records it. That readings "should only go up", that a
+  lower reading is worth asking about, and that a replaced dashboard or a typing error can
+  explain one.
+- "The same advisory year after year, which usually means it was never fixed."
+- "A gap with no MOT once the car was old enough to need one." The two things that are not gaps
+  are sourced: history starts in 2005 (2017 in Northern Ireland) per F2, and the first MOT is due
+  by the third anniversary of registration in England, Scotland and Wales per F12.
+- Write-offs: "That can be fine, as long as you know before you agree a price." F8 says S and N
+  cars can be used again once repaired; the advice about price is ours.
+- Finance: "you can end up in a dispute with the lender over who owns it" (see F6).
+- "Have the engine, clutch and gearbox looked at, since the MOT doesn't": F3 is the fact, the
+  advice is ours.
+- "A paid check is the simplest way to see them": F1, F2 and F4 establish the free records don't
+  show finance, write-off records or stolen markers; F11 that paid checks search them. "Simplest"
+  is our judgement. Category S does appear on the log book (F8), which is why the page does not
+  say "only". The page says "free online records" for the same reason.
+- "Run a paid history check for finance, theft and write-offs": advice, following from the line
+  above.
+
+### F12. When a car needs its first MOT
+
+Source: GOV.UK, Getting an MOT, <https://www.gov.uk/getting-an-mot>
+
+A vehicle must have an MOT "by either the third anniversary of its registration" or "the
+anniversary of its last MOT, if it's over 3 years old". "Some vehicles need to be tested at one
+year old." Northern Ireland has "different rules and processes", so the page states the
+three-year rule for England, Scotland and Wales only.
 
 ## Paid history checks
 

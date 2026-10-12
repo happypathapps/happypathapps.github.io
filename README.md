@@ -35,14 +35,14 @@ roadworthy/
   buying-a-used-car.html   Buyer's guide (app.css), written for a Roadworthy user part-way
                            through buying a car. Every fact traces to data/sources/. Partner
                            links go in its "Is a paid check worth it?" panel.
-data/sources/        Verified facts behind the content pages: each with its source, the
-                     wording checked, and the date. Change a fact here first, then the page.
   shots/             Its store screenshots, 420 wide
   icon.png, screenshot.jpg   Shown on the hub
   privacy.html       THE privacy policy URL. Do not move it.
 pump-prices/
   icon.png, screenshot.jpg   Shown on the hub
   privacy.html       Pump Prices' privacy policy URL. Do not move it. (No app page yet.)
+data/sources/        Verified facts behind the content pages: each with its source, the
+                     wording checked, and the date. Change a fact here first, then the page.
 ```
 
 ## One repo, but one policy per app
