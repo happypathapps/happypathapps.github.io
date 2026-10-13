@@ -38,7 +38,9 @@ roadworthy/
   index.html         App page (app.css)
   buying-a-used-car.html   Buyer's guide (app.css), written for a Roadworthy user part-way
                            through buying a car. Every fact traces to data/sources/. Partner
-                           links go in its "Is a paid check worth it?" panel.
+                           links go in its "Is a paid check worth it?" panel, each with a
+                           line saying we may earn a commission, and a matching section in
+                           privacy.html added at the same time.
   shots/             Its store screenshots, 420 wide
   icon.png, screenshot.jpg   Shown on the hub
   privacy.html       THE privacy policy URL. Do not move it.
@@ -121,10 +123,12 @@ domain. The `github.io` addresses redirect to it.
 Declares that Google AdMob is authorised to sell ad inventory for these apps, which is what stops
 someone else spoofing them. AdMob's crawler looks for it at the root of the **developer website
 URL from the Play Console listing** (Store settings → Store listing contact details), so that
-field should point at `https://happypathapps.co.uk`. While it still says
-`https://happypathapps.github.io`, the file is reached only through the redirect, and whether
-AdMob's crawler follows that has not been checked. When this was written (13 October 2026) the
-field had not yet been changed.
+field should point at `https://happypathapps.co.uk`. The owner changed it to that address on
+13 October 2026. AdMob showed both apps as "found and verified" that day, but from a crawl of
+the old `https://happypathapps.github.io/app-ads.txt` address made before the site moved, so it
+shows neither that the new address is being read nor that the crawler follows the redirect.
+Look again in a few days: AdMob should then list the `.co.uk` address. If it still lists
+`github.io`, check the Play Console field.
 
 The line here follows the documented format. AdMob's console generates a personalised snippet
 under **Apps → app-ads.txt**; if it differs from this file, the console wins.
