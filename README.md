@@ -51,6 +51,8 @@ roadworthy/
                      privacy.html added at the same time.
     checking-a-log-book/
       index.html     How to check a log book (V5C): what to look for on it and on the car.
+    failed-mot/
+      index.html     What a failed MOT means: driving the car, retests and appeals.
   buying-a-used-car.html   Where the buyer's guide used to be. Now only redirects to it.
   shots/             Roadworthy's store screenshots, 420 wide
   icon.png, screenshot.jpg   Shown on the hub

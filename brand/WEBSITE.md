@@ -14,7 +14,7 @@ kind of page follows are on the studio's design canvas.
 |---|---|---|---|---|
 | The home page | its own styles, in the page | 1040px | none | `/` |
 | An app's page | `app.css` | 1040px, a phone screenshot beside the words | none yet | `/roadworthy/` |
-| A guide | `app.css`, `<body class="guide">` | 720px, centred | `_template/guide/` | two, under `/roadworthy/guides/` |
+| A guide | `app.css`, `<body class="guide">` | 720px, centred | `_template/guide/` | three, under `/roadworthy/guides/` |
 | An app's list of guides | `app.css`, `<body class="guide guide-list">` | 720px, centred | none yet | `/roadworthy/guides/` |
 | A privacy policy | `style.css` | 720px, centred | `_template/privacy.html` | Roadworthy's, Pump Prices' |
 | Not found; a page that only sends the reader on | `app.css` | 1040px | none | `/404.html`, `/roadworthy/buying-a-used-car.html` |

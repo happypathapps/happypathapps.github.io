@@ -156,8 +156,10 @@
        reference a reader will copy, such as a serial number, in <span class="serial">, and
        a pair of them that is read as one thing (a range) in <span class="range">, which
        gives the pair a line of its own. A line
-       that is not a step (a pointer to another guide) goes after its list as
-       <p class="aside">, so it gets no box. -->
+       that is not a step (a pointer to another guide, or something that is done by someone
+       else) goes after its list as <p class="aside">, so it gets no box; there may be more
+       than one. A box is only for something the reader does. One sentence saying what the
+       checklist is for may sit under the h2 as a plain <p>. -->
   <section class="panel steps">
     <h2>What to do</h2>
     <p class="label">First</p>
@@ -172,7 +174,8 @@
        a wrong rowspan moves a cell under the wrong heading and no checker reads that.
        Add the class "ticks" (class="where ticks") to draw a tick in every cell, and only
        when every cell is something its row does give. Give the h2 an id and name it in the
-       table's aria-labelledby. -->
+       table's aria-labelledby. If the panel also has text, before or after the table, give
+       it the class "prose" as well. -->
   <section class="panel">
     <h2 id="GUIDE-SLUG-table">A plain heading for the table</h2>
     <table class="where" aria-labelledby="GUIDE-SLUG-table">
