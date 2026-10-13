@@ -47,7 +47,9 @@ roadworthy/
                      from the app or from a search. Partner links go in its "Is a paid check worth it?" panel, each
                      with a line saying we may earn a commission, and a matching section in
                      privacy.html added at the same time.
-  buying-a-used-car.html   Where that guide used to be. Now only redirects to it.
+    checking-a-log-book/
+      index.html     How to check a log book (V5C): what to look for on it and on the car.
+  buying-a-used-car.html   Where the buyer's guide used to be. Now only redirects to it.
   shots/             Roadworthy's store screenshots, 420 wide
   icon.png, screenshot.jpg   Shown on the hub
 pump-prices/

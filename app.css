@@ -245,6 +245,8 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
   border-radius: 5px;
   background: var(--card);
 }
+/* a line under a group of steps that is not itself a step */
+.panel.steps .aside { margin: 0 0 0 30px; padding-left: 34px; font-size: 16px; max-width: 60ch; }
 .serial {
   font-family: ui-monospace, Consolas, "Courier New", monospace;
   font-size: 0.9em;
@@ -283,6 +285,8 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
 .panel.callout h2 { color: var(--off-white); }
 .panel.callout p { color: var(--chip-soon); max-width: 60ch; }
 .panel.callout a { color: var(--green); }
+/* a panel of several paragraphs: "panel prose" */
+.panel.prose p + p { margin-top: 12px; }
 .panel.callout .price { color: var(--green); font-weight: 800; white-space: nowrap; }
 
 .panel ul.defs { list-style: none; padding: 0; margin: 14px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 36px; }
@@ -292,6 +296,19 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
 .panel.sources { background: none; border-top: 1px solid var(--rule); border-radius: 0; padding-inline: 0; }
 .panel.sources h2 { font-size: 18px; }
 .panel.sources li, .panel.sources p { font-size: 14px; max-width: 80ch; }
+
+/* ---- a guide is one centred column of reading width ----
+   The app pages are 1040 wide because a screenshot sits beside the words. A guide is mostly
+   words, and at that width they stopped two thirds of the way across with nothing beside them.
+   <body class="guide"> narrows every .wrap, and the words, rows and cards all run to its edge. */
+.guide .wrap { max-width: 800px; }
+.guide .top .lede,
+.guide .row p,
+.guide .row .facts li,
+.guide .panel p,
+.guide .panel li,
+.guide .panel.steps .aside,
+.guide .app-card { max-width: none; }
 
 /* ---- the foot ---- */
 footer { background: var(--ink); color: var(--muted); font-size: 14px; }

@@ -66,6 +66,39 @@ the music, not the steps, is what gets turned down, because the steps already pe
 | Road grey `#3E4753` | the road before it turns green, in the film |
 | Lamp amber `#FFC766` | the street lamps, in the film only |
 
+### Website colours
+
+The pages need more shades than the mark does: grounds to sit text on, and greens dark enough
+to read. These are the colours `app.css` uses, by their names there. A page styled by
+`app.css` (the app pages and the guides) uses these and no others; a new one is added here,
+with what it is for, before it is used.
+
+| | |
+|---|---|
+| `--ink` `#13181F` | the dark top, the foot, the dark panel, a table's head, a step's number, the words on a button |
+| `--text` `#13181F` | headings and strong words on a light ground: the same value as ink, under its own name |
+| `--green` `#4ADE80` | buttons, and links and figures on ink |
+| `--off-white` `#F7F6F2` | text on ink, and the cross drawn on an ink disc |
+| `--muted` `#A3AAB3` | small print on ink |
+| `--body` `#3E4753` | body text (road grey) |
+| `--page` `#FAFAF7` | the page's ground |
+| `--panel` `#F0F1EC` | panels, and the app's card in a guide |
+| `--card` `#FFFFFF` | tick rows, cards, tables and the boxes round a serial number: white, so they lift off the page |
+| `--rule` `#E4E6E0` | thin lines between rows |
+| `--rule-strong` `#D9DCD4` | lines that have to show on a panel: a table's edge, a checklist's line |
+| `--green-text` `#1E7A47` | links, labels and footnote numbers on a light ground, where the brand green is too pale to read |
+| `--chip-live-bg` `#DDF7E7`, `--chip-live` `#14532D` | the pale green disc and dark green mark of a tick or an exclamation mark; the "live" chip |
+| `--chip-soon-bg` `#2A333D`, `--chip-soon` `#D5D9DE` | the "soon" chip; the first is also the phone frame on the dark top, the second the text under a heading on ink |
+| `#6EE7A0` | a button under the pointer |
+| `rgba(19, 24, 31, 0.18)`, `rgba(0, 0, 0, 0.45)` | the shadow under a phone screenshot: ink at low strength on a light ground, black on the dark top |
+
+Two kinds of page are outside this list. The home page (`index.html`) carries its own styles,
+and gives the "soon" chip a light pair of its own, `#ECEEE9` and `#5A6470`, under the same two
+names. The privacy pages use `style.css`, which has its own colours. Neither is a pattern for
+a new page.
+
+Amber is not a website colour: things to watch for are marked in green.
+
 ## What goes where
 
 | File | Use |

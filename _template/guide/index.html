@@ -25,6 +25,9 @@
        before it is committed: every fact against its source, every link, and the page at
        phone and desktop width.
 
+  The body's class "guide" makes the page one centred column of reading width: the top, every
+  row and panel, and the foot share its edges. Keep it.
+
   House rules: British English. No em dashes. Say who the reader is in the first sentence and
   what to do before what the law says. Do not quote a price unless it was checked that week.
   Every path starts from the root (/app.css), so the page keeps working if it moves; that also
@@ -77,7 +80,7 @@
 <!-- Every fact on this page is recorded with its source before it is published, and a checker
      compares the two. Do not change a fact here without changing its record. -->
 </head>
-<body>
+<body class="guide">
 
 <nav class="studio">
   <div class="wrap">
@@ -150,7 +153,9 @@
 
   <!-- A checklist, if the guide has things to do. The small labels group the steps: the
        stylesheet numbers the labels in order and draws an empty box beside each step. Put a
-       reference a reader will copy, such as a serial number, in <span class="serial">. -->
+       reference a reader will copy, such as a serial number, in <span class="serial">. A line
+       that is not a step (a pointer to another guide) goes after its list as
+       <p class="aside">, so it gets no box. -->
   <section class="panel steps">
     <h2>What to do</h2>
     <p class="label">First</p>
@@ -181,7 +186,8 @@
   </section>
 
   <!-- The one thing to take away, on a dark panel. Use it once. A figure the reader is looking
-       for goes in <strong class="price">. -->
+       for goes in <strong class="price">. Any panel with more than one paragraph also takes
+       the class "prose", which puts space between them. -->
   <section class="panel callout">
     <h2>The question the reader is asking</h2>
     <p>The answer.</p>
