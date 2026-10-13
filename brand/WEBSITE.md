@@ -10,13 +10,13 @@ kind of page follows are on the studio's design canvas.
 
 ## 1. The kinds of page
 
-| Kind of page | Stylesheet | Column | Skeleton | Today |
+| Kind of page | Stylesheet | Width | Skeleton | Today |
 |---|---|---|---|---|
-| The home page | its own styles, in the page | 1040px | none | `/` |
+| The home page | `app.css`, `<body class="home">` | 1040px | none | `/` |
 | An app's page | `app.css` | 1040px, a phone screenshot beside the words | none yet | `/roadworthy/` |
-| A guide | `app.css`, `<body class="guide">` | 720px, centred | `_template/guide/` | three, under `/roadworthy/guides/` |
-| An app's list of guides | `app.css`, `<body class="guide guide-list">` | 720px, centred | none yet | `/roadworthy/guides/` |
-| A privacy policy | `style.css` | 720px, centred | `_template/privacy.html` | Roadworthy's, Pump Prices' |
+| A guide | `app.css`, `<body class="guide">` | 1040px, the words fill it | `_template/guide/` | three, under `/roadworthy/guides/` |
+| An app's list of guides | `app.css`, `<body class="guide guide-list">` | 1040px, two cards across | none yet | `/roadworthy/guides/` |
+| A privacy policy | `style.css` | 1040px, the words fill it | `_template/privacy.html` | Roadworthy's, Pump Prices' |
 | Not found; a page that only sends the reader on | `app.css` | 1040px | none | `/404.html`, `/roadworthy/buying-a-used-car.html` |
 
 - Pump Prices' privacy policy is made by a tool in that app's own repository. It is never
@@ -25,12 +25,11 @@ kind of page follows are on the studio's design canvas.
 
 ## 2. Rules for every page
 
-- No page carries styles of its own: no `<style>` block and no `style="..."`. The home page is
-  the one exception, and is not a pattern for a new page.
+- No page carries styles of its own: no `<style>` block and no `style="..."`. There is no
+  exception: the home page's are in `app.css`, in a section of its own.
 - Only the colours in `README.md`, "Website colours". A new one is added there, with what it
   is for, before it is used. No amber: things to watch for are marked in green. (The home page
-  has a light pair of its own for its "soon" chip, which that section names as the home
-  page's alone.)
+  has a light pair for its "soon" chip, which that section lists.)
 - Green `#4ADE80` is for buttons, for links and figures on ink, and for the rule beside a
   quotation. It is too pale for text on a light ground: links, labels and footnote numbers
   there use green-text `#1E7A47`.
@@ -47,16 +46,30 @@ kind of page follows are on the studio's design canvas.
 
 ## 3. Rules for pages styled by `app.css`
 
-These are the app page, the guides and the list of guides. The not-found page and the page
-that only sends the reader on use `app.css` too, but are not held to this section: they have
-no app to show, and no top or foot of this kind.
+These are the app page, the guides and the list of guides. The home page, the not-found page
+and the page that only sends the reader on use `app.css` too, but are not held to this
+section. The home page shows every app and not one, and the other two have no app to show;
+none has a top or foot of this kind. They do keep "One frame" and the breakpoints. The home
+page's own parts (the lockup at its top, an ink button, a light "soon" chip) are in the home
+page's section of `app.css`.
 
 - The studio bar is first: the mark and "Happy Path Apps", linking home.
 - Then the top, in ink: the app's icon, the h1, one opening line. (The app page's top also
   holds its button, a line of small print and a phone screenshot.)
 - The foot is ink: the app's links, and the app's own disclaimer, copied from that app's page.
-- The bar, the top, the body and the foot share the same left and right edges.
-- One breakpoint, at 640px: below it everything is one column.
+- **One frame.** Every page is one width: 1040px less its gutters (`.wrap` in `app.css`,
+  `main` in `style.css`). The bar, the top, the body and
+  the foot share the same left and right edges, and those edges are the same on every page,
+  so nothing moves as a reader goes from one page to another. No page, and no kind of page,
+  sets a width of its own. The owner's choice of 14 October 2026 ("One frame, version 2" on
+  the design canvas), after the guides and policies had been built 720px wide beside pages
+  1040px wide.
+- The foot's links are the same on every page of an app, in this order: Happy Path Apps, the
+  app, Guides, Privacy policy, the email address. They are spread across the frame. An app
+  with no page of its own yet, or no guides yet, leaves that link out: Pump Prices' policy
+  has three.
+- Two breakpoints. At 860px and below the list of guides is one column of cards. At 640px
+  and below everything is one column.
 - Type, as the stylesheet sets it:
 
 | | Size | Weight |
@@ -75,7 +88,9 @@ no app to show, and no top or foot of this kind.
 
 ## 4. Rules for a guide
 
-- One centred column, 720px, so body text runs to about 80 characters a line at most.
+- The words, rows, cards and panels fill the frame (see "One frame" above). On a wide screen a
+  full line of body text runs to about 115 characters, and up to about 130: the owner chose one width for every page
+  over a shorter line, on 14 October 2026.
 - The h1's lines are balanced, so no word is left by itself on the last one.
 - A guide is made of the parts in `_template/guide/` and nothing else. Each has a comment
   there saying when to use it:
@@ -117,7 +132,8 @@ no app to show, and no top or foot of this kind.
   each kind of data; a lawful basis, usually in a pill; a quotation with a green rule beside
   it; the foot in ink.
 - Long web addresses wrap, so nothing runs off a phone's screen. It prints dark on white.
-- Pump Prices' policy has no studio bar yet. That is put right in its tool, not in its page.
+- Pump Prices' policy is made by its tool, which writes the studio bar and the foot. A change
+  to either is made in the tool, not in the page.
 
 ## 6. An app on the studio's site
 

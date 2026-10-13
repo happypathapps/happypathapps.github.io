@@ -73,7 +73,7 @@ the music, not the steps, is what gets turned down, because the steps already pe
 
 The pages need more shades than the mark does: grounds to sit text on, and greens dark enough
 to read. These are the colours `app.css` uses, by their names there. A page styled by
-`app.css` (the app pages and the guides) uses these and no others; a new one is added here,
+`app.css` (the home page, the app pages and the guides) uses these and no others; a new one is added here,
 with what it is for, before it is used.
 
 | | |
@@ -91,13 +91,10 @@ with what it is for, before it is used.
 | `--rule-strong` `#D9DCD4` | lines that have to show on a panel: a table's edge, a checklist's line |
 | `--green-text` `#1E7A47` | links, labels and footnote numbers on a light ground, where the brand green is too pale to read |
 | `--chip-live-bg` `#DDF7E7`, `--chip-live` `#14532D` | the pale green disc and dark green mark of a tick or an exclamation mark; the "live" chip |
-| `--chip-soon-bg` `#2A333D`, `--chip-soon` `#D5D9DE` | the "soon" chip; the first is also the phone frame on the dark top, the second the text under a heading on ink |
-| `#6EE7A0` | a button under the pointer |
+| `--chip-soon-bg` `#2A333D`, `--chip-soon` `#D5D9DE` | the "soon" chip; the first is also the phone frame on the dark top and the home page's ink button under the pointer, the second the text under a heading on ink |
+| `#6EE7A0` | a green button under the pointer |
+| `#ECEEE9`, `#5A6470` | the home page's "soon" chip and its "Coming soon" button: a light pair, because they sit on the light ground there. Set on `.home` under the names `--chip-soon-bg` and `--chip-soon` |
 | `rgba(19, 24, 31, 0.18)`, `rgba(0, 0, 0, 0.45)` | the shadow under a phone screenshot: ink at low strength on a light ground, black on the dark top |
-
-Two kinds of page are outside this list. The home page (`index.html`) carries its own styles,
-and gives the "soon" chip a light pair of its own, `#ECEEE9` and `#5A6470`, under the same two
-names. It is not a pattern for a new page.
 
 The privacy pages use `style.css`, which takes its colours from the list above (ink, green,
 green-text, off-white, muted, page, panel, text, body, rule, rule-strong) and no others, except

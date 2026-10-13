@@ -30,9 +30,9 @@ sitemap.xml          The pages meant to be found by search. Add each new content
                      the privacy policies are left out on purpose.
 404.html             What GitHub Pages serves for an address that does not exist.
 CLAUDE.md            For an assistant working here: a pointer to the rules, which are kept elsewhere. Public, like everything here.
-app.css              The app pages and guides, in the studio brand like the hub.
+app.css              The home page, the app pages and guides, in the studio brand.
 style.css            The privacy pages' stylesheet, in the brand. It styles their plain markup.
-index.html           Hub, in the studio brand (brand/README.md). Its styles are inline.
+index.html           Hub, in the studio brand (brand/README.md). Its styles are in app.css, under .home.
 brand/fonts/         Overpass, self-hosted so a visit tells Google nothing (OFL.txt).
 brand/WEBSITE.md     The rules a page is held to, by kind of page: widths, type, parts, words.
 _template/
@@ -77,7 +77,9 @@ and its guides. Nothing belonging to one app lives in another's directory.
 
 **Pages below an app's top level use paths from the root** (`/app.css`, `/roadworthy/icon.png`),
 so a page keeps working if it moves and `404.html` works at any depth. The older pages (the hub,
-the app page, the privacy policies) use relative paths and have been left as they are. Root
+the app page, the privacy policies) use relative paths for their files and have been left as
+they are. The links in the feet of the app page and the policies are from the root, as is the
+hub's link to itself; the hub's other links are relative. Root
 paths need a server to preview: `python -m http.server` in this directory, then open
 `http://localhost:8000/`. Opening a guide's file directly from disk shows it unstyled.
 
@@ -174,9 +176,8 @@ domain. The `github.io` addresses redirect to it.
 - GitHub issues and renews the certificate. "Enforce HTTPS" is on.
 - Every page's canonical address and preview image name the `.co.uk` domain. A new page should
   too, and should be added to `sitemap.xml` if it is meant to be found by search.
-- Pump Prices' policy page is generated (see above), and its generator writes the canonical
-  address. Until `tools/privacy-page/build.js` in that repository is changed to the `.co.uk`
-  domain, regenerating the page will put the old address back.
+- Pump Prices' policy page is generated (see above). Its generator, `tools/privacy-page/build.js`
+  in that repository, writes the `.co.uk` canonical address, the studio bar and the foot.
 
 ## `app-ads.txt`
 

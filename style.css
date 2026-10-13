@@ -1,7 +1,9 @@
 /*
  * The privacy pages, in the studio's brand (brand/README.md): Overpass, the page ground, an ink
  * band for the top and the foot, green links. One file for every app's policy, so that they
- * do not drift into different-looking documents.
+ * do not drift into different-looking documents. The page is the width every page of the
+ * site is (1040 less its gutters; the owner's choice of 14 October 2026), and its top has the
+ * title size that app.css gives a guide's, and its spacing on a wide screen.
  *
  * It styles the pages' plain markup (main > header, .callout, h2, .basis, blockquote, footer)
  * and changes none of it: Pump Prices' page is generated from its own repository, and neither
@@ -30,10 +32,10 @@ body {
 }
 /* A policy prints whole web addresses, which have nowhere to break: let them break anywhere,
    so a long one wraps on a phone and nothing runs off the screen. */
-main { max-width: 720px; margin: 0 auto; padding-inline: clamp(20px, 5vw, 56px); overflow-wrap: anywhere; }
+main { max-width: 1040px; margin: 0 auto; padding-inline: clamp(20px, 5vw, 56px); overflow-wrap: anywhere; }
 header, footer { background: var(--ink); box-shadow: 0 0 0 100vmax var(--ink); clip-path: inset(0 -100vmax); }
-header { color: var(--off-white); padding: 40px 0 44px; margin-bottom: 40px; }
-h1 { margin: 22px 0 10px; color: var(--off-white); font-size: clamp(36px, 6vw, 52px); font-weight: 800; letter-spacing: -0.5px; line-height: 1.1; }
+header { color: var(--off-white); padding: 40px 0 56px; margin-bottom: 40px; }
+h1 { margin: 22px 0 10px; color: var(--off-white); font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.5px; line-height: 1.1; }
 header h1:first-child { margin-top: 0; }
 .updated { margin: 0; color: var(--muted); font-size: 15px; }
 h2 { margin: 44px 0 10px; padding-top: 30px; border-top: 1px solid var(--rule); color: var(--text); font-size: 24px; font-weight: 800; line-height: 1.2; }
@@ -51,9 +53,13 @@ blockquote { margin: 0 0 14px; padding: 2px 0 2px 16px; border-left: 3px solid v
 .basis { display: inline-block; margin-bottom: 14px; padding: 4px 12px 2px; border: 1px solid var(--rule-strong); border-radius: 999px; font-size: 14px; }
 footer { margin-top: 56px; padding: 28px 0; color: var(--muted); font-size: 14px; }
 footer a { color: var(--green); font-weight: 400; }
+/* the foot's links, spread across the frame as app.css spreads them */
+footer .links { display: flex; flex-wrap: wrap; gap: 8px 28px; justify-content: space-between; margin-bottom: 14px; }
+footer .links:last-child { margin-bottom: 0; }
+footer p { margin: 0; }
 /* the studio's bar: the mark and the name, first thing in the header, linking home.
    Pulled up into the header's top padding so it sits where the bar does on every other page. */
-.studio { display: flex; align-items: center; gap: 10px; margin: -26px 0 30px; color: var(--off-white); font-size: 17px; font-weight: 800; text-decoration: none; }
+.studio { display: flex; align-items: center; gap: 10px; margin: -26px 0 42px; color: var(--off-white); font-size: 17px; font-weight: 800; text-decoration: none; }
 .studio svg { width: 34px; height: 34px; }
 /* Roadworthy's own plate, kept as the app's mark */
 .plate { display: inline-flex; align-items: stretch; background: var(--plate-yellow); color: var(--plate-black);
