@@ -30,7 +30,7 @@ sitemap.xml          The pages meant to be found by search. Add each new content
                      the privacy policies are left out on purpose.
 404.html             What GitHub Pages serves for an address that does not exist.
 app.css              The app pages and guides, in the studio brand like the hub.
-style.css            The older look, still used by the privacy pages.
+style.css            The privacy pages' stylesheet, in the brand. It styles their plain markup.
 index.html           Hub, in the studio brand (brand/README.md). Its styles are inline.
 brand/fonts/         Overpass, self-hosted so a visit tells Google nothing (OFL.txt).
 _template/

@@ -300,8 +300,9 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
 /* ---- a guide is one centred column of reading width ----
    The app pages are 1040 wide because a screenshot sits beside the words. A guide is mostly
    words, and at that width they stopped two thirds of the way across with nothing beside them.
-   <body class="guide"> narrows every .wrap, and the words, rows and cards all run to its edge. */
-.guide .wrap { max-width: 800px; }
+   <body class="guide"> narrows every .wrap, and the words, rows and cards all run to its edge.
+   720 gives a line of about 80 characters. */
+.guide .wrap { max-width: 720px; }
 .guide .top .lede,
 .guide .row p,
 .guide .row .facts li,
@@ -309,6 +310,59 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
 .guide .panel li,
 .guide .panel.steps .aside,
 .guide .app-card { max-width: none; }
+
+/* ---- inside a guide (design A, signed off 13 October 2026) ----
+   A list is ONE card with a line between its items, not a bar for every item: a bar that runs
+   the column's width with five words at its left end made the page look pushed to one side. */
+.guide .row .facts.ticks,
+.guide .row .facts.flags,
+.guide .row .facts.cards {
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card);
+}
+.guide .row .facts.ticks li,
+.guide .row .facts.flags li,
+.guide .row .facts.cards li {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--rule);
+  border-radius: 0;
+  background: none;
+}
+.guide .row .facts.ticks li:first-child,
+.guide .row .facts.flags li:first-child,
+.guide .row .facts.cards li:first-child { border-top: 0; }
+.guide .row .facts.cards { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.guide .row .facts.cards li { padding: 16px 18px 12px; }
+/* a heading's lines are evened out, so no word is left by itself on the last one */
+.guide .top h1 { text-wrap: balance; }
+/* a pair of numbers that is read as one thing gets a line of its own */
+.range { display: block; }
+/* the app's card: the sentence and small print, then the button under them */
+.guide .app-card { grid-template-columns: 48px minmax(0, 1fr); row-gap: 2px; }
+.guide .app-card .actions { grid-column: 2; grid-row: 3; margin-top: 12px; }
+.guide .app-card .btn { padding: 12px 18px 10px; font-size: 15px; }
+
+/* ---- the list of an app's guides: a card for each, the whole card a link ----
+   <body class="guide guide-list">: the same centred column as a guide, so the studio bar does
+   not move when a reader goes from the list into a guide. */
+.guide-list main { padding-block: 28px 56px; }
+.guide-list .row {
+  position: relative;
+  display: block;
+  margin-top: 14px;
+  padding: 22px 24px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  background: var(--card);
+}
+.guide-list .row:hover, .guide-list .row:focus-within { border-color: var(--green-text); }
+.guide-list .row h2 { margin-bottom: 8px; font-size: 22px; }
+.guide-list .row h2 a { text-decoration: none; }
+.guide-list .row h2 a::after { content: ""; position: absolute; inset: 0; }
+.guide-list .row p { margin: 0; font-size: 16px; }
 
 /* ---- the foot ---- */
 footer { background: var(--ink); color: var(--muted); font-size: 14px; }
@@ -327,6 +381,7 @@ footer p { margin: 0; max-width: 80ch; }
   .app-card { grid-template-columns: 48px minmax(0, 1fr); padding: 16px; }
   .app-card .actions { grid-column: 1 / -1; grid-row: 3; margin-top: 12px; }
   .app-card .btn { flex: 1; text-align: center; }
+  .guide .app-card .actions { grid-column: 1 / -1; }
   .where th, .where td { padding: 11px 12px 9px; }
   .where.ticks td { padding-left: 44px; }
   .where.ticks td::before { left: 10px; top: 11px; }

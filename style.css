@@ -1,170 +1,73 @@
 /*
- * Shared across every page on the site.
+ * The privacy pages, in the studio's brand (brand/README.md): Overpass, the page ground, an ink
+ * band for the top and the foot, green links. One file for every app's policy, so that they
+ * do not drift into different-looking documents.
  *
- * Each app gets its own privacy page, so this is what stops five separate policies drifting
- * into five different-looking documents. Colours are Roadworthy's, which is fine while it is
- * the only app; if a second one needs its own palette, override --accent in a page-level
- * <style> rather than forking this file.
+ * It styles the pages' plain markup (main > header, .callout, h2, .basis, blockquote, footer)
+ * and changes none of it: Pump Prices' page is generated from its own repository, and neither
+ * policy's address or wording may move. The ink bands reach the window's edges with a shadow,
+ * because the header and footer sit inside <main>.
+ *
+ * No dark mode: the rest of the site has none. Roadworthy's number plate keeps its own
+ * colours; it is that app's mark, not the studio's.
  */
-
+@font-face {
+  font-family: "Overpass";
+  src: url("brand/fonts/overpass-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
 :root {
-  /* Roadworthy identity - see docs/brand.md in the app repo */
-  --plate-yellow: #FFCE00;
-  --plate-black: #111111;
-  --gb-blue: #003399;
-
-  --bg: #ffffff;
-  --surface: #f6f7f9;
-  --text: #14202B;
-  --muted: #5a6b7a;
-  --rule: #dde3e9;
-  --accent: #003399;
+  --ink: #13181F; --green: #4ADE80; --green-text: #1E7A47; --off-white: #F7F6F2; --muted: #A3AAB3;
+  --page: #FAFAF7; --panel: #F0F1EC; --text: #13181F; --body: #3E4753; --rule: #E4E6E0; --rule-strong: #D9DCD4;
+  --plate-yellow: #FFCE00; --plate-black: #111111; --gb-blue: #003399;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #14202B;
-    --surface: #1c2b38;
-    --text: #e8eef4;
-    --muted: #9fb0c0;
-    --rule: #2c3e4e;
-    --accent: #8ab4ff;
-  }
-}
-
 * { box-sizing: border-box; }
-
+html { -webkit-text-size-adjust: 100%; }
 body {
-  margin: 0;
-  padding: 0 1.25rem 4rem;
-  background: var(--bg);
-  color: var(--text);
-  font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  -webkit-text-size-adjust: 100%;
+  margin: 0; background: var(--page); color: var(--body);
+  font: 17px/1.6 "Overpass", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
-
-main { max-width: 42rem; margin: 0 auto; }
-header { padding: 2.5rem 0 1rem; }
-
-/* ---------------------------------------------------------------- wordmark */
-
-/*
- * The cherished-plate device from the app icon, built from markup rather than an image so it
- * stays sharp at any size and needs no asset pipeline.
- */
-.plate {
-  display: inline-flex;
-  align-items: stretch;
-  background: var(--plate-yellow);
-  color: var(--plate-black);
-  border: 2px solid var(--plate-black);
-  border-radius: 6px;
-  overflow: hidden;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  line-height: 1;
-}
-.plate .band {
-  background: var(--gb-blue);
-  color: #fff;
-  font-size: 0.6rem;
-  padding: 0.55rem 0.4rem;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  letter-spacing: 0.02em;
-}
-.plate .reg {
-  padding: 0.5rem 0.7rem;
-  font-size: 1.35rem;
-}
-
-/* ------------------------------------------------------------------ typography */
-
-h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.5rem 0 0.4rem; letter-spacing: -0.015em; }
-
-h2 {
-  font-size: 1.2rem;
-  margin: 2.5rem 0 0.6rem;
-  padding-top: 1.4rem;
-  border-top: 1px solid var(--rule);
-  letter-spacing: -0.005em;
-}
-/* A rule above the first heading would double up with the header block. */
+/* A policy prints whole web addresses, which have nowhere to break: let them break anywhere,
+   so a long one wraps on a phone and nothing runs off the screen. */
+main { max-width: 720px; margin: 0 auto; padding-inline: clamp(20px, 5vw, 56px); overflow-wrap: anywhere; }
+header, footer { background: var(--ink); box-shadow: 0 0 0 100vmax var(--ink); clip-path: inset(0 -100vmax); }
+header { color: var(--off-white); padding: 40px 0 44px; margin-bottom: 40px; }
+h1 { margin: 22px 0 10px; color: var(--off-white); font-size: clamp(36px, 6vw, 52px); font-weight: 800; letter-spacing: -0.5px; line-height: 1.1; }
+header h1:first-child { margin-top: 0; }
+.updated { margin: 0; color: var(--muted); font-size: 15px; }
+h2 { margin: 44px 0 10px; padding-top: 30px; border-top: 1px solid var(--rule); color: var(--text); font-size: 24px; font-weight: 800; line-height: 1.2; }
 h2:first-of-type { border-top: 0; padding-top: 0; }
-
-p { margin: 0 0 1rem; }
-ul { margin: 0 0 1rem; padding-left: 1.25rem; }
-li { margin-bottom: 0.5rem; }
-a { color: var(--accent); }
+p { margin: 0 0 14px; }
+ul { margin: 0 0 14px; padding-left: 20px; }
+li { margin-bottom: 8px; }
+strong { color: var(--text); }
+a { color: var(--green-text); font-weight: 700; }
 code { font-size: 0.9em; }
-
-.tagline { font-size: 1.1rem; color: var(--muted); margin: 0 0 2rem; }
-.updated { color: var(--muted); font-size: 0.9rem; margin: 0 0 1.5rem; }
-
-blockquote {
-  margin: 0 0 1rem;
-  padding-left: 1rem;
-  border-left: 3px solid var(--rule);
-  color: var(--muted);
-  font-style: italic;
-}
-
-/* --------------------------------------------------------------- components */
-
-/* Summary box at the top of a policy, and the status note on an app page. */
-.callout {
-  background: var(--surface);
-  border-left: 3px solid var(--plate-yellow);
-  border-radius: 0 6px 6px 0;
-  padding: 1rem 1.1rem;
-  margin: 0 0 1.5rem;
-}
+blockquote { margin: 0 0 14px; padding: 2px 0 2px 16px; border-left: 3px solid var(--green); }
+.callout { background: var(--panel); border-radius: 22px; padding: clamp(22px, 4vw, 32px); margin: 0 0 24px; }
+.callout > strong { display: block; margin-bottom: 10px; font-size: 20px; font-weight: 800; }
 .callout ul { margin-bottom: 0; }
+.basis { display: inline-block; margin-bottom: 14px; padding: 4px 12px 2px; border: 1px solid var(--rule-strong); border-radius: 999px; font-size: 14px; }
+footer { margin-top: 56px; padding: 28px 0; color: var(--muted); font-size: 14px; }
+footer a { color: var(--green); font-weight: 400; }
+/* the studio's bar: the mark and the name, first thing in the header, linking home.
+   Pulled up into the header's top padding so it sits where the bar does on every other page. */
+.studio { display: flex; align-items: center; gap: 10px; margin: -26px 0 30px; color: var(--off-white); font-size: 17px; font-weight: 800; text-decoration: none; }
+.studio svg { width: 34px; height: 34px; }
+/* Roadworthy's own plate, kept as the app's mark */
+.plate { display: inline-flex; align-items: stretch; background: var(--plate-yellow); color: var(--plate-black);
+  border-radius: 6px; overflow: hidden; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 700; letter-spacing: 0.06em; line-height: 1; }
+.plate .band { background: var(--gb-blue); color: #fff; font-size: 0.6rem; padding: 0.55rem 0.4rem; display: flex; align-items: flex-end; justify-content: center; letter-spacing: 0.02em; }
+.plate .reg { padding: 0.5rem 0.7rem; font-size: 1.35rem; }
 
-/* Lawful-basis pill. Deliberately quiet - it is a legal footnote, not a heading. */
-.basis {
-  display: inline-block;
-  font-size: 0.85rem;
-  color: var(--muted);
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  padding: 0.15rem 0.7rem;
-  margin-bottom: 1rem;
-}
-
-.cards {
-  display: grid;
-  gap: 0.9rem;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-  margin-bottom: 1rem;
-}
-.card {
-  background: var(--surface);
-  border-radius: 8px;
-  padding: 1rem 1.1rem;
-}
-.card h3 { margin: 0 0 0.35rem; font-size: 1rem; }
-.card p { margin: 0; font-size: 0.95rem; color: var(--muted); }
-
-/* Hub entry - a whole card that is one link. */
-.app {
-  display: block;
-  background: var(--surface);
-  border-radius: 8px;
-  padding: 1.1rem 1.2rem;
-  margin-bottom: 1rem;
-  text-decoration: none;
-  color: inherit;
-}
-.app h2 { margin: 0 0 0.3rem; font-size: 1.15rem; color: var(--accent); border-top: 0; padding-top: 0; }
-.app p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-
-footer {
-  margin-top: 3rem;
-  padding-top: 1.4rem;
-  border-top: 1px solid var(--rule);
-  color: var(--muted);
-  font-size: 0.875rem;
+/* On paper a browser leaves backgrounds out, so the ink bands go and their light text with them. */
+@media print {
+  header, footer { background: none; box-shadow: none; clip-path: none; }
+  header { padding: 0 0 12px; margin-bottom: 20px; border-bottom: 1px solid var(--rule-strong); }
+  h1, .studio { color: var(--text); }
+  .studio { margin: 0 0 16px; }
+  .updated, footer { color: var(--body); }
+  footer { border-top: 1px solid var(--rule-strong); }
+  footer a { color: var(--green-text); }
 }

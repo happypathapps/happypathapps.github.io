@@ -94,8 +94,13 @@ with what it is for, before it is used.
 
 Two kinds of page are outside this list. The home page (`index.html`) carries its own styles,
 and gives the "soon" chip a light pair of its own, `#ECEEE9` and `#5A6470`, under the same two
-names. The privacy pages use `style.css`, which has its own colours. Neither is a pattern for
-a new page.
+names. It is not a pattern for a new page.
+
+The privacy pages use `style.css`, which takes its colours from the list above (ink, green,
+green-text, off-white, muted, page, panel, text, body, rule, rule-strong) and no others, except
+Roadworthy's number plate at the top of its policy: plate yellow `#FFCE00`, plate black
+`#111111`, GB blue `#003399` and white lettering. Those are that app's own mark, from its own
+brand notes, and are used nowhere else on the site.
 
 Amber is not a website colour: things to watch for are marked in green.
 
