@@ -127,6 +127,172 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
 .panel p { margin: 0; }
 .panel a { color: var(--green-text); font-weight: 700; }
 
+/* ---- a guide's top has no screenshot beside it, so its words take the width ---- */
+.top.solo .wrap { grid-template-columns: minmax(0, 1fr); }
+.top.solo .lede { margin: 20px 0 12px; max-width: 60ch; }
+
+/* ---- the app's button inside a guide: icon, a sentence, the small print, the button ---- */
+.app-card {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  gap: 2px 18px;
+  align-items: center;
+  max-width: 720px;
+  margin-top: 20px;
+  padding: 18px 22px;
+  border-radius: 18px;
+  background: var(--panel);
+}
+.app-card .icon { grid-column: 1; grid-row: 1 / span 2; width: 48px; height: 48px; border-radius: 12px; }
+.app-card p { grid-column: 2; grid-row: 1; margin: 0; max-width: none; font-size: 16px; line-height: 1.45; color: var(--text); }
+.app-card .small { grid-row: 2; font-size: 14px; color: var(--body); }
+.app-card .actions { grid-column: 3; grid-row: 1 / span 2; }
+
+/* ---- a guide's facts: ticks, flags, cards, steps, a table, the detail ----
+   Every mark here (tick, cross, exclamation mark, step number) is drawn by this file, and a
+   reader does take a tick as "yes" and a cross as "no". So a mark is only ever asked for by a
+   class (ticks, flags, "cards no", "where ticks", steps), and only where the words beside it or the
+   heading above it already say the same thing. Plain cards and a plain table carry no mark. */
+:root { --card: #FFFFFF; --rule-strong: #D9DCD4; }
+.row .facts.ticks, .row .facts.flags, .row .facts.cards { list-style: none; padding-left: 0; }
+
+.row .facts.ticks li, .row .facts.flags li {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 13px 16px 10px 50px;
+  margin-bottom: 8px;
+  max-width: 720px;
+}
+.facts.ticks li::before, .facts.flags li::before, .where.ticks td::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 13px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--chip-live-bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5l2.7 2.7L10 3.5' fill='none' stroke='%2314532D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 13px no-repeat;
+}
+.facts.flags li::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 2.4v4.6M6 9.5v.1' fill='none' stroke='%2314532D' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.facts.ticks li a { color: var(--green-text); font-weight: 700; }
+
+.row .facts.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 18px; }
+.row .facts.cards li {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  padding: 18px 20px 14px;
+  margin: 0;
+  max-width: none;
+  font-size: 16px;
+}
+.facts.cards li strong {
+  display: block;
+  position: relative;
+  margin-bottom: 6px;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.35;
+}
+.facts.cards.no li strong { padding-left: 34px; }
+.facts.cards.no li strong::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3 3l6 6M9 3l-6 6' fill='none' stroke='%23F7F6F2' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center / 12px no-repeat;
+}
+
+.panel.steps { counter-reset: step; }
+.panel.steps .label {
+  counter-increment: step;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 10px;
+  font-size: 14px;
+  max-width: none;
+}
+.panel.steps .label::before {
+  content: counter(step);
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding-top: 2px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--off-white);
+  font-size: 15px;
+  letter-spacing: 0;
+}
+.panel.steps ul { list-style: none; margin: 0 0 0 14px; padding: 2px 0 2px 14px; border-left: 2px solid var(--rule-strong); }
+.panel.steps li { position: relative; padding-left: 34px; margin-bottom: 10px; max-width: 60ch; }
+.panel.steps li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--green-text);
+  border-radius: 5px;
+  background: var(--card);
+}
+.serial {
+  font-family: ui-monospace, Consolas, "Courier New", monospace;
+  font-size: 0.9em;
+  white-space: nowrap;
+  background: var(--card);
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  padding: 1px 6px;
+}
+
+.where {
+  width: 100%;
+  margin-top: 14px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 14px;
+  border-spacing: 0;
+  overflow: hidden;
+  background: var(--card);
+  font-size: 16px;
+}
+.where th, .where td { text-align: left; vertical-align: top; padding: 13px 16px 10px; border-top: 1px solid var(--rule); color: var(--body); }
+.where thead th {
+  border-top: 0;
+  background: var(--ink);
+  color: var(--off-white);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.where tbody th { width: 34%; color: var(--text); font-weight: 800; border-right: 1px solid var(--rule); }
+.where tbody + tbody th, .where tbody + tbody tr:first-child td { border-top-color: var(--rule-strong); }
+.where.ticks td { position: relative; padding-left: 50px; }
+
+.panel.callout { background: var(--ink); }
+.panel.callout h2 { color: var(--off-white); }
+.panel.callout p { color: var(--chip-soon); max-width: 60ch; }
+.panel.callout a { color: var(--green); }
+.panel.callout .price { color: var(--green); font-weight: 800; white-space: nowrap; }
+
+.panel ul.defs { list-style: none; padding: 0; margin: 14px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 36px; }
+.panel ul.defs li { border-top: 1px solid var(--rule-strong); padding: 14px 0 10px; margin: 0; font-size: 16px; }
+.panel ul.defs li strong { display: block; color: var(--text); font-size: 17px; }
+
+.panel.sources { background: none; border-top: 1px solid var(--rule); border-radius: 0; padding-inline: 0; }
+.panel.sources h2 { font-size: 18px; }
+.panel.sources li, .panel.sources p { font-size: 14px; max-width: 80ch; }
+
 /* ---- the foot ---- */
 footer { background: var(--ink); color: var(--muted); font-size: 14px; }
 footer .wrap { padding-block: 28px; display: grid; gap: 14px; }
@@ -140,4 +306,11 @@ footer p { margin: 0; max-width: 80ch; }
   .row.flip .text { order: 0; }
   .row { padding-block: 36px; }
   .top .phone, .row .phone { width: 220px; max-width: 70%; }
+  .row .facts.cards, .panel ul.defs { grid-template-columns: minmax(0, 1fr); }
+  .app-card { grid-template-columns: 48px minmax(0, 1fr); padding: 16px; }
+  .app-card .actions { grid-column: 1 / -1; grid-row: 3; margin-top: 12px; }
+  .app-card .btn { flex: 1; text-align: center; }
+  .where th, .where td { padding: 11px 12px 9px; }
+  .where.ticks td { padding-left: 44px; }
+  .where.ticks td::before { left: 10px; top: 11px; }
 }

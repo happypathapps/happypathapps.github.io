@@ -55,7 +55,7 @@
   </div>
 </nav>
 
-<header class="top">
+<header class="top solo">
   <div class="wrap">
     <div class="text">
       <img class="icon" src="/roadworthy/icon.png" width="72" height="72" alt="">
@@ -74,7 +74,7 @@
       <h2>Start with the free checks</h2>
       <p>GOV.UK has a check for each of these, and each asks only for the number
       plate:<sup><a href="#s1">1</a></sup></p>
-      <ul class="facts">
+      <ul class="facts ticks">
         <li><a href="https://www.gov.uk/check-vehicle-tax">whether it is taxed</a>, or declared
         off the road (SORN);<sup><a href="#s1">1</a></sup></li>
         <li><a href="https://www.gov.uk/check-mot-status">whether it has an MOT</a>, and when it
@@ -83,12 +83,15 @@
         fail and the mileage at each test and, for tests in England, Scotland or Wales, what
         failed.<sup><a href="#s1">1</a></sup></li>
       </ul>
-      <p>Roadworthy checks tax, MOT and MOT history from a photo of the plate, or you can type
-      it.</p>
-      <div class="actions">
-        <a class="btn" href="https://play.google.com/store/apps/details?id=uk.co.roadworthy">Check a car with Roadworthy</a>
+      <div class="app-card">
+        <img class="icon" src="/roadworthy/icon.png" width="48" height="48" alt="">
+        <p>Roadworthy checks tax, MOT and MOT history from a photo of the plate, or you can type
+        it.</p>
+        <div class="actions">
+          <a class="btn" href="https://play.google.com/store/apps/details?id=uk.co.roadworthy">Check a car with Roadworthy</a>
+        </div>
+        <p class="small">Free, for Android.</p>
       </div>
-      <p class="small">Free, for Android.</p>
     </div>
   </section>
 
@@ -96,7 +99,7 @@
     <div class="text">
       <p class="label">Not shown</p>
       <h2>Four things a tax and MOT check can't show</h2>
-      <ul class="facts">
+      <ul class="facts cards no">
         <li><strong>Money owed on it.</strong> A car on hire purchase or conditional sale belongs to
         the lender until it's paid off. Buy it from someone still paying and you can end up in a
         dispute with the lender over who owns it.<sup><a href="#s4">4</a></sup></li>
@@ -111,13 +114,38 @@
     </div>
   </section>
 
+  <section class="panel">
+    <h2 id="where-to-look">Where to look for what</h2>
+    <table class="where ticks" aria-labelledby="where-to-look">
+      <thead>
+        <tr><th scope="col">Where to look</th><th scope="col">What it tells you</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="rowgroup" rowspan="3">A free check</th>
+          <td>Tax, or off the road (SORN)<sup><a href="#s1">1</a></sup></td></tr>
+        <tr><td>MOT, and when it runs out<sup><a href="#s1">1</a></sup></td></tr>
+        <tr><td>MOT history, with the mileage at each test<sup><a href="#s1">1</a></sup></td></tr>
+      </tbody>
+      <tbody>
+        <tr><th scope="rowgroup" rowspan="3">A paid history check</th>
+          <td>Outstanding finance, if the check includes it</td></tr>
+        <tr><td>Stolen markers</td></tr>
+        <tr><td>Insurance write-off records</td></tr>
+      </tbody>
+      <tbody>
+        <tr><th scope="row">An inspection</th>
+          <td>The engine, clutch and gearbox, which an MOT doesn't test<sup><a href="#s2">2</a></sup></td></tr>
+      </tbody>
+    </table>
+  </section>
+
   <section class="row flip">
     <div class="text">
       <p class="label">Look again</p>
       <h2>Read the MOT history</h2>
       <p>Every test records the mileage, so the readings should only go up.<sup><a href="#s1">1</a></sup>
       In the history, look for:</p>
-      <ul class="facts">
+      <ul class="facts flags">
         <li>a reading lower than the one before it. A replaced dashboard or a typing error can
         explain one, so ask the seller for the paperwork;</li>
         <li>the same advisory year after year, which usually means it was never fixed;</li>
@@ -129,7 +157,7 @@
     <div class="phone"><img src="/roadworthy/shots/history.jpg" width="420" height="747" alt="A car's MOT history, with a failure and its defects" loading="lazy"></div>
   </section>
 
-  <section class="panel">
+  <section class="panel steps">
     <h2>Before you hand over money</h2>
     <p class="label">Before the viewing</p>
     <ul>
@@ -142,8 +170,8 @@
     <p class="label">At the viewing</p>
     <ul>
       <li>Ask to see the log book (V5C). It should have a "DVL" watermark.<sup><a href="#s3">3</a></sup></li>
-      <li>Check its serial number is <em>not</em> between BG8229501 and BG9999030, or BI2305501 and
-      BI2800000. If it is, the log book might be stolen: call the police as soon as it's safe
+      <li>Check its serial number is <em>not</em> between <span class="serial">BG8229501</span> and <span class="serial">BG9999030</span>, or <span class="serial">BI2305501</span> and
+      <span class="serial">BI2800000</span>. If it is, the log book might be stolen: call the police as soon as it's safe
       to.<sup><a href="#s3">3</a></sup></li>
       <li>Check the VIN and engine number on the car match the log
       book.<sup><a href="#s3">3</a></sup></li>
@@ -159,17 +187,17 @@
     </ul>
   </section>
 
-  <section class="panel">
+  <section class="panel callout">
     <h2>Is a paid check worth it?</h2>
     <p>The free online records don't show finance, insurance write-off records or stolen markers,
-    so a paid check is the simplest way to see them before you pay. A single check from the best-known providers costs roughly £10 to £20, and packs are cheaper
+    so a paid check is the simplest way to see them before you pay. A single check from the best-known providers costs <strong class="price">roughly £10 to £20</strong>, and packs are cheaper
     if you're comparing several cars. Make sure the one you choose includes outstanding finance:
     some charge extra for it.</p>
   </section>
 
   <section class="panel">
     <h2>The detail</h2>
-    <ul>
+    <ul class="defs">
       <li><strong>Finance.</strong> If a car on hire purchase or conditional sale is sold before
       it's paid off, the law protects a private buyer who bought "in good faith without notice" of
       the agreement. It doesn't protect motor traders, and it doesn't cover other kinds of

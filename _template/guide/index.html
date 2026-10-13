@@ -12,7 +12,7 @@
        record. If a sentence states a fact, it needs an entry there; if it does not have
        one, cut it or go and find the source.
     3. Replace every placeholder. They are the words in capitals (APP-SLUG, APP NAME,
-       GUIDE-SLUG, GUIDE TITLE, ONE-LINE SUMMARY, A-SCREENSHOT, ONE WORD, PUBLISHER,
+       GUIDE-SLUG, GUIDE TITLE, ONE-LINE SUMMARY, A-SCREENSHOT, ONE WORD, PUBLISHER, PLAY-PACKAGE-ID,
        DAY MONTH YEAR, YYYY-MM-DD, DISCLAIMER FOR THIS APP) and the example.gov.uk links.
        Search the finished page for each before it is reviewed. The two dates in the
        structured data block and the two in the Sources panel are the same pair.
@@ -91,7 +91,7 @@
   </div>
 </nav>
 
-<header class="top">
+<header class="top solo">
   <div class="wrap">
     <div class="text">
       <img class="icon" src="/APP-SLUG/icon.png" width="72" height="72" alt="">
@@ -105,15 +105,34 @@
 <main class="wrap">
 
   <!-- A row for each point. Lead with what the reader should know or do; put the detail and
-       the law after it. A footnote marker points at the numbered source below. -->
+       the law after it. A footnote marker points at the numbered source below.
+       A list of facts takes one of three looks, by what its items are:
+         "facts ticks"     things the reader can have or do (a green tick each)
+         "facts flags"     things to watch for (a green exclamation mark each)
+         "facts cards"     a few separate points, each starting with one <strong>term</strong>
+                           (no mark)
+         "facts cards no"  the same, with a cross beside each term: only for things that are
+                           missing or not shown, under a heading that says so
+       The marks are drawn by the stylesheet. A reader takes a tick as "yes" and a cross as
+       "no", so use one only where the words already say that. -->
   <section class="row solo">
     <div class="text">
       <p class="label">ONE WORD</p>
       <h2>The point, as a plain heading</h2>
       <p>What it means for the reader.<sup><a href="#s1">1</a></sup></p>
-      <ul class="facts">
+      <ul class="facts cards">
         <li><strong>A term.</strong> What it means, in a line.<sup><a href="#s2">2</a></sup></li>
       </ul>
+      <!-- The app's own button, once, where the guide first describes something the app does.
+           Keep this order (sentence, button, small print): the stylesheet arranges them. -->
+      <div class="app-card">
+        <img class="icon" src="/APP-SLUG/icon.png" width="48" height="48" alt="">
+        <p>What APP NAME does about this, in a sentence.</p>
+        <div class="actions">
+          <a class="btn" href="https://play.google.com/store/apps/details?id=PLAY-PACKAGE-ID">A button that says what it does</a>
+        </div>
+        <p class="small">What it costs and what it runs on.</p>
+      </div>
     </div>
   </section>
 
@@ -129,12 +148,50 @@
     <div class="phone"><img src="/APP-SLUG/shots/A-SCREENSHOT.jpg" width="420" height="747" alt="What the screenshot shows" loading="lazy"></div>
   </section>
 
-  <!-- A checklist, if the guide has things to do. The small labels group the steps. -->
-  <section class="panel">
+  <!-- A checklist, if the guide has things to do. The small labels group the steps: the
+       stylesheet numbers the labels in order and draws an empty box beside each step. Put a
+       reference a reader will copy, such as a serial number, in <span class="serial">. -->
+  <section class="panel steps">
     <h2>What to do</h2>
     <p class="label">First</p>
     <ul>
       <li>A step.<sup><a href="#s1">1</a></sup></li>
+    </ul>
+  </section>
+
+  <!-- A table, where the guide sorts things into groups. Every cell is a statement like any
+       other sentence: it needs its fact, and its footnote if the fact is sourced. A heading
+       cell that covers several rows is written once, with rowspan: count the rows, because
+       a wrong rowspan moves a cell under the wrong heading and no checker reads that.
+       Add the class "ticks" (class="where ticks") to draw a tick in every cell, and only
+       when every cell is something its row does give. Give the h2 an id and name it in the
+       table's aria-labelledby. -->
+  <section class="panel">
+    <h2 id="GUIDE-SLUG-table">A plain heading for the table</h2>
+    <table class="where" aria-labelledby="GUIDE-SLUG-table">
+      <thead>
+        <tr><th scope="col">Column one</th><th scope="col">Column two</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="rowgroup" rowspan="2">A group</th>
+          <td>Something in it.<sup><a href="#s1">1</a></sup></td></tr>
+        <tr><td>Something else in it.<sup><a href="#s2">2</a></sup></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- The one thing to take away, on a dark panel. Use it once. A figure the reader is looking
+       for goes in <strong class="price">. -->
+  <section class="panel callout">
+    <h2>The question the reader is asking</h2>
+    <p>The answer.</p>
+  </section>
+
+  <!-- The detail and the law, a term to each entry. -->
+  <section class="panel">
+    <h2>The detail</h2>
+    <ul class="defs">
+      <li><strong>A term.</strong> What the source says of it.<sup><a href="#s2">2</a></sup></li>
     </ul>
   </section>
 
