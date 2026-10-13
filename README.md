@@ -33,6 +33,7 @@ app.css              The app pages and guides, in the studio brand like the hub.
 style.css            The privacy pages' stylesheet, in the brand. It styles their plain markup.
 index.html           Hub, in the studio brand (brand/README.md). Its styles are inline.
 brand/fonts/         Overpass, self-hosted so a visit tells Google nothing (OFL.txt).
+brand/WEBSITE.md     The rules a page is held to, by kind of page: widths, type, parts, words.
 _template/
   privacy.html       Skeleton for the next app's privacy policy. Start here, not from
                      Roadworthy's — see below.

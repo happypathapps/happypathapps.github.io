@@ -1,5 +1,8 @@
 # Happy Path Apps — brand assets
 
+The rules a page of the website is held to (widths, type, the parts of a page, words) are in
+`WEBSITE.md` beside this. This file is the mark, the film, the colours and the font.
+
 Everything here is drawn by the tool in `source/`, from one set of numbers shared by the still
 images and the film. Change the drawing there and re-render; do not edit the PNGs or the videos,
 or the profile picture, the cover and the film will drift apart.
