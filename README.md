@@ -24,6 +24,10 @@ the point. The published URLs must never depend on where the code happens to sit
 
 ```
 app-ads.txt          AdMob crawls this. Must stay at the ROOT.
+CNAME                The custom domain, happypathapps.co.uk. GitHub wrote it; leave it alone.
+robots.txt           Points search engines at the sitemap. Blocks nothing.
+sitemap.xml          The pages meant to be found by search. Add each new content page here;
+                     the privacy policies are left out on purpose.
 app.css              The app pages, in the studio brand like the hub.
 style.css            The older look, still used by the privacy pages.
 index.html           Hub, in the studio brand (brand/README.md). Its styles are inline.
@@ -70,8 +74,12 @@ app's code.
 
 ## The URLs that must never move
 
-<https://happypathapps.github.io/roadworthy/privacy.html>
-<https://happypathapps.github.io/pump-prices/privacy.html>
+<https://happypathapps.co.uk/roadworthy/privacy.html>
+<https://happypathapps.co.uk/pump-prices/privacy.html>
+
+The same paths on `happypathapps.github.io` are what the shipped apps, the Play listings and
+AdMob were given. They redirect to the addresses above, so they must keep working too: that
+means keeping this repository's name and the custom domain as they are.
 
 Each is referenced from three places that are painful to change once live:
 
@@ -82,21 +90,41 @@ Each is referenced from three places that are painful to change once live:
 Change the contents freely; never the filename. Adding a new app never touches an existing one's
 path, which is the whole reason for the per-app subdirectories.
 
-If a real domain is ever bought, point it here as a GitHub Pages custom domain. The `github.io`
-addresses then redirect to it, so links inside already-shipped APKs keep working — which is the
-only reason a custom domain is safe to add later at all.
+The site moved to its own domain on 13 October 2026 (see "The domain" below). The `github.io`
+addresses redirect to it, so links inside already-shipped APKs keep working, which is the only
+reason a custom domain was safe to add after launch at all.
 
 **Source of truth for each policy is `docs/privacy-policy.md` in that app's repo.** Pump
 Prices' page is generated from it, not copied by hand. Edit
 there first, mirror here, and update the date in both. A stale "last updated" against changed data
 flows is worse than no date at all.
 
+## The domain
+
+The site is served at `happypathapps.co.uk` since 13 October 2026, as a GitHub Pages custom
+domain. The `github.io` addresses redirect to it.
+
+- The domain is registered at Namecheap. Its DNS has four A records to GitHub Pages and `www` as
+  a CNAME to `happypathapps.github.io`.
+- It is verified for the `happypathapps` **organisation** (Settings, Pages), which stops anyone
+  else attaching it to their own site. Verifying it for a personal account does not count:
+  the repository belongs to the organisation.
+- GitHub issues and renews the certificate. "Enforce HTTPS" is on.
+- Every page's canonical address and preview image name the `.co.uk` domain. A new page should
+  too, and should be added to `sitemap.xml` if it is meant to be found by search.
+- Pump Prices' policy page is generated (see above), and its generator writes the canonical
+  address. Until `tools/privacy-page/build.js` in that repository is changed to the `.co.uk`
+  domain, regenerating the page will put the old address back.
+
 ## `app-ads.txt`
 
 Declares that Google AdMob is authorised to sell ad inventory for these apps, which is what stops
 someone else spoofing them. AdMob's crawler looks for it at the root of the **developer website
 URL from the Play Console listing** (Store settings → Store listing contact details), so that
-field must point at `https://happypathapps.github.io` or the file is never found.
+field should point at `https://happypathapps.co.uk`. While it still says
+`https://happypathapps.github.io`, the file is reached only through the redirect, and whether
+AdMob's crawler follows that has not been checked. When this was written (13 October 2026) the
+field had not yet been changed.
 
 The line here follows the documented format. AdMob's console generates a personalised snippet
 under **Apps → app-ads.txt**; if it differs from this file, the console wins.
