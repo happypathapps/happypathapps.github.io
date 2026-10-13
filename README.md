@@ -37,15 +37,14 @@ _template/
   privacy.html       Skeleton for the next app's privacy policy. Start here, not from
                      Roadworthy's — see below.
   guide/index.html   Skeleton for a guide, with the steps for writing one at its top.
-  guide-sources.md   Skeleton for the facts and sources behind a guide. Filled in first.
 roadworthy/
   index.html         App page (app.css)
   privacy.html       THE privacy policy URL. Do not move it.
   guides/
     index.html       The list of Roadworthy's guides. A row for each, newest first.
     buying-a-used-car/
-      index.html     Buyer's guide, written for a Roadworthy user part-way through buying a
-                     car. Partner links go in its "Is a paid check worth it?" panel, each
+      index.html     Buyer's guide, for someone about to buy a used car, whether they come
+                     from the app or from a search. Partner links go in its "Is a paid check worth it?" panel, each
                      with a line saying we may earn a commission, and a matching section in
                      privacy.html added at the same time.
   buying-a-used-car.html   Where that guide used to be. Now only redirects to it.
@@ -54,9 +53,6 @@ roadworthy/
 pump-prices/
   icon.png, screenshot.jpg   Shown on the hub
   privacy.html       Pump Prices' privacy policy URL. Do not move it. (No app page yet.)
-data/sources/
-  roadworthy/        One file per guide: each fact with its source, the wording checked and
-                     the date. Change a fact here first, then the page.
 ```
 
 ## How the site is put together
@@ -89,11 +85,25 @@ long as anything links to it.
 
 ## Writing a guide
 
-The steps are at the top of `_template/guide/index.html`. In short: fill in the sources file
-first (`_template/guide-sources.md`, copied to `data/sources/APP-SLUG/GUIDE-SLUG.md`) by opening each
-source; write the page from it; add the guide to the app's guides list and to `sitemap.xml`;
-have every fact, link and layout reviewed before it is committed. A sentence that states a
-fact and has no entry in the sources file is cut or sourced, never left.
+The steps are at the top of `_template/guide/index.html`. In short: record the facts first,
+each with its source and the source's own words; write the page from that record; add the
+guide to the app's guides list and to `sitemap.xml`; run the checker; have every fact, link
+and layout reviewed before it is committed. A sentence that states a fact and has no record
+is cut or sourced, never left.
+
+**The facts are not in this repository.** They were, briefly, under `data/sources/`, and were
+moved out on 13 October 2026: everything here is served to anyone who asks, and a tidy file of
+sourced facts is worth more to a scraper than to a reader. They are kept in a separate private
+repository, with saved copies of each source and the checker that compares a guide's record
+with its page (footnotes, source links, dates, the words themselves). A guide is not committed
+here until that checker passes.
+
+**Structured data.** Guides and the Roadworthy page carry a small `application/ld+json` block
+in the head that tells search engines what the page is. It must say nothing the page does not
+show. A guide's block repeats its heading and the two dates printed in its Sources panel, so
+when a guide is edited, "Last updated" and `dateModified` change together. The app block says
+free, Android and where to install, and carries no ratings or category because the page
+shows none.
 
 ## One repo, but one policy per app
 

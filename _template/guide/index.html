@@ -5,22 +5,25 @@
   A guide answers one question a reader actually has, in plain words, and every fact in it
   traces to a source. Write the sources first, then the page:
 
-    1. Copy _template/guide-sources.md to data/sources/APP-SLUG/GUIDE-SLUG.md and fill it in by
-       opening each source. Mark anything that is our own advice as such.
-    2. Copy this directory to APP-SLUG/guides/GUIDE-SLUG/ and write the page from that file.
-       If a sentence states a fact, it needs an entry there; if it does not have one, cut it
-       or go and find the source.
+    1. Record the facts first, in the content repository (it is private, and its README
+       says how): each fact with its source and the source's own words, and anything that
+       is our own advice marked as such.
+    2. Copy this directory to APP-SLUG/guides/GUIDE-SLUG/ and write the page from that
+       record. If a sentence states a fact, it needs an entry there; if it does not have
+       one, cut it or go and find the source.
     3. Replace every placeholder. They are the words in capitals (APP-SLUG, APP NAME,
        GUIDE-SLUG, GUIDE TITLE, ONE-LINE SUMMARY, A-SCREENSHOT, ONE WORD, PUBLISHER,
-       MONTH YEAR, DISCLAIMER FOR THIS APP) and the example.gov.uk links. Search the
-       finished page for each before it is reviewed.
+       DAY MONTH YEAR, YYYY-MM-DD, DISCLAIMER FOR THIS APP) and the example.gov.uk links.
+       Search the finished page for each before it is reviewed. The two dates in the
+       structured data block and the two in the Sources panel are the same pair.
     4. Add the guide to APP-SLUG/guides/index.html (newest first) and to sitemap.xml. If
        the app has no guides list yet, copy roadworthy/guides/index.html, change the app's
        name, icon, footer and disclaimer, and add that list to sitemap.xml too.
     5. Delete the noindex line in the head (it is there only to keep this skeleton out of
        search), and delete this comment.
-    6. Have it reviewed before it is committed: every fact against its source, every link,
-       and the page at phone and desktop width.
+    6. Run the content repository's checker until it passes, then have the page reviewed
+       before it is committed: every fact against its source, every link, and the page at
+       phone and desktop width.
 
   House rules: British English. No em dashes. Say who the reader is in the first sentence and
   what to do before what the law says. Do not quote a price unless it was checked that week.
@@ -46,8 +49,33 @@
 <link rel="apple-touch-icon" href="/brand/favicon-180.png">
 <link rel="preload" href="/brand/fonts/overpass-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/app.css">
-<!-- Every fact here traces to data/sources/APP-SLUG/GUIDE-SLUG.md. Re-check there before
-     changing one. -->
+<!-- Structured data. It must say nothing the page does not show: the headline is the h1, the
+     dates are the ones in the Sources panel. Change dateModified whenever the page changes. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "GUIDE TITLE",
+  "description": "ONE-LINE SUMMARY",
+  "inLanguage": "en-GB",
+  "mainEntityOfPage": "https://happypathapps.co.uk/APP-SLUG/guides/GUIDE-SLUG/",
+  "image": "https://happypathapps.co.uk/APP-SLUG/shots/A-SCREENSHOT.jpg",
+  "datePublished": "YYYY-MM-DD",
+  "dateModified": "YYYY-MM-DD",
+  "author": {
+    "@type": "Organization",
+    "name": "Happy Path Apps",
+    "url": "https://happypathapps.co.uk/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Happy Path Apps",
+    "url": "https://happypathapps.co.uk/"
+  }
+}
+</script>
+<!-- Every fact on this page is recorded with its source before it is published, and a checker
+     compares the two. Do not change a fact here without changing its record. -->
 </head>
 <body>
 
@@ -118,7 +146,8 @@
       <li id="s1">PUBLISHER, <a href="https://example.gov.uk/">Title of the page</a></li>
       <li id="s2">PUBLISHER, <a href="https://example.gov.uk/">Title of the page</a></li>
     </ol>
-    <p>Checked MONTH YEAR. General information, not legal advice.</p>
+    <p>First published DAY MONTH YEAR. Last updated DAY MONTH YEAR. General information, not
+    legal advice.</p>
   </section>
 
 </main>
