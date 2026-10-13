@@ -1,6 +1,6 @@
 # Buying a used car: verified facts and sources
 
-Reference for `roadworthy/buying-a-used-car.html`. Every factual claim on that page must trace
+Reference for `roadworthy/guides/buying-a-used-car/index.html`. Every factual claim on that page must trace
 to an entry here. Change the page freely; change a fact only after re-reading its source, and
 update the date checked.
 

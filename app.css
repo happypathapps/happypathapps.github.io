@@ -2,7 +2,7 @@
  * The app pages, in the studio's brand (brand/README.md), matching the home page: a dark top in
  * ink, light rows for what the app does, each with a screenshot in a phone, and a dark foot.
  * Overpass is served from this site (brand/fonts, SIL Open Font License).
- * The chips, .btn.soon and the panel's list are not used yet; Pump Prices' page will need them.
+ * The chips and .btn.soon are not used yet; Pump Prices' page will need them.
  */
 @font-face {
   font-family: "Overpass";
@@ -106,6 +106,7 @@ img { max-width: 100%; height: auto; }
 .row p, .panel p, .panel li { color: var(--body); font-size: 17px; max-width: 52ch; }
 .row p { margin: 0 0 12px; }
 .row p a { color: var(--green-text); font-weight: 700; }
+.row h2 a { color: var(--green-text); text-decoration-thickness: 2px; text-underline-offset: 4px; }
 
 /* ---- a row with no screenshot, and its parts (the buying guide) ---- */
 .row.solo { grid-template-columns: minmax(0, 1fr); }
@@ -119,6 +120,7 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
 
 /* ---- privacy, and anything else said once ---- */
 .panel { background: var(--panel); border-radius: 22px; padding: clamp(24px, 4vw, 40px); margin-block: 8px 56px; }
+.wrap > .panel:first-child { margin-top: 40px; }
 .panel h2 { margin: 0 0 10px; font-size: 24px; font-weight: 800; }
 .panel ul { margin: 0 0 14px; padding-left: 20px; }
 .panel li { margin-bottom: 6px; }

@@ -1,0 +1,140 @@
+<!doctype html>
+<!--
+  SKELETON FOR A NEW GUIDE.
+
+  A guide answers one question a reader actually has, in plain words, and every fact in it
+  traces to a source. Write the sources first, then the page:
+
+    1. Copy _template/guide-sources.md to data/sources/APP-SLUG/GUIDE-SLUG.md and fill it in by
+       opening each source. Mark anything that is our own advice as such.
+    2. Copy this directory to APP-SLUG/guides/GUIDE-SLUG/ and write the page from that file.
+       If a sentence states a fact, it needs an entry there; if it does not have one, cut it
+       or go and find the source.
+    3. Replace every placeholder. They are the words in capitals (APP-SLUG, APP NAME,
+       GUIDE-SLUG, GUIDE TITLE, ONE-LINE SUMMARY, A-SCREENSHOT, ONE WORD, PUBLISHER,
+       MONTH YEAR, DISCLAIMER FOR THIS APP) and the example.gov.uk links. Search the
+       finished page for each before it is reviewed.
+    4. Add the guide to APP-SLUG/guides/index.html (newest first) and to sitemap.xml. If
+       the app has no guides list yet, copy roadworthy/guides/index.html, change the app's
+       name, icon, footer and disclaimer, and add that list to sitemap.xml too.
+    5. Delete the noindex line in the head (it is there only to keep this skeleton out of
+       search), and delete this comment.
+    6. Have it reviewed before it is committed: every fact against its source, every link,
+       and the page at phone and desktop width.
+
+  House rules: British English. No em dashes. Say who the reader is in the first sentence and
+  what to do before what the law says. Do not quote a price unless it was checked that week.
+  Every path starts from the root (/app.css), so the page keeps working if it moves; that also
+  means it needs a local server to preview, not a double-click.
+
+  Partner links, if a guide ever carries one: only in a panel that says what the service adds,
+  with a line saying we may earn a commission, and a matching section in the app's privacy
+  policy added at the same time.
+-->
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GUIDE TITLE | APP NAME</title>
+<meta name="description" content="ONE-LINE SUMMARY, written for someone searching, in under 160 characters.">
+<link rel="canonical" href="https://happypathapps.co.uk/APP-SLUG/guides/GUIDE-SLUG/">
+<meta name="robots" content="noindex"><!-- skeleton only: delete this line in a real guide -->
+<meta property="og:title" content="GUIDE TITLE">
+<meta property="og:description" content="ONE-LINE SUMMARY">
+<meta property="og:image" content="https://happypathapps.co.uk/APP-SLUG/shots/A-SCREENSHOT.jpg">
+<link rel="icon" href="/brand/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/brand/favicon-180.png">
+<link rel="preload" href="/brand/fonts/overpass-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/app.css">
+<!-- Every fact here traces to data/sources/APP-SLUG/GUIDE-SLUG.md. Re-check there before
+     changing one. -->
+</head>
+<body>
+
+<nav class="studio">
+  <div class="wrap">
+    <a href="/">
+      <svg viewBox="-50 -50 100 100" aria-hidden="true">
+        <path d="M-36 -21 C-26 21 26 21 36 -21" stroke="#4ADE80" stroke-width="22" fill="none"/>
+        <path d="M-36 -21 C-26 21 26 21 36 -21" stroke="#F7F6F2" stroke-width="3.2" fill="none" stroke-dasharray="7 6" stroke-dashoffset="3.735"/>
+      </svg>
+      Happy Path Apps
+    </a>
+  </div>
+</nav>
+
+<header class="top">
+  <div class="wrap">
+    <div class="text">
+      <img class="icon" src="/APP-SLUG/icon.png" width="72" height="72" alt="">
+      <h1>GUIDE TITLE</h1>
+      <p class="lede">Who this is for and what they will know by the end, in one or two
+      sentences.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- A row for each point. Lead with what the reader should know or do; put the detail and
+       the law after it. A footnote marker points at the numbered source below. -->
+  <section class="row solo">
+    <div class="text">
+      <p class="label">ONE WORD</p>
+      <h2>The point, as a plain heading</h2>
+      <p>What it means for the reader.<sup><a href="#s1">1</a></sup></p>
+      <ul class="facts">
+        <li><strong>A term.</strong> What it means, in a line.<sup><a href="#s2">2</a></sup></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- A row with a screenshot, where the app shows the thing being described. Use "row flip"
+       to put the picture on the left. Two markers side by side are written "1, 2" inside one
+       sup, or they read as footnote 12. -->
+  <section class="row flip">
+    <div class="text">
+      <p class="label">ONE WORD</p>
+      <h2>Another point</h2>
+      <p>Text.<sup><a href="#s1">1</a>, <a href="#s2">2</a></sup></p>
+    </div>
+    <div class="phone"><img src="/APP-SLUG/shots/A-SCREENSHOT.jpg" width="420" height="747" alt="What the screenshot shows" loading="lazy"></div>
+  </section>
+
+  <!-- A checklist, if the guide has things to do. The small labels group the steps. -->
+  <section class="panel">
+    <h2>What to do</h2>
+    <p class="label">First</p>
+    <ul>
+      <li>A step.<sup><a href="#s1">1</a></sup></li>
+    </ul>
+  </section>
+
+  <!-- Every source the page cites, numbered to match the markers. Name the publisher, then
+       link the page's own title. -->
+  <section class="panel sources">
+    <h2>Sources</h2>
+    <ol>
+      <li id="s1">PUBLISHER, <a href="https://example.gov.uk/">Title of the page</a></li>
+      <li id="s2">PUBLISHER, <a href="https://example.gov.uk/">Title of the page</a></li>
+    </ol>
+    <p>Checked MONTH YEAR. General information, not legal advice.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="/APP-SLUG/">APP NAME</a>
+      <a href="/APP-SLUG/guides/">Guides</a>
+      <a href="/APP-SLUG/privacy.html">Privacy policy</a>
+      <a href="mailto:happypathapps@gmail.com">happypathapps@gmail.com</a>
+    </div>
+    <!-- The app's own disclaimer goes here: copy it from that app's page, not another app's. -->
+    <p>DISCLAIMER FOR THIS APP.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -28,28 +28,72 @@ CNAME                The custom domain, happypathapps.co.uk. GitHub wrote it; le
 robots.txt           Points search engines at the sitemap. Blocks nothing.
 sitemap.xml          The pages meant to be found by search. Add each new content page here;
                      the privacy policies are left out on purpose.
-app.css              The app pages, in the studio brand like the hub.
+404.html             What GitHub Pages serves for an address that does not exist.
+app.css              The app pages and guides, in the studio brand like the hub.
 style.css            The older look, still used by the privacy pages.
 index.html           Hub, in the studio brand (brand/README.md). Its styles are inline.
-_template/           Skeleton for the next app's privacy policy. Start here, not from
-                     Roadworthy's — see below.
 brand/fonts/         Overpass, self-hosted so a visit tells Google nothing (OFL.txt).
+_template/
+  privacy.html       Skeleton for the next app's privacy policy. Start here, not from
+                     Roadworthy's — see below.
+  guide/index.html   Skeleton for a guide, with the steps for writing one at its top.
+  guide-sources.md   Skeleton for the facts and sources behind a guide. Filled in first.
 roadworthy/
   index.html         App page (app.css)
-  buying-a-used-car.html   Buyer's guide (app.css), written for a Roadworthy user part-way
-                           through buying a car. Every fact traces to data/sources/. Partner
-                           links go in its "Is a paid check worth it?" panel, each with a
-                           line saying we may earn a commission, and a matching section in
-                           privacy.html added at the same time.
-  shots/             Its store screenshots, 420 wide
-  icon.png, screenshot.jpg   Shown on the hub
   privacy.html       THE privacy policy URL. Do not move it.
+  guides/
+    index.html       The list of Roadworthy's guides. A row for each, newest first.
+    buying-a-used-car/
+      index.html     Buyer's guide, written for a Roadworthy user part-way through buying a
+                     car. Partner links go in its "Is a paid check worth it?" panel, each
+                     with a line saying we may earn a commission, and a matching section in
+                     privacy.html added at the same time.
+  buying-a-used-car.html   Where that guide used to be. Now only redirects to it.
+  shots/             Roadworthy's store screenshots, 420 wide
+  icon.png, screenshot.jpg   Shown on the hub
 pump-prices/
   icon.png, screenshot.jpg   Shown on the hub
   privacy.html       Pump Prices' privacy policy URL. Do not move it. (No app page yet.)
-data/sources/        Verified facts behind the content pages: each with its source, the
-                     wording checked, and the date. Change a fact here first, then the page.
+data/sources/
+  roadworthy/        One file per guide: each fact with its source, the wording checked and
+                     the date. Change a fact here first, then the page.
 ```
+
+## How the site is put together
+
+Plain files, no build step and no framework. That is a choice, not a stopgap: there is nothing
+to install, nothing to go out of date, and what is committed is exactly what is served. The
+price is that shared parts (the studio bar, the footer) are repeated in each page, so a change
+to one of them is made in every page, and the templates in `_template/` are where a new page
+gets them from.
+
+**Each app has its own directory**, holding its app page, its privacy policy, its screenshots
+and its guides. Nothing belonging to one app lives in another's directory.
+
+**A guide is a directory with an `index.html`**, so its address has no file name in it:
+`/roadworthy/guides/buying-a-used-car/`. Guides are listed in that app's `guides/index.html`.
+
+**Pages below an app's top level use paths from the root** (`/app.css`, `/roadworthy/icon.png`),
+so a page keeps working if it moves and `404.html` works at any depth. The older pages (the hub,
+the app page, the privacy policies) use relative paths and have been left as they are. Root
+paths need a server to preview: `python -m http.server` in this directory, then open
+`http://localhost:8000/`. Opening a guide's file directly from disk shows it unstyled.
+
+**Stylesheets, fonts and images have not been gathered into an `assets/` directory.** Doing so
+would touch every page, the Pump Prices policy generator and preview images already shared,
+for no visible gain. Left alone on purpose, 13 October 2026.
+
+**GitHub Pages cannot redirect on the server.** When a page moves, its old address keeps a
+small page that sends the reader on (`roadworthy/buying-a-used-car.html` is the example) for as
+long as anything links to it.
+
+## Writing a guide
+
+The steps are at the top of `_template/guide/index.html`. In short: fill in the sources file
+first (`_template/guide-sources.md`, copied to `data/sources/APP-SLUG/GUIDE-SLUG.md`) by opening each
+source; write the page from it; add the guide to the app's guides list and to `sitemap.xml`;
+have every fact, link and layout reviewed before it is committed. A sentence that states a
+fact and has no entry in the sources file is cut or sourced, never left.
 
 ## One repo, but one policy per app
 
@@ -70,7 +114,7 @@ The failure mode is drift: ship a third app, widen the shared policy to cover it
 tracking, and Roadworthy's published policy now describes collection Roadworthy does not do. Every
 app's policy becomes wrong whenever any one app changes.
 
-So copy `_template/`, never another app's page. The template marks which sections are shared
+So copy `_template/privacy.html`, never another app's page. The template marks which sections are shared
 boilerplate about the business and which are per-app facts that have to be written by reading that
 app's code.
 
