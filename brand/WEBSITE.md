@@ -81,6 +81,7 @@ page's section of `app.css`.
 | Body text, and the items of a tick or flag list | 17px, line height 1.6 | 400 |
 | Text in the cards list, a table, the detail grid, the app's card, and under a title in the list of guides | 16px | 400 |
 | Label above a heading | 13px, capitals, spaced 0.08em | 800 |
+| Column name above an answer, in a stacked table on a phone | 12px, capitals, spaced 0.08em, green-text | 800 |
 | Small print, sources | 14 to 15px | 400 |
 | The studio bar's name | 17px | 800 |
 
@@ -101,7 +102,9 @@ page's section of `app.css`.
     button. In a row it has a grey ground of its own; in a panel (after a checklist) the panel's
     grey is its ground, and its button keeps ink text;
   - a numbered checklist, with an aside for a line that is not a step;
-  - a table;
+  - a table. One of three or more columns is marked "stack": on a phone each row becomes a
+    block, the row's heading first and each answer under its column's name (the owner's
+    decision of 14 October 2026, after the write-off guide's tables ran off a phone's screen);
   - one dark panel for the one thing to take away;
   - a grey panel of prose (the skeleton names it in a comment), and a "detail" grid;
   - the sources, with no ground and a rule above;

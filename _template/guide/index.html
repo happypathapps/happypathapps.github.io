@@ -178,7 +178,11 @@
        cell carries the row's one footnote (the write-off guide's grid does this). A heading
        cell that covers several rows is written once, with rowspan: count the rows, because
        a wrong rowspan moves a cell under the wrong heading and no checker reads that.
-       Three columns at most: at 390 wide a fourth pushes the table off a phone's screen.
+       A table of three or more columns does not fit a phone: give it the class "stack"
+       (class="where stack") and give each <td> a data-label holding its column's heading.
+       Below 640 wide each row then becomes a block, its heading first and each answer under
+       its column's name. A stacked table has no rowspan: repeat the cell in each row (row_of
+       binds each copy to its row), or the rows below the first would lose it.
        Add the class "ticks" (class="where ticks") to draw a tick in every cell, and only
        when every cell is something its row does give. Give the h2 an id and name it in the
        table's aria-labelledby. If the panel also has text, before or after the table, give

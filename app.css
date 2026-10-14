@@ -423,4 +423,13 @@ footer p { margin: 0; }
   .where th, .where td { padding: 11px 12px 9px; }
   .where.ticks td { padding-left: 44px; }
   .where.ticks td::before { left: 10px; top: 11px; }
+  /* a table marked "stack" turns each row into a block on a phone: the row's heading, then each
+     answer under its column's name (the cell's data-label). Its column headings stay for screen
+     readers only. A table can then have as many columns as it needs without running off a phone. */
+  .where.stack { display: block; }
+  .where.stack thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .where.stack tbody, .where.stack tr, .where.stack th, .where.stack td { display: block; width: auto; }
+  .where.stack tbody th { border-right: 0; padding-bottom: 2px; }
+  .where.stack td { border-top: 0; padding-top: 6px; }
+  .where.stack td::before { content: attr(data-label); display: block; margin-bottom: 2px; color: var(--green-text); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 }
