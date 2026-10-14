@@ -60,16 +60,24 @@
 <p class="basis">Lawful basis: …</p>
 
 <!-- [PER APP] Only if the app shows ads. The separation claim below is Roadworthy-specific and
-     enforced by a test in that codebase - do not repeat it unless it is true here too. -->
+     enforced by a test in that codebase - do not repeat it unless it is true here too.
+     Say what THIS app does when someone refuses consent, from its code. With Google's consent
+     form and AdMob, a refusal usually still shows ads, not personalised ("limited ads"); an app
+     shows none only if its own code stops them. Roadworthy's policy once said a refusal meant
+     no ads, which was false, so do not assume it. List what Google says its software receives
+     (https://developers.google.com/admob/android/privacy/play-data-disclosure), and keep the
+     Data safety form in step with it. -->
 <h2>Advertising</h2>
 <p>The app shows advertising supplied by Google AdMob.</p>
 <p><strong>Advertising is a separate purpose, and asks separately for your consent.</strong> In
 the UK and EEA you are shown a consent form before any advertising identifier is collected. If you
-refuse, the app works normally without ads.</p>
-<p>Google may collect a device advertising identifier and related data to serve and measure ads.
-See <a href="https://policies.google.com/technologies/partner-sites">Google's own privacy
-policy</a> for what they do with it.</p>
-<p class="basis">Lawful basis: consent</p>
+do not consent, you still see ads, but they are not personalised.</p>
+<p>Whenever the advertising software is running, Google receives information from the app, which
+it says it uses for advertising, analytics and fraud prevention: see
+<a href="https://developers.google.com/admob/android/privacy/play-data-disclosure">Google's
+description</a>, and <a href="https://policies.google.com/technologies/partner-sites">Google's
+privacy policy</a> for what it does with it.</p>
+<p class="basis">Lawful basis: consent for personalised ads; legitimate interests for non-personalised ads and fraud detection (check against what the app does)</p>
 
 <!-- [SHARED] -->
 <h2>Your rights</h2>
