@@ -34,9 +34,8 @@
   Every path starts from the root (/app.css), so the page keeps working if it moves; that also
   means it needs a local server to preview, not a double-click.
 
-  Partner links, if a guide ever carries one: only in a panel that says what the service adds,
-  with a line saying we may earn a commission, and a matching section in the app's privacy
-  policy added at the same time.
+  Partner links: only in the partner block below, beside the free way to do the same thing,
+  and only once the app's privacy policy has its "Partner links" section.
 -->
 <html lang="en-GB">
 <head>
@@ -207,6 +206,21 @@
   <section class="panel callout">
     <h2>The question the reader is asking</h2>
     <p>The answer.</p>
+  </section>
+
+  <!-- A paid (partner) link: at the end of a grey panel that already gives the free way to do
+       the same thing. The label and the line come BEFORE the link, word for word: the ASA's
+       guidance on affiliate links wants "Ad" before the content, and its MailOnline ruling found
+       "may earn" ambiguous.
+       The button is outlined ("btn partner"), never green, so an advert does not look like the
+       site's own button. rel="sponsored" tells search engines it is paid. The button says only
+       what the link opens; any claim about the partner needs a fact like any other sentence. -->
+  <section class="panel prose">
+    <h2>How do I do the thing?</h2>
+    <p>The free way to do it.<sup><a href="#s1">1</a></sup></p>
+    <p class="label">Partner · Ad</p>
+    <p>We're paid a commission if you book.</p>
+    <p><a class="btn partner" href="https://example.com/" rel="sponsored noopener">Book with PARTNER</a></p>
   </section>
 
   <!-- The detail and the law, a term to each entry. -->

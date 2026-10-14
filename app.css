@@ -79,6 +79,10 @@ img { max-width: 100%; height: auto; }
 }
 .btn:hover { background: #6EE7A0; }
 .btn.soon { background: var(--chip-soon-bg); color: var(--chip-soon); }
+/* A partner's (paid) link: outlined, so an advert never looks like the site's own green button.
+   Its size matches the app card's button. Signed off with the "Before your MOT" guide, 14 Oct 2026. */
+.panel .btn.partner, .btn.partner { background: transparent; color: var(--ink); border: 2px solid var(--ink); padding: 10px 16px 8px; font-size: 15px; font-weight: 800; }
+.panel .btn.partner:hover, .btn.partner:hover { background: var(--card); }
 
 .phone {
   border: 9px solid var(--ink);

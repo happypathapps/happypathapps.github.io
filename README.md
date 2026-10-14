@@ -46,9 +46,9 @@ roadworthy/
     index.html       The list of Roadworthy's guides. A row for each, newest first.
     buying-a-used-car/
       index.html     Buyer's guide, for someone about to buy a used car, whether they come
-                     from the app or from a search. Partner links go in its "Is a paid check worth it?" panel, each
-                     with a line saying we may earn a commission, and a matching section in
-                     privacy.html added at the same time.
+                     from the app or from a search. Partner links go in its "Is a paid check worth it?" panel, as
+                     the partner block in brand/WEBSITE.md, once privacy.html has its
+                     "Partner links" section.
     checking-a-log-book/
       index.html     How to check a log book (V5C): what to look for on it and on the car.
     failed-mot/
@@ -56,6 +56,9 @@ roadworthy/
     write-off-categories/
       index.html     What Cat S and Cat N mean, how to tell a car's category, and what a past
                      write-off does to its value.
+    before-your-mot/
+      index.html     Why cars fail their MOT and the checks an owner can do first; when and how
+                     to book. Carries the site's first partner link (Fixter, in its booking panel).
   buying-a-used-car.html   Where the buyer's guide used to be. Now only redirects to it.
   shots/             Roadworthy's store screenshots, 420 wide
   icon.png, screenshot.jpg   Shown on the hub

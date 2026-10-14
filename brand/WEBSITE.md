@@ -14,7 +14,7 @@ kind of page follows are on the studio's design canvas.
 |---|---|---|---|---|
 | The home page | `app.css`, `<body class="home">` | 1040px | none | `/` |
 | An app's page | `app.css` | 1040px, a phone screenshot beside the words | none yet | `/roadworthy/` |
-| A guide | `app.css`, `<body class="guide">` | 1040px, the words fill it | `_template/guide/` | four, under `/roadworthy/guides/` |
+| A guide | `app.css`, `<body class="guide">` | 1040px, the words fill it | `_template/guide/` | five, under `/roadworthy/guides/` |
 | An app's list of guides | `app.css`, `<body class="guide guide-list">` | 1040px, two cards across | none yet | `/roadworthy/guides/` |
 | A privacy policy | `style.css` | 1040px, the words fill it | `_template/privacy.html` | Roadworthy's, Pump Prices' |
 | Not found; a page that only sends the reader on | `app.css` | 1040px | none | `/404.html`, `/roadworthy/buying-a-used-car.html` |
@@ -106,6 +106,12 @@ page's section of `app.css`.
     block, the row's heading first and each answer under its column's name (the owner's
     decision of 14 October 2026, after the write-off guide's tables ran off a phone's screen);
   - one dark panel for the one thing to take away;
+  - a partner block, for a paid link, at the end of a grey panel: the label "Partner · Ad",
+    then "We're paid a commission if you book." (never "may earn"), then the link as an
+    outlined button (`btn partner`), never the green one, so an advert does not look like the
+    site's own button. It sits beside the free way to do the same thing. The owner's decisions
+    of 14 October 2026, following the ASA's guidance on affiliate links; the app's privacy
+    policy must have its "Partner links" section before a page with one is published;
   - a grey panel of prose (the skeleton names it in a comment), and a "detail" grid;
   - the sources, with no ground and a rule above;
   - inside text: a link, a footnote number that leads to its source, a boxed reference such
