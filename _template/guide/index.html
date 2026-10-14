@@ -128,7 +128,9 @@
         <li><strong>A term.</strong> What it means, in a line.<sup><a href="#s2">2</a></sup></li>
       </ul>
       <!-- The app's own button, once, where the guide first describes something the app does.
-           Keep this order (sentence, button, small print): the stylesheet arranges them. -->
+           Keep this order (sentence, button, small print): the stylesheet arranges them. It may
+           also sit in a panel, after a checklist (the write-off guide's): there its grey ground is
+           the panel's, and the stylesheet keeps the button's text ink, not the panel's green. -->
       <div class="app-card">
         <img class="icon" src="/APP-SLUG/icon.png" width="48" height="48" alt="">
         <p>What APP NAME does about this, in a sentence.</p>
@@ -170,9 +172,13 @@
   </section>
 
   <!-- A table, where the guide sorts things into groups. Every cell is a statement like any
-       other sentence: it needs its fact, and its footnote if the fact is sourced. A heading
+       other sentence: it needs its fact, and its footnote if the fact is sourced. A short cell
+       that stands in several rows ("20%", "2025, Cat S") is bound to its row instead: its fact
+       claims it with row_of, naming the fact's sentence in the same row, and that sentence's
+       cell carries the row's one footnote (the write-off guide's grid does this). A heading
        cell that covers several rows is written once, with rowspan: count the rows, because
        a wrong rowspan moves a cell under the wrong heading and no checker reads that.
+       Three columns at most: at 390 wide a fourth pushes the table off a phone's screen.
        Add the class "ticks" (class="where ticks") to draw a tick in every cell, and only
        when every cell is something its row does give. Give the h2 an id and name it in the
        table's aria-labelledby. If the panel also has text, before or after the table, give

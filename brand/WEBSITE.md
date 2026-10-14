@@ -14,7 +14,7 @@ kind of page follows are on the studio's design canvas.
 |---|---|---|---|---|
 | The home page | `app.css`, `<body class="home">` | 1040px | none | `/` |
 | An app's page | `app.css` | 1040px, a phone screenshot beside the words | none yet | `/roadworthy/` |
-| A guide | `app.css`, `<body class="guide">` | 1040px, the words fill it | `_template/guide/` | three, under `/roadworthy/guides/` |
+| A guide | `app.css`, `<body class="guide">` | 1040px, the words fill it | `_template/guide/` | four, under `/roadworthy/guides/` |
 | An app's list of guides | `app.css`, `<body class="guide guide-list">` | 1040px, two cards across | none yet | `/roadworthy/guides/` |
 | A privacy policy | `style.css` | 1040px, the words fill it | `_template/privacy.html` | Roadworthy's, Pump Prices' |
 | Not found; a page that only sends the reader on | `app.css` | 1040px | none | `/404.html`, `/roadworthy/buying-a-used-car.html` |
@@ -98,7 +98,8 @@ page's section of `app.css`.
   - a list of ticks, of flags, or of cards: each list is one white card with a thin rule round
     it and a line between its items;
   - the app's card, once: a grey ground, the app's icon, one sentence, the small print, the
-    button;
+    button. In a row it has a grey ground of its own; in a panel (after a checklist) the panel's
+    grey is its ground, and its button keeps ink text;
   - a numbered checklist, with an aside for a line that is not a step;
   - a table;
   - one dark panel for the one thing to take away;

@@ -53,6 +53,9 @@ roadworthy/
       index.html     How to check a log book (V5C): what to look for on it and on the car.
     failed-mot/
       index.html     What a failed MOT means: driving the car, retests and appeals.
+    write-off-categories/
+      index.html     What Cat S and Cat N mean, how to tell a car's category, and what a past
+                     write-off does to its value.
   buying-a-used-car.html   Where the buyer's guide used to be. Now only redirects to it.
   shots/             Roadworthy's store screenshots, 420 wide
   icon.png, screenshot.jpg   Shown on the hub

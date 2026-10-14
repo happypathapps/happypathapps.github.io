@@ -353,6 +353,8 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
 .guide .app-card { grid-template-columns: 48px minmax(0, 1fr); row-gap: 2px; }
 .guide .app-card .actions { grid-column: 2; grid-row: 3; margin-top: 12px; }
 .guide .app-card .btn { padding: 12px 18px 10px; font-size: 15px; }
+/* in a panel, the card's button keeps its own ink text: ".panel a" would make it green on green */
+.panel .app-card .btn { color: var(--ink); font-weight: 800; }
 
 /* ---- the list of an app's guides: a card for each, the whole card a link ----
    <body class="guide guide-list">: two cards across the frame, one at 860px and below. */
