@@ -17,6 +17,7 @@ kind of page follows are on the studio's design canvas.
 | A guide | `app.css`, `<body class="guide">` | 1040px, the words fill it | `_template/guide/` | five, under `/roadworthy/guides/` |
 | An app's list of guides | `app.css`, `<body class="guide guide-list">` | 1040px, two cards across | none yet | `/roadworthy/guides/` |
 | A privacy policy | `style.css` | 1040px, the words fill it | `_template/privacy.html` | Roadworthy's, Pump Prices' |
+| The list of partner links | `style.css`, a privacy policy's parts | 1040px, the words fill it | none | `/partner-links/` |
 | Not found; a page that only sends the reader on | `app.css` | 1040px | none | `/404.html`, `/roadworthy/buying-a-used-car.html` |
 
 - Pump Prices' privacy policy is made by a tool in that app's own repository. It is never
@@ -110,8 +111,10 @@ page's section of `app.css`.
     then "We're paid a commission if you book." (never "may earn"), then the link as an
     outlined button (`btn partner`), never the green one, so an advert does not look like the
     site's own button. It sits beside the free way to do the same thing. The owner's decisions
-    of 14 October 2026, following the ASA's guidance on affiliate links; the app's privacy
-    policy must have its "Partner links" section before a page with one is published;
+    of 14 October 2026, following the ASA's guidance on affiliate links. Under the line, "How
+    partner links work" links /partner-links/, and the link is listed there in the same change
+    (the owner's decision of 14 October 2026). A partner link inside an app also needs a
+    "Partner links" section in that app's privacy policy;
   - a grey panel of prose (the skeleton names it in a comment), and a "detail" grid;
   - the sources, with no ground and a rule above;
   - inside text: a link, a footnote number that leads to its source, a boxed reference such

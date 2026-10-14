@@ -33,6 +33,10 @@ CLAUDE.md            For an assistant working here: a pointer to the rules, whic
 app.css              The home page, the app pages and guides, in the studio brand.
 style.css            The privacy pages' stylesheet, in the brand. It styles their plain markup.
 index.html           Hub, in the studio brand (brand/README.md). Its styles are in app.css, under .home.
+partner-links/
+  index.html         Every paid (partner) link on the site and in the apps: where it is, its
+                     network, and what the partner and network collect (style.css). A partner
+                     link is added here, and removed here, in the same change as the link.
 brand/fonts/         Overpass, self-hosted so a visit tells Google nothing (OFL.txt).
 brand/WEBSITE.md     The rules a page is held to, by kind of page: widths, type, parts, words.
 _template/
@@ -47,8 +51,8 @@ roadworthy/
     buying-a-used-car/
       index.html     Buyer's guide, for someone about to buy a used car, whether they come
                      from the app or from a search. Partner links go in its "Is a paid check worth it?" panel, as
-                     the partner block in brand/WEBSITE.md, once privacy.html has its
-                     "Partner links" section.
+                     the partner block in brand/WEBSITE.md, each listed on /partner-links/ in
+                     the same change.
     checking-a-log-book/
       index.html     How to check a log book (V5C): what to look for on it and on the car.
     failed-mot/
