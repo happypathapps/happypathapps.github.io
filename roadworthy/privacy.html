@@ -96,6 +96,28 @@ arrive.</p>
 <p>You can clear it at any time in the app, and uninstalling removes it. Nothing in it is sent to
 us.</p>
 
+<h2>Notifications, and starting when your phone does</h2>
+<p>The app can remind you before the MOT and tax on your own vehicles run out. It holds two
+permissions for that.</p>
+<ul>
+  <li><strong>Show notifications.</strong> Asked for only when you turn reminders on for a car you
+    have said is yours, or tap a reminders switch while notifications are off, never when the app
+    opens. Refusing it changes nothing else in the app, and a car's reminders are only turned on
+    once notifications are allowed.</li>
+  <li><strong>Run at startup.</strong> This lets the once-a-day reminder check carry on after your
+    phone restarts. That check reads only the dates already saved on your phone; it contacts no
+    server and sends nothing anywhere. Android grants this permission to the whole app, not to one
+    feature, so a task the advertising library has left waiting may also carry on after a restart.
+    What that library sends is set out under Advertising.</li>
+</ul>
+<p>You can turn reminders off for one car on its own screen, or for every car in Settings.</p>
+<p>Reminders are worked out on your phone, only for vehicles you have saved and said are yours,
+and only where you asked for them. To avoid sending the same reminder twice, the app records on
+your phone which ones it has sent: the registration, which reminder, and the expiry date it was
+about. That record is deleted from the phone as soon as you remove the vehicle. So that Undo can
+put it back, the app keeps a copy in memory only, never written, until another vehicle is removed
+or the app closes. Nothing in it is sent to us.</p>
+
 <h2>Location</h2>
 <p>Your device's location is <strong>optional</strong>. If you allow it, your device's position is converted to a
 street and town so a report can be completed; you can also type the address yourself and refuse
@@ -174,7 +196,7 @@ targeting. This is enforced
 in the code, not merely as a policy: the advertising component cannot access vehicle data, and an
 automated test fails the build if that separation is broken.</p>
 <p>You can change or withdraw your choice at any time through <strong>Advertising privacy
-options</strong> in the app's About screen.</p>
+options</strong> in the app's Settings, which opens from the &#8942; menu.</p>
 <p><strong>Lawful basis:</strong> consent for personalised ads and for anything stored on or read
 from your device to choose them; legitimate interests for showing non-personalised ads to pay for
 a free app, and for detecting fraud and invalid traffic.</p>
