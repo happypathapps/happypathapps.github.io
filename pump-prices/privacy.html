@@ -69,7 +69,7 @@
   <li>The app asks Android for your <strong>approximate location only</strong>. It never asks for your precise location, and Android blurs the position before the app receives it.</li>
   <li>It asks <strong>only while the app is open</strong>, never in the background.</li>
   <li>You are asked for permission only when you press something for it: "Use my location", "Allow location", or the Map's centre button.</li>
-  <li>If "Use my location" was the last thing you chose, the app asks the phone again where it is each time you open the app, and when you come back to it after five minutes or more, so the prices are for where you are now. Choosing a place in Search stops this.</li>
+  <li>If "Use my location" was the last thing you chose, the app asks the phone again where it is each time you open the app, and when you come back to it after five minutes or more, so the prices are for where you are now. Choosing a place in Search, or pressing the Map's "Search here", stops this.</li>
   <li>If the phone cannot say where it is within a few seconds, the app uses the position Android itself last had, as long as that is less than 30 minutes old. It is approximate in the same way, and the app still stores nothing of where you are.</li>
 </ul>
 
@@ -93,7 +93,7 @@
 
 <h2>Your recent places</h2>
 
-<p>The last <strong>five</strong> places you chose in Search are kept so you can pick them again. Each is its name and its position on the map. They are places you chose to look at, not places your phone has been. They are held <strong>only on your phone</strong>, are never sent to us, and are not backed up.</p>
+<p>The last <strong>five</strong> places you chose in Search, or looked at by moving the map and pressing "Search here", are kept so you can pick them again. Each is its name and its position on the map. They are places you chose to look at, not places your phone has been. They are held <strong>only on your phone</strong>, are never sent to us, and are not backed up.</p>
 
 <p><strong>Clear recent places</strong>, under Privacy on the More screen, removes them. Uninstalling the app removes them too.</p>
 
@@ -110,6 +110,8 @@
 <h2>The map</h2>
 
 <p>The Map screen uses <strong>Google Maps</strong>. To draw a map, Google has to be asked for the map of the area on the screen: the place you are looking around and, if you centre the map on your location, the area around you - exactly as when you move the map there by hand. The app does not send Google your position itself.</p>
+
+<p>If you move the map and press <strong>Search here</strong>, the app looks around the middle of the map from then on, as it does for a place you choose in Search: it asks our server for that map square, as under <strong>Fuel prices</strong>, and names the place from its nearest forecourt, on the phone. Nothing is looked up to name it.</p>
 
 <p>Google's map software also collects some information of its own. Google's published description lists: details of the device (operating system version, model, brand), your internet address, an identifier the map software creates for itself, records of crashes inside the map software, and how the map is moved (<a href="https://developers.google.com/maps/documentation/android-sdk/play-data-disclosure">https://developers.google.com/maps/documentation/android-sdk/play-data-disclosure</a>).</p>
 
