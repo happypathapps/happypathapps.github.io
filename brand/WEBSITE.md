@@ -76,11 +76,10 @@ page's section of `app.css`.
   - the apps': a column for each app, under its name: The app, Guides, Privacy policy. An app
     with no page or no guides yet leaves that link out (Pump Prices has only its policy).
   Below them, under a thin line, the page's own small print: its app's disclaimer, or nothing
-  on a page that belongs to no app. On a phone the studio's column is above the apps', which
+  on a page that belongs to no app. Pump Prices has no app page to copy its disclaimer from, so
+  its policy's small print is written by its tool, from the policy and the app. On a phone the studio's column is above the apps', which
   stay two to a row. A new app adds its column on every page and in both templates.
-  Two exceptions, for now: Pump Prices' policy keeps the old foot (a row of links) until its
-  tool writes this one, so it has no Company details link yet; and the page that only sends
-  the reader on has no foot.
+  One exception: the page that only sends the reader on has no foot.
 - Two breakpoints. At 860px and below the list of guides is one column of cards. At 640px
   and below everything is one column.
 - Type, as the stylesheet sets it:

@@ -53,10 +53,6 @@ blockquote { margin: 0 0 14px; padding: 2px 0 2px 16px; border-left: 3px solid v
 .basis { display: inline-block; margin-bottom: 14px; padding: 4px 12px 2px; border: 1px solid var(--rule-strong); border-radius: 999px; font-size: 14px; }
 footer { margin-top: 56px; padding: 28px 0; color: var(--muted); font-size: 14px; }
 footer a { color: var(--green); font-weight: 400; }
-/* The old foot's links, spread across the frame: only Pump Prices' policy still has them, because
-   its tool writes its foot. Remove these two rules once that tool writes the foot below. */
-footer .links { display: flex; flex-wrap: wrap; gap: 8px 28px; justify-content: space-between; margin-bottom: 14px; }
-footer .links:last-child { margin-bottom: 0; }
 footer p { margin: 0; }
 /* The foot (version A3, signed off 16 Oct 2026): the same on every page. Two columns across the
    frame: the studio's links, then the apps, which hold a column for each app. The page's own small
