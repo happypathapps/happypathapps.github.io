@@ -18,6 +18,7 @@ kind of page follows are on the studio's design canvas.
 | An app's list of guides | `app.css`, `<body class="guide guide-list">` | 1040px, two cards across | none yet | `/roadworthy/guides/` |
 | A privacy policy | `style.css` | 1040px, the words fill it | `_template/privacy.html` | Roadworthy's, Pump Prices' |
 | The list of partner links | `style.css`, a privacy policy's parts | 1040px, the words fill it | none | `/partner-links/` |
+| Company details | `style.css`, a privacy policy's parts | 1040px, the words fill it | none | `/company/` |
 | Not found; a page that only sends the reader on | `app.css` | 1040px | none | `/404.html`, `/roadworthy/buying-a-used-car.html` |
 
 - Pump Prices' privacy policy is made by a tool in that app's own repository. It is never
@@ -50,14 +51,16 @@ kind of page follows are on the studio's design canvas.
 These are the app page, the guides and the list of guides. The home page, the not-found page
 and the page that only sends the reader on use `app.css` too, but are not held to this
 section. The home page shows every app and not one, and the other two have no app to show;
-none has a top or foot of this kind. They do keep "One frame" and the breakpoints. The home
+none has a top of this kind. The home page and the not-found page carry the site's foot (below),
+with no small print; the page that only sends the reader on has no foot. They do keep "One frame" and the breakpoints. The home
 page's own parts (the lockup at its top, an ink button, a light "soon" chip) are in the home
 page's section of `app.css`.
 
 - The studio bar is first: the mark and "Happy Path Apps", linking home.
 - Then the top, in ink: the app's icon, the h1, one opening line. (The app page's top also
   holds its button, a line of small print and a phone screenshot.)
-- The foot is ink: the app's links, and the app's own disclaimer, copied from that app's page.
+- The foot is ink, and its links are the same on every page (below). Under them, a page that
+  belongs to an app carries that app's own disclaimer, copied from that app's page.
 - **One frame.** Every page is one width: 1040px less its gutters (`.wrap` in `app.css`,
   `main` in `style.css`). The bar, the top, the body and
   the foot share the same left and right edges, and those edges are the same on every page,
@@ -65,10 +68,19 @@ page's section of `app.css`.
   sets a width of its own. The owner's choice of 14 October 2026 ("One frame, version 2" on
   the design canvas), after the guides and policies had been built 720px wide beside pages
   1040px wide.
-- The foot's links are the same on every page of an app, in this order: Happy Path Apps, the
-  app, Guides, Privacy policy, the email address. They are spread across the frame. An app
-  with no page of its own yet, or no guides yet, leaves that link out: Pump Prices' policy
-  has three.
+- The foot is the same on every page of the site (version A3, the owner's sign-off of
+  16 October 2026, after a single row of links stretched across the frame was found hard to
+  read and cluttered on a phone). Two columns across the frame:
+  - the studio's: a small heading "Happy Path Apps", then Home, Company details, Partner links
+    and the email address;
+  - the apps': a column for each app, under its name: The app, Guides, Privacy policy. An app
+    with no page or no guides yet leaves that link out (Pump Prices has only its policy).
+  Below them, under a thin line, the page's own small print: its app's disclaimer, or nothing
+  on a page that belongs to no app. On a phone the studio's column is above the apps', which
+  stay two to a row. A new app adds its column on every page and in both templates.
+  Two exceptions, for now: Pump Prices' policy keeps the old foot (a row of links) until its
+  tool writes this one, so it has no Company details link yet; and the page that only sends
+  the reader on has no foot.
 - Two breakpoints. At 860px and below the list of guides is one column of cards. At 640px
   and below everything is one column.
 - Type, as the stylesheet sets it:

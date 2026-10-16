@@ -37,6 +37,11 @@ partner-links/
   index.html         Every paid (partner) link on the site and in the apps: where it is, its
                      network, and what the partner and network collect (style.css). A partner
                      link is added here, and removed here, in the same change as the link.
+company/
+  index.html         The company's name, where it is registered, its number, registered office
+                     and email (style.css), as the law asks a website to give them. Linked from
+                     the foot of every page that has the new foot (all but Pump Prices' policy,
+                     until its tool writes it). The registered office is copied from Companies House.
 brand/fonts/         Overpass, self-hosted so a visit tells Google nothing (OFL.txt).
 brand/WEBSITE.md     The rules a page is held to, by kind of page: widths, type, parts, words.
 _template/
