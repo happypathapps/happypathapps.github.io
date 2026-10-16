@@ -111,10 +111,14 @@ page's section of `app.css`.
     then "We're paid a commission if you book." (never "may earn"), then the link as an
     outlined button (`btn partner`), never the green one, so an advert does not look like the
     site's own button. It sits beside the free way to do the same thing. The owner's decisions
-    of 14 October 2026, following the ASA's guidance on affiliate links. Under the line, "How
-    partner links work" links /partner-links/, and the link is listed there in the same change
-    (the owner's decision of 14 October 2026). A partner link inside an app also needs a
-    "Partner links" section in that app's privacy policy;
+    of 14 October 2026, following the ASA's guidance on affiliate links. After the sentence,
+    "How partner links work" links /partner-links/, and the link is listed there in the same
+    change (the owner's decision of 14 October 2026). A partner link inside an app also needs a
+    "Partner links" section in that app's privacy policy. The block is one white card
+    (`partner-card`) with a thin rule round it: the label and the sentence on the left, the
+    button on the right, and on a phone the button under them at full width. It is the same
+    part for every partner, and only the button's words and link change (the owner's sign-off
+    of version A on 16 October 2026, after the four loose lines it replaces);
   - a grey panel of prose (the skeleton names it in a comment), and a "detail" grid;
   - the sources, with no ground and a rule above;
   - inside text: a link, a footnote number that leads to its source, a boxed reference such

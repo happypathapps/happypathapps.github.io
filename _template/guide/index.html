@@ -208,9 +208,11 @@
     <p>The answer.</p>
   </section>
 
-  <!-- A paid (partner) link: at the end of a grey panel that already gives the free way to do
-       the same thing. The label and the line come BEFORE the link, word for word: the ASA's
-       guidance on affiliate links accepts "Ad" before the content, and its MailOnline ruling found
+  <!-- A paid (partner) link: a white card ("partner-card") at the end of a grey panel that
+       already gives the free way to do the same thing. The same card for every partner: only
+       the button's words and link change.
+       The label and the line come BEFORE the link, word for word: the ASA's guidance on
+       affiliate links accepts "Ad" before the content, and its MailOnline ruling found
        "may earn" ambiguous.
        The button is outlined ("btn partner"), never green, so an advert does not look like the
        site's own button. rel="sponsored" tells search engines it is paid. The button says only
@@ -218,10 +220,11 @@
   <section class="panel prose">
     <h2>How do I do the thing?</h2>
     <p>The free way to do it.<sup><a href="#s1">1</a></sup></p>
-    <p class="label">Partner · Ad</p>
-    <p>We're paid a commission if you book.</p>
-    <p><a href="/partner-links/">How partner links work</a></p>
-    <p><a class="btn partner" href="https://example.com/" rel="sponsored noopener">Book with PARTNER</a></p>
+    <div class="partner-card">
+      <p class="label">Partner · Ad</p>
+      <p>We're paid a commission if you book. <a href="/partner-links/">How partner links work</a></p>
+      <div class="actions"><a class="btn partner" href="https://example.com/" rel="sponsored noopener">Book with PARTNER</a></div>
+    </div>
   </section>
 
   <!-- The detail and the law, a term to each entry. -->
