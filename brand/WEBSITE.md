@@ -14,6 +14,8 @@ kind of page follows are on the studio's design canvas.
 |---|---|---|---|---|
 | The home page | `app.css`, `<body class="home">` | 1040px | none | `/` |
 | An app's page | `app.css` | 1040px, a phone screenshot beside the words | none yet | `/roadworthy/` |
+| A page for something sold in an app | `app.css`, an app page's parts | 1040px, a phone screenshot beside the words at the top | none | `/roadworthy/history-check/` (not yet live) |
+| Terms of sale | `style.css`, a privacy policy's parts | 1040px, the words fill it | none | `/roadworthy/history-check/terms/` (not yet live) |
 | A guide | `app.css`, `<body class="guide">` | 1040px, the words fill it | `_template/guide/` | five, under `/roadworthy/guides/` |
 | An app's list of guides | `app.css`, `<body class="guide guide-list">` | 1040px, two cards across | none yet | `/roadworthy/guides/` |
 | A privacy policy | `style.css` | 1040px, the words fill it | `_template/privacy.html` | Roadworthy's, Pump Prices' |
@@ -48,7 +50,8 @@ kind of page follows are on the studio's design canvas.
 
 ## 3. Rules for pages styled by `app.css`
 
-These are the app page, the guides and the list of guides. The home page, the not-found page
+These are the app page, a page for something sold in an app, the guides and the list of
+guides. The home page, the not-found page
 and the page that only sends the reader on use `app.css` too, but are not held to this
 section. The home page shows every app and not one, and the other two have no app to show;
 none has a top of this kind. The home page and the not-found page carry the site's foot (below),

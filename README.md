@@ -51,6 +51,12 @@ _template/
 roadworthy/
   index.html         App page (app.css)
   privacy.html       THE privacy policy URL. Do not move it.
+  history-check/
+    index.html       The paid Full check, sold in the app: what it covers and doesn't, the
+                     price, who sells it (app.css). Experian is named only as "Data provided
+                     by Experian". Not linked from any other page until the check is on sale.
+    terms/
+      index.html     Its terms of sale (style.css, a privacy policy's parts). Goes live with it.
   guides/
     index.html       The list of Roadworthy's guides. A row for each, newest first.
     buying-a-used-car/
@@ -69,7 +75,9 @@ roadworthy/
       index.html     Why cars fail their MOT and the checks an owner can do first; when and how
                      to book. Carries the site's first partner link (Fixter, in its booking panel).
   buying-a-used-car.html   Where the buyer's guide used to be. Now only redirects to it.
-  shots/             Roadworthy's store screenshots, 420 wide
+  shots/             Roadworthy's store screenshots, 420 wide, and full-check.jpg, the Full
+                     check report cut from its signed-off design (board H02), to be replaced by
+                     a screenshot of the built screen if the build changes anything visible
   icon.png, screenshot.jpg   Shown on the hub
 pump-prices/
   icon.png, screenshot.jpg   Shown on the hub
