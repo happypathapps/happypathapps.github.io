@@ -65,6 +65,18 @@ img { max-width: 100%; height: auto; }
 .app-bar .app-links a { font-size: 15px; font-weight: 700; color: #D5D9DE; }
 .app-bar .app-links a[aria-current] { color: var(--green); box-shadow: inset 0 -2px 0 var(--green); }
 
+/* ---- Google's "Get it on Google Play" badge: where an app is offered (its page's top, its row on
+   the home page), in place of a button. Google's file, unaltered (brand/google-play/), 52px tall
+   (Google's minimum is 28px). Google asks for a quarter of its height (13px) clear on every side:
+   .actions keeps 13px between it and anything beside it, and the margins round .actions keep the
+   rest (14px or more above and below where it is used today). The board's rounded focus corners
+   were left out. A
+   page that shows it says in its foot that Google Play is Google's trade mark. Version A, signed
+   off 19 Oct 2026. Not in guides: their app card keeps its own button. ---- */
+.play-badge { display: inline-block; line-height: 0; }
+.play-badge img { display: block; width: auto; height: 52px; }
+.actions:has(.play-badge) { gap: 13px 26px; }
+
 /* ---- the app's own top ---- */
 .top { background: var(--ink); color: var(--off-white); padding-block: 28px 56px; }
 .top .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: clamp(24px, 6vw, 72px); align-items: center; }
@@ -408,7 +420,8 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
    The owner's choice of 11 October 2026, "D": the dark lockup of the Facebook cover as the
    top - the smile road above the name, never under it - and a light body with a row for each
    app, its screenshot in a phone. Its width is .wrap's, as every page's is; only what the home
-   page alone has is here: the lockup, an ink button on a light ground, a light "soon" chip. */
+   page alone has is here: the lockup, an ink button on a light ground (unused since apps on Play
+   show Google's badge; kept for a link that is not to Play), a light "soon" chip. */
 .home { --chip-soon-bg: #ECEEE9; --chip-soon: #5A6470; }
 .hero { background: var(--ink); color: var(--off-white); text-align: center; padding: 64px 20px 52px; }
 .hero svg { display: block; margin: 0 auto 6px; width: 150px; height: 150px; max-width: 40vw; max-height: 40vw; }
@@ -441,6 +454,8 @@ footer .foot-apps { display: grid; grid-template-columns: repeat(2, minmax(0, 1f
 footer .foot-col { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
 footer .foot-head { margin-bottom: 2px; color: var(--off-white); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 footer .foot-small { margin-top: 24px; padding-top: 20px; border-top: 1px solid #2A333D; font-size: 13px; line-height: 1.55; }
+/* a second paragraph of small print, such as the trade mark line, sits under the first with no line */
+footer .foot-small + .foot-small { margin-top: 8px; padding-top: 0; border-top: 0; }
 
 @media (max-width: 860px) {
   .guide-list main { grid-template-columns: minmax(0, 1fr); }

@@ -35,7 +35,8 @@ kind of page follows are on the studio's design canvas.
 - Green `#4ADE80` is for buttons, for links and figures on ink, and for the rule beside a
   quotation. It is too pale for text on a light ground: links, labels and footnote numbers
   there use green-text `#1E7A47`.
-- An app's own colours appear only in its icon and its screenshots.
+- An app's own colours appear only in its icon and its screenshots. Google's badge carries
+  Google's colours, unaltered, inside Google's file.
 - Text and its ground differ by at least 4.5 to 1.
 - Overpass, served from this site. No other typeface for words, with two exceptions, each
   a thing shown as it is and not prose: a web address set in `code` and a boxed serial number
@@ -52,8 +53,9 @@ These are the app page, the guides and the list of guides. The home page, the no
 and the page that only sends the reader on use `app.css` too, but are not held to this
 section. The home page shows every app and not one, and the other two have no app to show;
 none has a top of this kind. The home page and the not-found page carry the site's foot (below),
-with no small print; the page that only sends the reader on has no foot. They do keep "One frame" and the breakpoints. The home
-page's own parts (the lockup at its top, an ink button, a light "soon" chip) are in the home
+with no small print except, on the home page, the trade mark line that goes with Google's badge;
+the page that only sends the reader on has no foot. They do keep "One frame" and the breakpoints. The home
+page's own parts (the lockup at its top, a light "Coming soon" button for an app not yet on Play, a light "soon" chip) are in the home
 page's section of `app.css`.
 
 - The studio bar is first: the mark and "Happy Path Apps", linking home.
@@ -64,7 +66,13 @@ page's section of `app.css`.
   policy (version B, phones B2, signed off 19 October 2026). The home page and the studio's own
   pages (company details, partner links, not found) have no app's bar.
 - Then the top, in ink: the app's icon, the h1, one opening line. (The app page's top also
-  holds its button, a line of small print and a phone screenshot.)
+  holds Google's "Get it on Google Play" badge, a line of small print and a phone screenshot.)
+- Where an app is offered for download (its page's top, its row on the home page) the link is
+  Google's own badge, not a button: Google's file, unaltered, in `brand/google-play/`, 52px tall,
+  with a quarter of its height clear on every side. A page that shows it adds Google's line to
+  the small print in its foot: "Google Play and the Google Play logo are trademarks of Google
+  LLC." Google's badge rules ask for that line where there is room. A guide's app card keeps its
+  own button (version A, signed off 19 October 2026).
 - The foot is ink, and its links are the same on every page (below). Under them, a page that
   belongs to an app carries that app's own disclaimer, copied from that app's page.
 - **One frame.** Every page is one width: 1040px less its gutters (`.wrap` in `app.css`,
@@ -82,7 +90,8 @@ page's section of `app.css`.
   - the apps': a column for each app, under its name: The app, Guides, Privacy policy. An app
     with no page or no guides yet leaves that link out (Pump Prices has only its policy).
   Below them, under a thin line, the page's own small print: its app's disclaimer, or nothing
-  on a page that belongs to no app. Pump Prices has no app page to copy its disclaimer from, so
+  on a page that belongs to no app; and, on a page that shows Google's badge, Google's trade
+  mark line after it. Pump Prices has no app page to copy its disclaimer from, so
   its policy's small print is written by its tool, from the policy and the app. On a phone the studio's column is above the apps', which
   stay two to a row. A new app adds its column on every page and in both templates.
   One exception: the page that only sends the reader on has no foot.

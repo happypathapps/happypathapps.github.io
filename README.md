@@ -43,6 +43,8 @@ company/
                      the foot of every page that has a foot. The registered office is copied
                      from Companies House.
 brand/fonts/         Overpass, self-hosted so a visit tells Google nothing (OFL.txt).
+brand/google-play/   Google's "Get it on Google Play" badge (English, web), exactly as Google
+                     supplies it. Never edit it; a new version replaces it whole.
 brand/WEBSITE.md     The rules a page is held to, by kind of page: widths, type, parts, words.
 _template/
   privacy.html       Skeleton for the next app's privacy policy. Start here, not from
