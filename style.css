@@ -10,8 +10,7 @@
  * policy's address or wording may move. The ink bands reach the window's edges with a shadow,
  * because the header and footer sit inside <main>.
  *
- * No dark mode: the rest of the site has none. Roadworthy's number plate keeps its own
- * colours; it is that app's mark, not the studio's.
+ * No dark mode: the rest of the site has none.
  */
 @font-face {
   font-family: "Overpass";
@@ -22,7 +21,6 @@
 :root {
   --ink: #13181F; --green: #4ADE80; --green-text: #1E7A47; --off-white: #F7F6F2; --muted: #A3AAB3;
   --page: #FAFAF7; --panel: #F0F1EC; --text: #13181F; --body: #3E4753; --rule: #E4E6E0; --rule-strong: #D9DCD4;
-  --plate-yellow: #FFCE00; --plate-black: #111111; --gb-blue: #003399;
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -66,15 +64,28 @@ footer .foot-small { margin-top: 24px; padding-top: 20px; border-top: 1px solid 
    Pulled up into the header's top padding so it sits where the bar does on every other page. */
 .studio { display: flex; align-items: center; gap: 10px; margin: -26px 0 42px; color: var(--off-white); font-size: 17px; font-weight: 800; text-decoration: none; }
 .studio svg { width: 34px; height: 34px; }
-/* Roadworthy's own plate, kept as the app's mark */
-.plate { display: inline-flex; align-items: stretch; background: var(--plate-yellow); color: var(--plate-black);
-  border-radius: 6px; overflow: hidden; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 700; letter-spacing: 0.06em; line-height: 1; }
-.plate .band { background: var(--gb-blue); color: #fff; font-size: 0.6rem; padding: 0.55rem 0.4rem; display: flex; align-items: flex-end; justify-content: center; letter-spacing: 0.02em; }
-.plate .reg { padding: 0.5rem 0.7rem; font-size: 1.35rem; }
+/* The app's bar (app.css has the same, for pages outside a header): its icon and name, then its
+   pages, under the studio's name. The header sits inside <main>, so the bar reaches the window's
+   edges the way the header does. */
+.app-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 24px;
+  margin: -22px 0 36px; padding-block: 10px; background: #2A333D; box-shadow: 0 0 0 100vmax #2A333D; clip-path: inset(0 -100vmax); }
+.app-bar a { text-decoration: none; padding-block: 4px; }
+.app-bar .app-name { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 800; color: var(--off-white); }
+.app-bar .app-name img { border-radius: 6px; }
+.app-bar .app-links { display: flex; gap: 24px; }
+.app-bar .app-links a { font-size: 15px; font-weight: 700; color: #D5D9DE; }
+.app-bar .app-links a[aria-current] { color: var(--green); box-shadow: inset 0 -2px 0 var(--green); }
 
 @media (max-width: 640px) {
   footer .foot-cols { grid-template-columns: minmax(0, 1fr); }
   footer .foot-apps { gap: 28px 20px; }
+  .app-bar { justify-content: flex-start; gap: 6px 20px; }
+  .app-bar .app-name { gap: 8px; font-weight: 700; color: #D5D9DE; }
+  .app-bar .app-name[aria-current] { color: var(--green); box-shadow: inset 0 -2px 0 var(--green); }
+  .app-bar .app-links { gap: 20px; }
+}
+@media (max-width: 359px) {
+  .app-bar .app-name img { display: none; }
 }
 
 /* On paper a browser leaves backgrounds out, so the ink bands go and their light text with them. */
@@ -83,6 +94,7 @@ footer .foot-small { margin-top: 24px; padding-top: 20px; border-top: 1px solid 
   header { padding: 0 0 12px; margin-bottom: 20px; border-bottom: 1px solid var(--rule-strong); }
   h1, .studio { color: var(--text); }
   .studio { margin: 0 0 16px; }
+  .app-bar { display: none; }
   .updated, footer { color: var(--body); }
   footer { border-top: 1px solid var(--rule-strong); }
   footer a { color: var(--green-text); }
