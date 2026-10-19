@@ -91,16 +91,14 @@ with what it is for, before it is used.
 | `--rule-strong` `#D9DCD4` | lines that have to show on a panel: a table's edge, a checklist's line |
 | `--green-text` `#1E7A47` | links, labels and footnote numbers on a light ground, where the brand green is too pale to read |
 | `--chip-live-bg` `#DDF7E7`, `--chip-live` `#14532D` | the pale green disc and dark green mark of a tick or an exclamation mark; the "live" chip |
-| `--chip-soon-bg` `#2A333D`, `--chip-soon` `#D5D9DE` | the "soon" chip; the first is also the phone frame on the dark top, the home page's ink button under the pointer and the line above the small print in the foot (written as `#2A333D` there, because `style.css` does not define the name and the home page gives it a light value), the second the text under a heading on ink |
+| `--chip-soon-bg` `#2A333D`, `--chip-soon` `#D5D9DE` | the "soon" chip; the first is also the phone frame on the dark top, the home page's ink button under the pointer and the line above the small print in the foot and the app's bar (written as `#2A333D` there, because `style.css` does not define the name and the home page gives it a light value), the second the text under a heading on ink and the links in the app's bar |
 | `#6EE7A0` | a green button under the pointer |
 | `#ECEEE9`, `#5A6470` | the home page's "soon" chip and its "Coming soon" button: a light pair, because they sit on the light ground there. Set on `.home` under the names `--chip-soon-bg` and `--chip-soon` |
 | `rgba(19, 24, 31, 0.18)`, `rgba(0, 0, 0, 0.45)` | the shadow under a phone screenshot: ink at low strength on a light ground, black on the dark top |
 
 The privacy pages use `style.css`, which takes its colours from the list above (ink, green,
 green-text, off-white, muted, page, panel, text, body, rule, rule-strong) and no others, except
-Roadworthy's number plate at the top of its policy: plate yellow `#FFCE00`, plate black
-`#111111`, GB blue `#003399` and white lettering. Those are that app's own mark, from its own
-brand notes, and are used nowhere else on the site.
+`#2A333D` and `#D5D9DE` for the app's bar, as `app.css` has them.
 
 Amber is not a website colour: things to watch for are marked in green.
 

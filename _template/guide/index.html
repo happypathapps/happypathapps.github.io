@@ -82,7 +82,7 @@
 </head>
 <body class="guide">
 
-<nav class="studio">
+<nav class="studio" aria-label="Happy Path Apps">
   <div class="wrap">
     <a href="/">
       <svg viewBox="-50 -50 100 100" aria-hidden="true">
@@ -91,6 +91,18 @@
       </svg>
       Happy Path Apps
     </a>
+  </div>
+</nav>
+
+<!-- The app's bar: its icon and name, then its guides and its privacy policy. The same on every
+     page of the app; Guides is marked current on a guide. -->
+<nav class="app-bar" aria-label="APP NAME">
+  <div class="wrap">
+    <a class="app-name" href="/APP-SLUG/"><img src="/APP-SLUG/icon.png" width="24" height="24" alt="">APP NAME</a>
+    <span class="app-links">
+      <a href="/APP-SLUG/guides/" aria-current="true">Guides</a>
+      <a href="/APP-SLUG/privacy.html">Privacy policy</a>
+    </span>
   </div>
 </nav>
 

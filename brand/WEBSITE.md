@@ -35,11 +35,11 @@ kind of page follows are on the studio's design canvas.
 - Green `#4ADE80` is for buttons, for links and figures on ink, and for the rule beside a
   quotation. It is too pale for text on a light ground: links, labels and footnote numbers
   there use green-text `#1E7A47`.
-- An app's own colours (Roadworthy's number plate) appear only in that app's mark.
+- An app's own colours appear only in its icon and its screenshots.
 - Text and its ground differ by at least 4.5 to 1.
-- Overpass, served from this site. No other typeface for words, with three exceptions, each
+- Overpass, served from this site. No other typeface for words, with two exceptions, each
   a thing shown as it is and not prose: a web address set in `code` and a boxed serial number
-  are in the system's monospace, and Roadworthy's plate keeps a number plate's lettering.
+  are in the system's monospace.
 - The gutter at each side is `clamp(20px, 5vw, 56px)`, except the home page's top, which has
   a fixed 20px.
 - A button is at least 44px tall, and fully rounded.
@@ -57,6 +57,12 @@ page's own parts (the lockup at its top, an ink button, a light "soon" chip) are
 page's section of `app.css`.
 
 - The studio bar is first: the mark and "Happy Path Apps", linking home.
+- On a page that belongs to an app, the app's bar is next, a band of `#2A333D`: the app's icon
+  and name, linking to its page, then Guides and Privacy policy on the right, the current one
+  underlined in green. On a phone it is one row of tabs from the left, and below 360px the icon
+  goes so the row fits on one line (with large text the links may wrap to a second). The same on the app's page, its guides and its privacy
+  policy (version B, phones B2, signed off 19 October 2026). The home page and the studio's own
+  pages (company details, partner links, not found) have no app's bar.
 - Then the top, in ink: the app's icon, the h1, one opening line. (The app page's top also
   holds its button, a line of small print and a phone screenshot.)
 - The foot is ink, and its links are the same on every page (below). Under them, a page that
@@ -155,13 +161,14 @@ page's section of `app.css`.
 
 - It is written from that app's code, never copied from another app's, and its address never
   moves (the site's `README.md` says why).
-- Its parts: the top in ink (the studio bar, the app's mark if it has one, "Privacy policy",
+- Its parts: the top in ink (the studio bar, the app's bar, "Privacy policy",
   who it is for and when it was last updated); the short version in a grey panel; a section to
   each kind of data; a lawful basis, usually in a pill; a quotation with a green rule beside
   it; the foot in ink.
 - Long web addresses wrap, so nothing runs off a phone's screen. It prints dark on white.
 - Pump Prices' policy is made by its tool, which writes the studio bar and the foot. A change
-  to either is made in the tool, not in the page.
+  to either is made in the tool, not in the page. It has no app's bar yet: that comes with the
+  app's own page, from its tool.
 
 ## 6. An app on the studio's site
 

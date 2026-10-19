@@ -48,6 +48,23 @@ img { max-width: 100%; height: auto; }
 .studio a { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 17px; }
 .studio svg { width: 34px; height: 34px; }
 
+/* ---- the app's bar, under the studio's: the app's icon and name, then its pages ----
+   On an app's page, its guides and its privacy policy (whose own rules are in style.css); not on
+   the home page, the studio's own pages or the page that only sends the reader on, nor yet on
+   Pump Prices' policy, which its tool writes. The current page's link is marked aria-current and
+   underlined in green. On a phone it is one row of tabs, from the left; below 360px the icon goes
+   so the row fits on one line, though with large text the links may wrap to a second. Version B,
+   phones B2, signed off 19 Oct 2026 (the boards had the icon go below 340px, where the row
+   still wrapped). */
+.app-bar { background: #2A333D; color: var(--off-white); }
+.app-bar .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 24px; padding-block: 10px; }
+.app-bar a { text-decoration: none; padding-block: 4px; }
+.app-bar .app-name { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 800; color: var(--off-white); }
+.app-bar .app-name img { border-radius: 6px; }
+.app-bar .app-links { display: flex; gap: 24px; }
+.app-bar .app-links a { font-size: 15px; font-weight: 700; color: #D5D9DE; }
+.app-bar .app-links a[aria-current] { color: var(--green); box-shadow: inset 0 -2px 0 var(--green); }
+
 /* ---- the app's own top ---- */
 .top { background: var(--ink); color: var(--off-white); padding-block: 28px 56px; }
 .top .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: clamp(24px, 6vw, 72px); align-items: center; }
@@ -429,6 +446,10 @@ footer .foot-small { margin-top: 24px; padding-top: 20px; border-top: 1px solid 
   .guide-list main { grid-template-columns: minmax(0, 1fr); }
 }
 
+@media (max-width: 359px) {
+  .app-bar .app-name img { display: none; }
+}
+
 @media (max-width: 640px) {
   .top { padding-block: 20px 44px; }
   .top .wrap, .row, .row.flip, .home .row, .home .row.flip { grid-template-columns: minmax(0, 1fr); }
@@ -443,6 +464,10 @@ footer .foot-small { margin-top: 24px; padding-top: 20px; border-top: 1px solid 
   .guide .app-card .actions { grid-column: 1 / -1; }
   footer .foot-cols { grid-template-columns: minmax(0, 1fr); }
   footer .foot-apps { gap: 28px 20px; }
+  .app-bar .wrap { justify-content: flex-start; gap: 6px 20px; }
+  .app-bar .app-name { gap: 8px; font-weight: 700; color: #D5D9DE; }
+  .app-bar .app-name[aria-current] { color: var(--green); box-shadow: inset 0 -2px 0 var(--green); }
+  .app-bar .app-links { gap: 20px; }
   .partner-card { grid-template-columns: minmax(0, 1fr); padding: 16px; }
   .partner-card .actions { grid-column: 1; grid-row: auto; margin-top: 12px; }
   .partner-card .btn { flex: 1; text-align: center; }
