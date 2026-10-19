@@ -49,7 +49,8 @@ img { max-width: 100%; height: auto; }
 .studio svg { width: 34px; height: 34px; }
 
 /* ---- the app's bar, under the studio's: the app's icon and name, then its pages ----
-   On an app's page, its guides and its privacy policy (whose own rules are in style.css); not on
+   On an app's page, its guides, its privacy policy (whose own rules are in style.css) and a page
+   for something sold in the app, with its terms; no link is marked on those last two. Not on
    the home page, the studio's own pages or the page that only sends the reader on, nor yet on
    Pump Prices' policy, which its tool writes. The current page's link is marked aria-current and
    underlined in green. On a phone it is one row of tabs, from the left; below 360px the icon goes

@@ -63,8 +63,8 @@ page's section of `app.css`.
 - On a page that belongs to an app, the app's bar is next, a band of `#2A333D`: the app's icon
   and name, linking to its page, then Guides and Privacy policy on the right, the current one
   underlined in green. On a phone it is one row of tabs from the left, and below 360px the icon
-  goes so the row fits on one line (with large text the links may wrap to a second). The same on the app's page, its guides and its privacy
-  policy (version B, phones B2, signed off 19 October 2026). The home page and the studio's own
+  goes so the row fits on one line (with large text the links may wrap to a second). The same on the app's page, its guides, its privacy
+  policy and a page for something sold in the app with its terms, where no link is marked (version B, phones B2, signed off 19 October 2026). The home page and the studio's own
   pages (company details, partner links, not found) have no app's bar.
 - Then the top, in ink: the app's icon, the h1, one opening line. (The app page's top also
   holds its button, a line of small print and a phone screenshot.)
