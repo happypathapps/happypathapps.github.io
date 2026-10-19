@@ -13,7 +13,7 @@ kind of page follows are on the studio's design canvas.
 | Kind of page | Stylesheet | Width | Skeleton | Today |
 |---|---|---|---|---|
 | The home page | `app.css`, `<body class="home">` | 1040px | none | `/` |
-| An app's page | `app.css` | 1040px, a phone screenshot beside the words | none yet | `/roadworthy/` |
+| An app's page | `app.css` | 1040px, a phone screenshot beside the words | `_template/app/` | `/roadworthy/` |
 | A guide | `app.css`, `<body class="guide">` | 1040px, the words fill it | `_template/guide/` | five, under `/roadworthy/guides/` |
 | An app's list of guides | `app.css`, `<body class="guide guide-list">` | 1040px, two cards across | none yet | `/roadworthy/guides/` |
 | A privacy policy | `style.css` | 1040px, the words fill it | `_template/privacy.html` | Roadworthy's, Pump Prices' |
@@ -93,7 +93,7 @@ page's section of `app.css`.
   on a page that belongs to no app; and, on a page that shows Google's badge, Google's trade
   mark line after it. Pump Prices has no app page to copy its disclaimer from, so
   its policy's small print is written by its tool, from the policy and the app. On a phone the studio's column is above the apps', which
-  stay two to a row. A new app adds its column on every page and in both templates.
+  stay two to a row. A new app adds its column on every page and in every template.
   One exception: the page that only sends the reader on has no foot.
 - Two breakpoints. At 860px and below the list of guides is one column of cards. At 640px
   and below everything is one column.
@@ -105,6 +105,7 @@ page's section of `app.css`.
 | Section heading (h2) in a row | 24 to 30px (22px in the list of guides) | 800 |
 | Heading in a panel | 24px (18px for Sources) | 800 |
 | Opening line under the h1 | 17 to 20px | 400 |
+| A live figure in an app page's "Right now" | 28 to 36px, by window width | 800 |
 | Body text, and the items of a tick or flag list | 17px, line height 1.6 | 400 |
 | Text in the cards list, a table, the detail grid, the app's card, and under a title in the list of guides | 16px | 400 |
 | Label above a heading | 13px, capitals, spaced 0.08em | 800 |
@@ -194,7 +195,7 @@ page's section of `app.css`.
 
 1. It is designed on the design canvas and signed off by the owner before it is built. Until
    then it is a draft and is called one.
-2. A guide or a privacy policy is built from its skeleton. An app page or a list of guides has
+2. A guide, an app's page or a privacy policy is built from its skeleton. A list of guides has
    no skeleton yet: it follows its signed-off design and the page that already exists.
 3. It is looked at, at phone, tablet and desktop width, before it is reviewed.
 4. It is reviewed by an independent reviewer before it is committed.

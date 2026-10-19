@@ -50,6 +50,8 @@ _template/
   privacy.html       Skeleton for the next app's privacy policy. Start here, not from
                      Roadworthy's — see below.
   guide/index.html   Skeleton for a guide, with the steps for writing one at its top.
+  app/index.html     Skeleton for an app's page, with the steps at its top, and two optional
+                     parts: live figures from the app's own server, and what it never collects.
 roadworthy/
   index.html         App page (app.css)
   privacy.html       THE privacy policy URL. Do not move it.
