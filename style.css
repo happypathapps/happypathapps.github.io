@@ -78,17 +78,20 @@ footer .foot-small { margin-top: 24px; padding-top: 20px; border-top: 1px solid 
 .app-bar .app-links a[aria-current] { color: var(--green); box-shadow: inset 0 -2px 0 var(--green); }
 
 /* ---- the reading column (the frame plan, signed off 20 Oct 2026) ----
-   A policy's words sit in the guides' reading column, 678px (about 82 characters a line), with
+   A policy's words sit in the guides' reading column, 678px (about 80 to 95 characters a line), with
    "On this page" beside it: <div class="policy-layout">, then <nav class="toc"> (its h2s, each
    linked by its id) and <div class="policy-text">. The partner links are laid out the same way.
    Every page keeps one left edge, from the studio's bar through the title and the words to the
-   foot (board N, signed off 20 Oct 2026); nothing is centred in the frame. Pump Prices' policy has
+   foot (board N, signed off 20 Oct 2026); nothing is centred in the frame but the home page's
+   opening: its mark, name and line under them. Pump Prices' policy has
    no contents until its tool writes them, so for now its words sit in the column at the frame's
    left edge with nothing beside them. The company details are a plain list with rules, the
    width of a policy's contents and words, each value starting where those words start (board
    N4a, signed off 20 Oct 2026). The column is at most 678px, in pixels, not ch:
    ch follows the font size. On a phone and a tablet the contents are a white box with a thin
-   rule, so they do not read as the policy's own grey "short version". */
+   rule, so they do not read as the policy's own grey "short version". They stay in view while
+   the page scrolls from a 640px-tall window, not the guides' 600px: Roadworthy's contents are
+   603px tall. */
 main > :where(:not(header, footer, .policy-layout)) { max-width: 678px; }
 .details { max-width: 962px; margin: 8px 0 24px; border-block: 1px solid var(--rule-strong); }
 .details > div { display: grid; grid-template-columns: 284px minmax(0, 1fr); padding: 16px 0; border-top: 1px solid var(--rule); }

@@ -84,18 +84,20 @@ page's section of `app.css`.
   1040px wide; widened from 1040 to 1200px by the frame plan, signed off 20 October 2026
   ("H · Frame plan" on the canvas, after two reviews by the ux-reviewer agent).
 - **The reading column.** Inside the frame, a guide's words and a policy's words sit in one
-  column at most 678px wide (narrower on a smaller window; about 80 to 90 characters a line of
+  column at most 678px wide (narrower on a smaller window; about 80 to 95 characters a line of
   17px Overpass at full width), with "On this page" beside it
   on a wide screen: `.guide-layout` in `app.css`, `.policy-layout` in `style.css`. The column is in
   pixels, not `ch`, because `ch` follows the font size and gave the two kinds of page different
   widths. "On this page" is every h2, word for word and in order, each linked by its id; on a
   phone and a tablet it is a white box with a thin rule above the words, in two columns from
   about 360px wide. It stays in view while the page scrolls from a 600px-tall window on a guide
-  (every guide's contents fit there today) and from 640px on a policy; a longer list scrolls
+  (every guide's contents fit there today) and from 640px on a policy (Roadworthy's contents
+  are 603px tall); a longer list scrolls
   inside itself. No link in it is marked as the
   current section: that needs a script, and the site has none. Every page keeps one left edge,
   from the studio's bar through the title and the words to the foot; nothing is centred in the
-  frame (board N, signed off 20 October 2026, after centring was tried on board K and the column
+  frame but the home page's opening: its mark, name and line under them (board N, signed off
+  20 October 2026, after centring was tried on board K and the column
   alone at the left edge was turned down). The partner links are laid out as a policy, with
   their contents. Pump Prices' policy has no contents until its own tool writes them; until then
   its words sit in the column at the frame's left edge with nothing beside them, which is an
@@ -158,12 +160,13 @@ page's section of `app.css`.
 ## 4. Rules for a guide
 
 - The words, rows, cards and panels fill the reading column (see "The reading column" above):
-  about 80 to 90 characters a line of body text on a wide screen. Before 20 October 2026 they filled
+  about 80 to 95 characters a line of body text on a wide screen. Before 20 October 2026 they filled
   the frame, at about 115 characters a line.
 - The h1's lines are balanced, so no word is left by itself on the last one.
 - A guide is made of the parts in `_template/guide/` and nothing else. Each has a comment
   there saying when to use it:
-  - a row: a label, an h2 and text, with or without a phone screenshot beside it;
+  - a row: a label, an h2 and text, with or without a phone screenshot under it, in a picture
+    panel (`.shot-panel`);
   - a list of ticks, of flags, or of cards: each list is one white card with a thin rule round
     it and a line between its items;
   - the app's card, once: a grey ground, the app's icon, one sentence, the small print, the

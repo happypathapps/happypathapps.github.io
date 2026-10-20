@@ -379,7 +379,7 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
    choice of 14 October 2026 ("One frame, version 2" on the design canvas), widened to 1200px by the
    frame plan, signed off 20 October 2026 ("H · Frame plan" on the canvas), so that nothing moves as a
    reader goes from page to page. Inside the frame a guide puts its words in a reading column,
-   at most 678px (about 80 to 90 characters a line), with "On this page" beside it (.guide-layout,
+   at most 678px (about 80 to 95 characters a line), with "On this page" beside it (.guide-layout,
    below).
    <body class="guide"> lifts the caps on line length that suit words beside a screenshot, so the
    words, rows, cards and panels run to the column's edge. No page has a width of its own. */
