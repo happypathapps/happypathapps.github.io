@@ -56,7 +56,9 @@ roadworthy/
   index.html         App page (app.css)
   privacy.html       THE privacy policy URL. Do not move it.
   guides/
-    index.html       The list of Roadworthy's guides. A row for each, newest first.
+    index.html       The list of Roadworthy's guides. A card for each, with its picture, newest first.
+                     Each guide's folder below also holds its picture: picture-1200.webp,
+                     picture-600.webp and share.jpg (1200 x 630, the guide's og:image).
     buying-a-used-car/
       index.html     Buyer's guide, for someone about to buy a used car, whether they come
                      from the app or from a search. Partner links go in its "Is a paid check worth it?" panel, as

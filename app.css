@@ -187,6 +187,21 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
 .top.solo .wrap { grid-template-columns: minmax(0, 1fr); }
 .top.solo .lede { margin: 20px 0 12px; max-width: 60ch; }
 
+/* ---- a guide's picture: beside its words in the top, and as its card on the guides list ----
+   The house style, daylight, signed off 20 Oct 2026 (the design canvas, "D · Log book guide with
+   pictures" and "C · Guides list ... the day set"). How the pictures are made, and what is checked
+   in each, is with the business records; each guide's folder holds picture-1200.webp,
+   picture-600.webp and share.jpg (1200 x 630, its og:image). A picture is decorative: alt="",
+   because the heading beside it says what the guide is about (board D drew the log book guide's
+   with a description; the build leaves it out, so a screen reader is not told the scene). Board
+   D's line under the words ("5 minutes to read · Updated ...") is not built: the date alone, a later
+   design ("E · Date"), signed off 20 Oct 2026, takes its place in a change of its own. */
+.top.solo.pictured .wrap { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 48px; }
+.top.solo.pictured .lede { margin: 14px 0 24px; }
+.top-pic img { display: block; width: 100%; height: auto; border-radius: 22px; }
+.card-pic { margin-bottom: 16px; }
+.card-pic img { display: block; width: 100%; height: auto; border-radius: 22px; box-shadow: 0 0 0 1px var(--rule-strong); }
+
 /* ---- the app's button inside a guide: icon, a sentence, the small print, the button ---- */
 .app-card {
   display: grid;
@@ -408,22 +423,16 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
 /* in a panel, the card's button keeps its own ink text: ".panel a" would make it green on green */
 .panel .app-card .btn { color: var(--ink); font-weight: 800; }
 
-/* ---- the list of an app's guides: a card for each, the whole card a link ----
-   <body class="guide guide-list">: two cards across the frame, one at 860px and below. */
-.guide-list main { padding-block: 28px 56px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.guide-list .row {
-  position: relative;
-  display: block;
-  padding: 22px 24px 16px;
-  border: 1px solid var(--rule);
-  border-radius: 18px;
-  background: var(--card);
-}
-.guide-list .row:hover, .guide-list .row:focus-within { border-color: var(--green-text); }
-.guide-list .row h2 { margin-bottom: 8px; font-size: 22px; }
-.guide-list .row h2 a { text-decoration: none; }
+/* ---- the list of an app's guides: a card for each, its picture on top, the whole card a link ----
+   <body class="guide guide-list">: three across the frame, one on a phone (design "C · Guides list
+   with a picture for each guide, the day set", signed off 20 Oct 2026). Not on the board: on
+   hover or focus the picture's edge turns green, as the old cards' edge did. */
+.guide-list main { padding-block: 48px 56px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 28px; }
+.guide-list .row { position: relative; display: block; padding: 0; border-top: 0; }
+.guide-list .row h2 { font-size: 22px; }
 .guide-list .row h2 a::after { content: ""; position: absolute; inset: 0; }
-.guide-list .row p { margin: 0; font-size: 16px; }
+.guide-list .row p { margin: 0 0 12px; }
+.guide-list .row:hover .card-pic img, .guide-list .row:focus-within .card-pic img { box-shadow: 0 0 0 2px var(--green-text); }
 
 /* ---- the home page: <body class="home"> ----
    The owner's choice of 11 October 2026, "D": the dark lockup of the Facebook cover as the
@@ -466,10 +475,6 @@ footer .foot-small { margin-top: 24px; padding-top: 20px; border-top: 1px solid 
 /* a second paragraph of small print, such as the trade mark line, sits under the first with no line */
 footer .foot-small + .foot-small { margin-top: 8px; padding-top: 0; border-top: 0; }
 
-@media (max-width: 860px) {
-  .guide-list main { grid-template-columns: minmax(0, 1fr); }
-}
-
 @media (max-width: 359px) {
   .app-bar .app-name img { display: none; }
 }
@@ -481,6 +486,8 @@ footer .foot-small + .foot-small { margin-top: 8px; padding-top: 0; border-top: 
   .row.flip .text { order: 0; }
   .row { padding-block: 36px; }
   .top .phone, .row .phone { width: 220px; max-width: 70%; }
+  .top.solo.pictured .wrap { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .guide-list main { grid-template-columns: minmax(0, 1fr); gap: 36px; padding-block: 32px 40px; }
   .row .facts.cards, .panel ul.defs, .panel .figures-list { grid-template-columns: minmax(0, 1fr); }
   .panel .figures-list { gap: 12px; }
   .app-card { grid-template-columns: 48px minmax(0, 1fr); padding: 16px; }

@@ -15,7 +15,7 @@ kind of page follows are on the studio's design canvas.
 | The home page | `app.css`, `<body class="home">` | 1040px | none | `/` |
 | An app's page | `app.css` | 1040px, a phone screenshot beside the words | `_template/app/` | `/roadworthy/` |
 | A guide | `app.css`, `<body class="guide">` | 1040px, the words fill it | `_template/guide/` | five, under `/roadworthy/guides/` |
-| An app's list of guides | `app.css`, `<body class="guide guide-list">` | 1040px, two cards across | none yet | `/roadworthy/guides/` |
+| An app's list of guides | `app.css`, `<body class="guide guide-list">` | 1040px, three cards across (one on a phone), each with its guide's picture | none yet | `/roadworthy/guides/` |
 | A privacy policy | `style.css` | 1040px, the words fill it | `_template/privacy.html` | Roadworthy's, Pump Prices' |
 | The list of partner links | `style.css`, a privacy policy's parts | 1040px, the words fill it | none | `/partner-links/` |
 | Company details | `style.css`, a privacy policy's parts | 1040px, the words fill it | none | `/company/` |
@@ -95,8 +95,15 @@ page's section of `app.css`.
   its policy's small print is written by its tool, from the policy and the app. On a phone the studio's column is above the apps', which
   stay two to a row. A new app adds its column on every page and in every template.
   One exception: the page that only sends the reader on has no foot.
-- Two breakpoints. At 860px and below the list of guides is one column of cards. At 640px
-  and below everything is one column.
+- Breakpoints. At 640px and below everything is one column, the list of guides included. Below
+  360px the app's bar drops its icon.
+- A guide has a picture (signed off 20 October 2026, the daylight house style): beside its
+  words in the dark top (`<header class="top solo pictured">`, with `.top-pic`), and on its
+  card in the list of guides (`.card-pic`). Each guide's folder holds `picture-1200.webp`,
+  `picture-600.webp` and `share.jpg`, 1200 x 630, which is its `og:image` and its structured
+  data's image. The picture is decorative: its alt is empty, so the content checker reads no
+  text from it. How the pictures are made and checked is kept with the business records, not
+  here.
 - Type, as the stylesheet sets it:
 
 | | Size | Weight |
@@ -106,8 +113,8 @@ page's section of `app.css`.
 | Heading in a panel | 24px (18px for Sources) | 800 |
 | Opening line under the h1 | 17 to 20px | 400 |
 | A live figure in an app page's "Right now" | 28 to 36px, by window width | 800 |
-| Body text, and the items of a tick or flag list | 17px, line height 1.6 | 400 |
-| Text in the cards list, a table, the detail grid, the app's card, and under a title in the list of guides | 16px | 400 |
+| Body text, the items of a tick or flag list, and the text under a title in the list of guides | 17px, line height 1.6 | 400 |
+| Text in the cards list, a table, the detail grid and the app's card | 16px | 400 |
 | Label above a heading | 13px, capitals, spaced 0.08em | 800 |
 | Column name above an answer, in a stacked table on a phone | 12px, capitals, spaced 0.08em, green-text | 800 |
 | Small print, sources | 14 to 15px | 400 |
