@@ -12,14 +12,14 @@ kind of page follows are on the studio's design canvas.
 
 | Kind of page | Stylesheet | Width | Skeleton | Today |
 |---|---|---|---|---|
-| The home page | `app.css`, `<body class="home">` | 1040px | none | `/` |
-| An app's page | `app.css` | 1040px, a phone screenshot beside the words | `_template/app/` | `/roadworthy/` |
-| A guide | `app.css`, `<body class="guide">` | 1040px, the words fill it | `_template/guide/` | five, under `/roadworthy/guides/` |
-| An app's list of guides | `app.css`, `<body class="guide guide-list">` | 1040px, three cards across (one on a phone), each with its guide's picture | none yet | `/roadworthy/guides/` |
-| A privacy policy | `style.css` | 1040px, the words fill it | `_template/privacy.html` | Roadworthy's, Pump Prices' |
-| The list of partner links | `style.css`, a privacy policy's parts | 1040px, the words fill it | none | `/partner-links/` |
-| Company details | `style.css`, a privacy policy's parts | 1040px, the words fill it | none | `/company/` |
-| Not found; a page that only sends the reader on | `app.css` | 1040px | none | `/404.html`, `/roadworthy/buying-a-used-car.html` |
+| The home page | `app.css`, `<body class="home">` | 1200px | none | `/` |
+| An app's page | `app.css` | 1200px, a phone screenshot beside the words | `_template/app/` | `/roadworthy/` |
+| A guide | `app.css`, `<body class="guide">` | 1200px; the words in the reading column (at most 678px), "On this page" beside it | `_template/guide/` | five, under `/roadworthy/guides/` |
+| An app's list of guides | `app.css`, `<body class="guide guide-list">` | 1200px, three cards across (two from 641 to 960px, one on a phone), each with its guide's picture, label and date | none yet | `/roadworthy/guides/` |
+| A privacy policy | `style.css` | 1200px; the words in the reading column, "On this page" beside it (Pump Prices': the column only, until its tool writes the contents) | `_template/privacy.html` | Roadworthy's, Pump Prices' |
+| The list of partner links | `style.css`, a privacy policy's parts | 1200px; laid out as a privacy policy, "On this page" beside the words | none | `/partner-links/` |
+| Company details | `style.css`, a privacy policy's parts | 1200px; the details a plain list with rules, the width of a policy's contents and words (962px) | none | `/company/` |
+| Not found; a page that only sends the reader on | `app.css` | 1200px; the title at the frame's edge, the panel across the frame | none | `/404.html`, `/roadworthy/buying-a-used-car.html` |
 
 - Pump Prices' privacy policy is made by a tool in that app's own repository. It is never
   edited by hand, here or anywhere: what it should look like is changed in that tool.
@@ -75,13 +75,38 @@ page's section of `app.css`.
   own button (version A, signed off 19 October 2026).
 - The foot is ink, and its links are the same on every page (below). Under them, a page that
   belongs to an app carries that app's own disclaimer, copied from that app's page.
-- **One frame.** Every page is one width: 1040px less its gutters (`.wrap` in `app.css`,
+- **One frame.** Every page is one width: 1200px less its gutters (`.wrap` in `app.css`,
   `main` in `style.css`). The bar, the top, the body and
   the foot share the same left and right edges, and those edges are the same on every page,
   so nothing moves as a reader goes from one page to another. No page, and no kind of page,
   sets a width of its own. The owner's choice of 14 October 2026 ("One frame, version 2" on
   the design canvas), after the guides and policies had been built 720px wide beside pages
-  1040px wide.
+  1040px wide; widened from 1040 to 1200px by the frame plan, signed off 20 October 2026
+  ("H · Frame plan" on the canvas, after two reviews by the ux-reviewer agent).
+- **The reading column.** Inside the frame, a guide's words and a policy's words sit in one
+  column at most 678px wide (narrower on a smaller window; about 80 to 90 characters a line of
+  17px Overpass at full width), with "On this page" beside it
+  on a wide screen: `.guide-layout` in `app.css`, `.policy-layout` in `style.css`. The column is in
+  pixels, not `ch`, because `ch` follows the font size and gave the two kinds of page different
+  widths. "On this page" is every h2, word for word and in order, each linked by its id; on a
+  phone and a tablet it is a white box with a thin rule above the words, in two columns from
+  about 360px wide. It stays in view while the page scrolls from a 600px-tall window on a guide
+  (every guide's contents fit there today) and from 640px on a policy; a longer list scrolls
+  inside itself. No link in it is marked as the
+  current section: that needs a script, and the site has none. Every page keeps one left edge,
+  from the studio's bar through the title and the words to the foot; nothing is centred in the
+  frame (board N, signed off 20 October 2026, after centring was tried on board K and the column
+  alone at the left edge was turned down). The partner links are laid out as a policy, with
+  their contents. Pump Prices' policy has no contents until its own tool writes them; until then
+  its words sit in the column at the frame's left edge with nothing beside them, which is an
+  interim, not the design. The company details are a plain list with rules, the width of a
+  policy's contents and words (962px), each value starting where those words start; on a phone
+  each label sits above its value (board N4a, signed off 20 October 2026). The not-found page
+  keeps its title at the frame's edge and its panel across the frame, as the app page's panels
+  are. In a guide, a row with a screenshot
+  puts it in a picture panel under the words: a light panel the column's width, the phone centred
+  in it (`.shot-panel`; option 2, signed off 20 October 2026, boards K and L). This replaced, on
+  20 October 2026, the owner's rule of 14 October that a guide's words fill the frame.
 - The foot is the same on every page of the site (version A3, the owner's sign-off of
   16 October 2026, after a single row of links stretched across the frame was found hard to
   read and cluttered on a phone). Two columns across the frame:
@@ -95,8 +120,16 @@ page's section of `app.css`.
   its policy's small print is written by its tool, from the policy and the app. On a phone the studio's column is above the apps', which
   stay two to a row. A new app adds its column on every page and in every template.
   One exception: the page that only sends the reader on has no foot.
-- Breakpoints. At 640px and below everything is one column, the list of guides included. Below
-  360px the app's bar drops its icon.
+- Breakpoints. At 640px and below everything is one column, the list of guides included. At
+  960px and below the list of guides is two across. At 860px and below "On this page" is a box
+  above the words. Below 360px the app's bar drops its icon.
+- A guide's date: under the words in its top, its last_updated written in full
+  (`<p class="meta"><time datetime="2026-10-13">13 October 2026</time></p>`), and on its card in
+  the list of guides, opposite its label (`.card-meta`). The date alone, no "Updated" (the owner,
+  20 October 2026). It moves only when the guide's facts or advice change or its sources are
+  checked again, never for a picture or the layout. The content checker holds the date in the
+  guide's top to the data; the date on the card is not checked by any program, so change both
+  together.
 - A guide has a picture (signed off 20 October 2026, the daylight house style): beside its
   words in the dark top (`<header class="top solo pictured">`, with `.top-pic`), and on its
   card in the list of guides (`.card-pic`). Each guide's folder holds `picture-1200.webp`,
@@ -124,9 +157,9 @@ page's section of `app.css`.
 
 ## 4. Rules for a guide
 
-- The words, rows, cards and panels fill the frame (see "One frame" above). On a wide screen a
-  full line of body text runs to about 115 characters, and up to about 130: the owner chose one width for every page
-  over a shorter line, on 14 October 2026.
+- The words, rows, cards and panels fill the reading column (see "The reading column" above):
+  about 80 to 90 characters a line of body text on a wide screen. Before 20 October 2026 they filled
+  the frame, at about 115 characters a line.
 - The h1's lines are balanced, so no word is left by itself on the last one.
 - A guide is made of the parts in `_template/guide/` and nothing else. Each has a comment
   there saying when to use it:
