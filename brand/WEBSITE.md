@@ -132,7 +132,7 @@ page's section of `app.css`.
   checked again, never for a picture or the layout. The content checker holds the date in the
   guide's top to the data; the date on the card is not checked by any program, so change both
   together.
-- A guide has a picture (signed off 20 October 2026, the daylight house style): beside its
+- A guide has a picture (the house style, in fuller colour since 21 October 2026): beside its
   words in the dark top (`<header class="top solo pictured">`, with `.top-pic`), and on its
   card in the list of guides (`.card-pic`). Each guide's folder holds `picture-1200.webp`,
   `picture-600.webp` and `share.jpg`, 1200 x 630, which is its `og:image` and its structured
