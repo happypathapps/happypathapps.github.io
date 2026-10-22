@@ -40,7 +40,7 @@ body {
 }
 a { color: inherit; }
 img { max-width: 100%; height: auto; }
-.wrap { max-width: 1040px; margin: 0 auto; padding-inline: clamp(20px, 5vw, 56px); }
+.wrap { max-width: 1200px; margin: 0 auto; padding-inline: clamp(20px, 5vw, 56px); }
 
 /* ---- the studio bar ---- */
 .studio { background: var(--ink); color: var(--off-white); }
@@ -66,12 +66,24 @@ img { max-width: 100%; height: auto; }
 .app-bar .app-links a { font-size: 15px; font-weight: 700; color: #D5D9DE; }
 .app-bar .app-links a[aria-current] { color: var(--green); box-shadow: inset 0 -2px 0 var(--green); }
 
+/* ---- Google's "Get it on Google Play" badge: where an app is offered (its page's top, the top of a
+   page for something sold in it, its row on the home page), in place of a button. Google's file, unaltered (brand/google-play/), 52px tall
+   (Google's minimum is 28px). Google asks for a quarter of its height (13px) clear on every side:
+   .actions keeps 13px between it and anything beside it, and the margins round .actions keep the
+   rest (14px or more above and below where it is used today). The board's rounded focus corners
+   were left out. A
+   page that shows it says in its foot that Google Play is Google's trade mark. Version A, signed
+   off 19 Oct 2026. Not in guides: their app card keeps its own button. ---- */
+.play-badge { display: inline-block; line-height: 0; }
+.play-badge img { display: block; width: auto; height: 52px; }
+.actions:has(.play-badge) { gap: 13px 26px; }
+
 /* ---- the app's own top ---- */
 .top { background: var(--ink); color: var(--off-white); padding-block: 28px 56px; }
-.top .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: clamp(24px, 6vw, 72px); align-items: center; }
+.top .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: clamp(24px, 6vw, 72px); align-items: center; }
 .top .icon { display: block; width: 72px; height: 72px; border-radius: 18px; margin-bottom: 18px; }
 .top h1 { margin: 0; font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.5px; line-height: 1.1; }
-.top .lede { margin: 14px 0 24px; color: #D5D9DE; font-size: clamp(17px, 2.2vw, 20px); max-width: 40ch; }
+.top .lede { margin: 14px 0 24px; color: #D5D9DE; font-size: clamp(17px, 2.2vw, 20px); max-width: 46ch; }
 .top .small { margin: 14px 0 0; color: var(--muted); font-size: 14px; }
 .chip {
   display: inline-block;
@@ -125,21 +137,21 @@ img { max-width: 100%; height: auto; }
 /* ---- a row for each thing it does ---- */
 .row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 210px;
+  grid-template-columns: minmax(0, 1fr) clamp(200px, 30vw, 260px);
   gap: clamp(24px, 6vw, 72px);
   align-items: center;
   padding-block: 48px;
   border-top: 1px solid var(--rule);
 }
 .row:first-child { border-top: 0; }
-.row.flip { grid-template-columns: 210px minmax(0, 1fr); }
+.row.flip { grid-template-columns: clamp(200px, 30vw, 260px) minmax(0, 1fr); }
 .row.flip .text { order: 2; }
 .text { min-width: 0; }
 .label { margin: 0 0 6px; color: var(--green-text); font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 .row h2 { margin: 0 0 12px; font-size: clamp(24px, 3.2vw, 30px); font-weight: 800; line-height: 1.2; text-wrap: balance; }
 .row p, .panel p, .panel li { color: var(--body); font-size: 17px; }
-/* words beside a screenshot keep a short line; a plain panel's words run the panel's width */
-.row p { max-width: 52ch; }
+/* words beside a screenshot keep a short line, and so do a panel's (the frame plan, 20 Oct 2026) */
+.row p, .panel p { max-width: 58ch; }
 .row p { margin: 0 0 12px; }
 .row p a { color: var(--green-text); font-weight: 700; }
 .row h2 a { color: var(--green-text); text-decoration-thickness: 2px; text-underline-offset: 4px; }
@@ -154,6 +166,15 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
 .panel .label { color: var(--green-text); font-size: 13px; margin: 16px 0 6px; }
 .sources li { font-size: 15px; scroll-margin-top: 16px; }
 
+/* ---- an app's page: Right now, live figures from the app's own server ----
+   Three across, one column on a phone. Optional, in _template/app/ (signed off 20 Oct 2026). */
+.panel.figures { margin-block: 40px 8px; }
+.panel.figures + .row { border-top: 0; }
+.panel .figures-list { list-style: none; margin: 4px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.panel .figures-list li { margin: 0; font-size: 15px; }
+.figures-list strong { display: block; color: var(--text); font-size: clamp(28px, 4vw, 36px); font-weight: 800; line-height: 1.1; }
+.panel .figures-note { margin-top: 14px; font-size: 14px; }
+
 /* ---- privacy, and anything else said once ---- */
 .panel { background: var(--panel); border-radius: 22px; padding: clamp(24px, 4vw, 40px); margin-block: 8px 56px; }
 .wrap > .panel:first-child { margin-top: 40px; }
@@ -166,6 +187,25 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
 /* ---- a guide's top has no screenshot beside it, so its words take the width ---- */
 .top.solo .wrap { grid-template-columns: minmax(0, 1fr); }
 .top.solo .lede { margin: 20px 0 12px; max-width: 60ch; }
+
+/* ---- a guide's date, under its words in the top: its last_updated, written in full ---- */
+.top .meta { margin: 14px 0 0; color: var(--muted); font-size: 15px; }
+
+/* ---- a guide's picture: beside its words in the top, and as its card on the guides list ----
+   The house style, in fuller colour since 21 Oct 2026 (the design canvas, "O · Fuller-colour
+   pictures beside the current day set"); first signed off in daylight on 20 Oct 2026 ("D · Log
+   book guide with pictures" and "C · Guides list ... the day set"). How the pictures are made, and what is checked
+   in each, is with the business records; each guide's folder holds picture-1200.webp,
+   picture-600.webp and share.jpg (1200 x 630, its og:image). A picture is decorative: alt="",
+   because the heading beside it says what the guide is about (board D drew the log book guide's
+   with a description; the build leaves it out, so a screen reader is not told the scene). Board
+   D's line under the words ("5 minutes to read · Updated ...") is not built: the date alone
+   ("E · Date", signed off 20 Oct 2026) takes its place. */
+.top.solo.pictured .wrap { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 48px; }
+.top.solo.pictured .lede { margin: 14px 0 24px; }
+.top-pic img { display: block; width: 100%; height: auto; border-radius: 22px; }
+.card-pic { margin-bottom: 16px; }
+.card-pic img { display: block; width: 100%; height: auto; border-radius: 22px; box-shadow: 0 0 0 1px var(--rule-strong); }
 
 /* ---- the app's button inside a guide: icon, a sentence, the small print, the button ---- */
 .app-card {
@@ -336,12 +376,15 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
 .panel.sources h2 { font-size: 18px; }
 .panel.sources li, .panel.sources p { font-size: 14px; max-width: 80ch; }
 
-/* ---- a guide fills the frame every page shares ----
-   Every page's bar, top, body and foot are one width: .wrap, 1040 less its gutters. The owner's
-   choice of 14 October 2026 ("One frame, version 2" on the design canvas), so that nothing moves
-   as a reader goes from page to page. <body class="guide"> lifts the caps on line length that
-   suit words beside a screenshot, and the words, rows, cards and panels all run to the
-   frame's edge. Do not give a guide, or any page, a width of its own. */
+/* ---- a guide's width: the frame every page shares, its words in the reading column ----
+   Every page's bar, top, body and foot are one width: .wrap, 1200 less its gutters. The owner's
+   choice of 14 October 2026 ("One frame, version 2" on the design canvas), widened to 1200px by the
+   frame plan, signed off 20 October 2026 ("H · Frame plan" on the canvas), so that nothing moves as a
+   reader goes from page to page. Inside the frame a guide puts its words in a reading column,
+   at most 678px (about 80 to 95 characters a line), with "On this page" beside it (.guide-layout,
+   below).
+   <body class="guide"> lifts the caps on line length that suit words beside a screenshot, so the
+   words, rows, cards and panels run to the column's edge. No page has a width of its own. */
 .guide .top .lede,
 .guide .row p,
 .guide .row .facts li,
@@ -351,6 +394,40 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
 .guide .panel.sources li,
 .guide .panel.sources p,
 .guide .app-card { max-width: none; }
+
+/* ---- a guide's reading column and its contents (the frame plan, signed off 20 Oct 2026) ----
+   <main class="wrap guide-layout">, then <nav class="toc"> (its h2s, each linked by its id) and
+   <div class="guide-text">. The column is in pixels, not ch: ch follows the font size. No link
+   is marked as current: that needs a script, and the site has none. On a phone and a tablet the
+   contents are a box above the words, white with a thin rule so it does not read as one of the
+   guide's grey panels. It stays in view while the page scrolls only from a 600px-tall window,
+   where every guide's contents fit (the longest, 10 headings, is 583px); a longer list would
+   scroll inside itself. A row with a screenshot puts the screenshot in a picture panel under the
+   words: a light panel the column's width, the phone centred in it (option 2, the owner,
+   20 Oct 2026, canvas boards "K" and "L"), as carVertical's articles put a picture under the
+   words in the column. */
+.guide-layout { display: grid; grid-template-columns: 220px minmax(0, 678px); gap: 0 64px; align-items: start; }
+.guide-text { min-width: 0; }
+.toc { padding-block: 48px; }
+.toc-head { margin: 0 0 10px; color: var(--text); font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.toc ol { margin: 0; padding: 0; list-style: none; border-left: 2px solid var(--rule-strong); }
+.toc li { margin: 0; }
+.toc a { display: block; padding: 6px 0 6px 14px; color: var(--green-text); font-size: 15px; line-height: 1.4; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.guide-text h2 { scroll-margin-top: 16px; }
+@media (min-height: 600px) and (min-width: 861px) { .toc { position: sticky; top: 0; max-height: 100vh; overflow: auto; } }
+.guide .row, .guide .row.flip { grid-template-columns: minmax(0, 1fr); row-gap: 24px; }
+.guide .row.flip .text { order: 0; }
+.shot-panel { display: flex; justify-content: center; padding: 32px 20px; border-radius: 22px; background: var(--panel); }
+.shot-panel .phone { width: clamp(180px, 40vw, 220px); }
+@media (max-width: 860px) {
+  .guide-layout { grid-template-columns: minmax(0, 678px); }
+  .toc { padding-block: 32px 0; }
+  .toc ol { border: 1px solid var(--rule-strong); background: var(--card); border-radius: 16px; padding: 10px 18px; columns: 2 130px; column-gap: 20px; }
+  .toc li { break-inside: avoid; }
+  .toc a { padding-left: 0; font-weight: 700; }
+}
+@media print { .guide-layout { display: block; } .toc { display: none; } }
 
 /* ---- inside a guide (design A, signed off 13 October 2026) ----
    A list is ONE card with a line between its items, not a bar for every item: a bar that runs
@@ -388,40 +465,40 @@ sup a { color: var(--green-text); font-weight: 700; text-decoration: none; paddi
 /* in a panel, the card's button keeps its own ink text: ".panel a" would make it green on green */
 .panel .app-card .btn { color: var(--ink); font-weight: 800; }
 
-/* ---- the list of an app's guides: a card for each, the whole card a link ----
-   <body class="guide guide-list">: two cards across the frame, one at 860px and below. */
-.guide-list main { padding-block: 28px 56px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.guide-list .row {
-  position: relative;
-  display: block;
-  padding: 22px 24px 16px;
-  border: 1px solid var(--rule);
-  border-radius: 18px;
-  background: var(--card);
-}
-.guide-list .row:hover, .guide-list .row:focus-within { border-color: var(--green-text); }
-.guide-list .row h2 { margin-bottom: 8px; font-size: 22px; }
-.guide-list .row h2 a { text-decoration: none; }
+/* ---- the list of an app's guides: a card for each, its picture on top, the whole card a link ----
+   <body class="guide guide-list">: three across the frame, two from 641 to 960px, one on a phone
+   (design "C · Guides list with a picture for each guide, the day set", and the frame plan's
+   list, both signed off 20 Oct 2026). Each card's label and date share a line (.card-meta). Not on
+   the boards: on hover or focus the picture's edge turns green, as the old cards' edge did. */
+.guide-list main { padding-block: 56px 64px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px 40px; }
+.card-meta { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; margin: 0 0 8px; }
+.guide-list .row .card-meta { margin: 0 0 8px; font-size: 14px; color: var(--body); }
+.card-meta .label { margin: 0; }
+@media (max-width: 960px) { .guide-list main { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.guide-list .row { position: relative; display: block; padding: 0; border-top: 0; }
+.guide-list .row h2 { font-size: 22px; }
 .guide-list .row h2 a::after { content: ""; position: absolute; inset: 0; }
-.guide-list .row p { margin: 0; font-size: 16px; }
+.guide-list .row p { margin: 0 0 12px; }
+.guide-list .row:hover .card-pic img, .guide-list .row:focus-within .card-pic img { box-shadow: 0 0 0 2px var(--green-text); }
 
 /* ---- the home page: <body class="home"> ----
    The owner's choice of 11 October 2026, "D": the dark lockup of the Facebook cover as the
    top - the smile road above the name, never under it - and a light body with a row for each
    app, its screenshot in a phone. Its width is .wrap's, as every page's is; only what the home
-   page alone has is here: the lockup, an ink button on a light ground, a light "soon" chip. */
+   page alone has is here: the lockup, an ink button on a light ground (unused since apps on Play
+   show Google's badge; kept for a link that is not to Play), a light "soon" chip. */
 .home { --chip-soon-bg: #ECEEE9; --chip-soon: #5A6470; }
 .hero { background: var(--ink); color: var(--off-white); text-align: center; padding: 64px 20px 52px; }
 .hero svg { display: block; margin: 0 auto 6px; width: 150px; height: 150px; max-width: 40vw; max-height: 40vw; }
 .hero h1 { margin: 0; font-size: clamp(34px, 6vw, 56px); font-weight: 800; letter-spacing: -0.5px; line-height: 1.1; }
 .hero p { margin: 10px 0 0; color: var(--muted); font-size: clamp(16px, 2.4vw, 20px); font-weight: 700; }
-.home .row { grid-template-columns: minmax(0, 1fr) 220px; gap: clamp(24px, 5vw, 64px); }
-.home .row.flip { grid-template-columns: 220px minmax(0, 1fr); }
+.home .row { grid-template-columns: minmax(0, 1fr) clamp(200px, 30vw, 270px); gap: clamp(24px, 5vw, 64px); }
+.home .row.flip { grid-template-columns: clamp(200px, 30vw, 270px) minmax(0, 1fr); }
 .home .icon { display: block; width: 56px; height: 56px; border-radius: 14px; margin-bottom: 14px; }
 .home .row h2 { margin: 0 0 8px; font-size: 28px; }
 .home .row h2 a { color: inherit; text-decoration: none; text-underline-offset: auto; }
 .home .row h2 a:hover { text-decoration: underline; }
-.home .row p { margin: 0 0 18px; max-width: 46ch; }
+.home .row p { margin: 0 0 18px; max-width: 54ch; }
 .home .row p a { color: inherit; font-weight: inherit; }
 .home .chip { margin-left: 8px; vertical-align: 0.3em; }
 .home .btn { padding: 12px 20px 10px; background: var(--ink); color: var(--off-white); font-weight: 700; font-size: 15px; }
@@ -442,10 +519,8 @@ footer .foot-apps { display: grid; grid-template-columns: repeat(2, minmax(0, 1f
 footer .foot-col { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
 footer .foot-head { margin-bottom: 2px; color: var(--off-white); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 footer .foot-small { margin-top: 24px; padding-top: 20px; border-top: 1px solid #2A333D; font-size: 13px; line-height: 1.55; }
-
-@media (max-width: 860px) {
-  .guide-list main { grid-template-columns: minmax(0, 1fr); }
-}
+/* a second paragraph of small print, such as the trade mark line, sits under the first with no line */
+footer .foot-small + .foot-small { margin-top: 8px; padding-top: 0; border-top: 0; }
 
 @media (max-width: 359px) {
   .app-bar .app-name img { display: none; }
@@ -458,7 +533,10 @@ footer .foot-small { margin-top: 24px; padding-top: 20px; border-top: 1px solid 
   .row.flip .text { order: 0; }
   .row { padding-block: 36px; }
   .top .phone, .row .phone { width: 220px; max-width: 70%; }
-  .row .facts.cards, .panel ul.defs { grid-template-columns: minmax(0, 1fr); }
+  .top.solo.pictured .wrap { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .guide-list main { grid-template-columns: minmax(0, 1fr); gap: 36px; padding-block: 32px 40px; }
+  .row .facts.cards, .panel ul.defs, .panel .figures-list { grid-template-columns: minmax(0, 1fr); }
+  .panel .figures-list { gap: 12px; }
   .app-card { grid-template-columns: 48px minmax(0, 1fr); padding: 16px; }
   .app-card .actions { grid-column: 1 / -1; grid-row: 3; margin-top: 12px; }
   .app-card .btn { flex: 1; text-align: center; }

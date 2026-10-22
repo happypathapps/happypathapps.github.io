@@ -1,0 +1,210 @@
+<!doctype html>
+<!--
+  SKELETON FOR A NEW APP'S PAGE.
+
+  An app's page says what the app does for someone, shows it, and lets them get it from Google
+  Play. It follows the Roadworthy page's pattern; its design is "A · App page template" on the
+  design canvas (signed off 20 October 2026). Make it before the app is released to production,
+  once it has real screenshots and a store link (brand/WEBSITE.md, section 6).
+
+    1. Copy this directory to APP-SLUG/ and replace every placeholder. They are the words in
+       capitals (APP-SLUG, APP NAME, PLAY-PACKAGE-ID, WHAT IT DOES, ONE-LINE SUMMARY, WHERE IT
+       WORKS, ONE WORD, WHAT THE READER CAN DO, THE NEXT THING IT DOES, HOW, A-SCREENSHOT,
+       WHAT THE SCREENSHOT SHOWS, FIGURE, WHAT IT COUNTS, TIME, THING IT NEVER COLLECTS,
+       DISCLAIMER FOR THIS APP). Search the finished page for each before it is reviewed:
+       WHAT THE SCREENSHOT SHOWS is in the images' alt text, which the page does not show.
+    2. Every claim on the page must be true of the released app. Read the app's own code and
+       privacy policy for "What it never collects": never write one from memory or from
+       another app.
+    3. Screenshots go in APP-SLUG/shots/, 420 wide, as Roadworthy's do; the icon is
+       APP-SLUG/icon.png.
+    4. Give the app's column in the foot "The app" (or add the column, if it has none) on every
+       page and in the other templates (WEBSITE.md, the foot), give its guides and its privacy
+       policy the app's bar, and give its row on the home page Google's badge in place of its
+       Coming soon button. Add APP-SLUG/ to sitemap.xml. A policy written by a tool in the app's
+       own repository (Pump Prices') is never edited here: its foot and bar change in that tool,
+       asked for by a content notification.
+    5. Delete the noindex line in the head, and delete this comment and the "optional" notes
+       below once each part is kept or cut.
+    6. Look at it at phone, tablet and desktop width, then have it reviewed before it is
+       committed.
+
+  House rules: British English. No em dashes. No exclamation marks. Every path starts from the
+  root (/app.css), so the page needs a local server to preview.
+-->
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APP NAME: ONE-LINE SUMMARY</title>
+<meta name="description" content="WHAT IT DOES, written for someone searching, in under 160 characters.">
+<link rel="canonical" href="https://happypathapps.co.uk/APP-SLUG/">
+<meta name="robots" content="noindex"><!-- skeleton only: delete this line in a real page -->
+<meta property="og:title" content="APP NAME">
+<meta property="og:description" content="ONE-LINE SUMMARY. Free, on Google Play.">
+<meta property="og:image" content="https://happypathapps.co.uk/APP-SLUG/shots/A-SCREENSHOT.jpg">
+<link rel="icon" href="/brand/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/brand/favicon-180.png">
+<link rel="preload" href="/brand/fonts/overpass-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/app.css">
+<!-- Structured data. It must say nothing the page does not show: free, for Android, on Google
+     Play. No ratings: the page shows none. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "APP NAME",
+  "description": "ONE-LINE SUMMARY",
+  "operatingSystem": "Android",
+  "inLanguage": "en-GB",
+  "url": "https://happypathapps.co.uk/APP-SLUG/",
+  "installUrl": "https://play.google.com/store/apps/details?id=PLAY-PACKAGE-ID",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Happy Path Apps",
+    "url": "https://happypathapps.co.uk/"
+  }
+}
+</script>
+</head>
+<body>
+
+<nav class="studio" aria-label="Happy Path Apps">
+  <div class="wrap">
+    <a href="/">
+      <svg viewBox="-50 -50 100 100" aria-hidden="true">
+        <path d="M-36 -21 C-26 21 26 21 36 -21" stroke="#4ADE80" stroke-width="22" fill="none"/>
+        <path d="M-36 -21 C-26 21 26 21 36 -21" stroke="#F7F6F2" stroke-width="3.2" fill="none" stroke-dasharray="7 6" stroke-dashoffset="3.735"/>
+      </svg>
+      Happy Path Apps
+    </a>
+  </div>
+</nav>
+
+<!-- The app's bar: its icon and name, then its guides and its privacy policy. The same on every
+     page of the app; the name is marked current here. Leave Guides out until it has guides. -->
+<nav class="app-bar" aria-label="APP NAME">
+  <div class="wrap">
+    <a class="app-name" href="/APP-SLUG/" aria-current="page"><img src="/APP-SLUG/icon.png" width="24" height="24" alt="">APP NAME</a>
+    <span class="app-links">
+      <a href="/APP-SLUG/guides/">Guides</a>
+      <a href="/APP-SLUG/privacy.html">Privacy policy</a>
+    </span>
+  </div>
+</nav>
+
+<!-- The top: the icon, the name, the job it does for the reader (not its features), Google's
+     badge, one line of small print, and the screenshot that shows its answer. -->
+<header class="top">
+  <div class="wrap">
+    <div class="text">
+      <img class="icon" src="/APP-SLUG/icon.png" width="72" height="72" alt="">
+      <h1>APP NAME</h1>
+      <p class="lede">WHAT IT DOES, in one or two sentences a reader would say: the job it does
+      for them, not its features.</p>
+      <div class="actions">
+        <a class="play-badge" href="https://play.google.com/store/apps/details?id=PLAY-PACKAGE-ID"><img src="/brand/google-play/get-it-on-google-play.svg" width="175" height="52" alt="Get it on Google Play"></a>
+      </div>
+      <p class="small">Free, for Android, in WHERE IT WORKS.</p>
+    </div>
+    <div class="phone"><img src="/APP-SLUG/shots/A-SCREENSHOT.jpg" width="420" height="747" alt="WHAT THE SCREENSHOT SHOWS"></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- Optional: Right now. Three live figures from the app's own server, and when they were
+       updated. Only figures the server already holds for everyone, never anything about a
+       reader (the board showed this to readers; the template keeps it for the builder). Cut
+       the whole section if the app has no such server.
+       How the figures reach the page is not decided, and is decided before this is first used:
+       a script fetching them from the app's server would send every visitor's address there
+       (so the app's privacy policy, and what /partner-links/ says about these pages, would have
+       to say so; no page on the site fetches anything today); figures
+       copied in by hand go stale within a day. -->
+  <section class="panel figures">
+    <p class="label">Right now</p>
+    <ul class="figures-list">
+      <li><strong>FIGURE</strong> WHAT IT COUNTS</li>
+      <li><strong>FIGURE</strong> WHAT IT COUNTS</li>
+      <li><strong>FIGURE</strong> WHAT IT COUNTS</li>
+    </ul>
+    <p class="figures-note">From the app's own server, updated TIME.</p>
+  </section>
+
+  <!-- A row for each thing it does, most useful first, alternating sides ("row", then "row
+       flip"). A second paragraph only if it is needed. Link a guide where one answers the
+       question a row raises. -->
+  <section class="row">
+    <div class="text">
+      <p class="label">ONE WORD</p>
+      <h2>WHAT THE READER CAN DO</h2>
+      <p>HOW, in a sentence or two, and what makes it trustworthy: where the answer comes from.</p>
+    </div>
+    <div class="phone"><img src="/APP-SLUG/shots/A-SCREENSHOT.jpg" width="420" height="747" alt="WHAT THE SCREENSHOT SHOWS" loading="lazy"></div>
+  </section>
+
+  <section class="row flip">
+    <div class="text">
+      <p class="label">ONE WORD</p>
+      <h2>THE NEXT THING IT DOES</h2>
+      <p>HOW, in a sentence or two.</p>
+    </div>
+    <div class="phone"><img src="/APP-SLUG/shots/A-SCREENSHOT.jpg" width="420" height="747" alt="WHAT THE SCREENSHOT SHOWS" loading="lazy"></div>
+  </section>
+
+  <!-- Optional: What it never collects. Each card is something the app does not take, and why it
+       does not need it; each must be true of the app's code and its privacy policy. -->
+  <section class="row solo">
+    <div class="text">
+      <p class="label">Privacy</p>
+      <h2>What it never collects</h2>
+      <ul class="facts cards no">
+        <li><strong>THING IT NEVER COLLECTS.</strong> Why it doesn't need it, in a sentence.</li>
+        <li><strong>THING IT NEVER COLLECTS.</strong> Why it doesn't need it, in a sentence.</li>
+        <!-- Keep this card only if the app truly has no account of any kind. -->
+        <li><strong>An account.</strong> There's nothing to sign up to.</li>
+      </ul>
+      <p>What it does send, and where, is in the <a href="/APP-SLUG/privacy.html">privacy policy</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- The foot: the same on every page. Add this app's column here and on every other page. -->
+<footer>
+  <div class="wrap">
+    <div class="foot-cols">
+      <div class="foot-col">
+        <p class="foot-head">Happy Path Apps</p>
+        <a href="/">Home</a>
+        <a href="/company/">Company details</a>
+        <a href="/partner-links/">Partner links</a>
+        <a href="mailto:happypathapps@gmail.com">happypathapps@gmail.com</a>
+      </div>
+      <div class="foot-apps">
+        <div class="foot-col">
+          <p class="foot-head">Roadworthy</p>
+          <a href="/roadworthy/">The app</a>
+          <a href="/roadworthy/guides/">Guides</a>
+          <a href="/roadworthy/privacy.html">Privacy policy</a>
+        </div>
+        <div class="foot-col">
+          <p class="foot-head">Pump Prices</p>
+          <a href="/pump-prices/privacy.html">Privacy policy</a>
+        </div>
+      </div>
+    </div>
+    <!-- DISCLAIMER FOR THIS APP: copied to its guides and its policy. -->
+    <p class="foot-small">DISCLAIMER FOR THIS APP.</p>
+    <p class="foot-small">Google Play and the Google Play logo are trademarks of Google LLC.</p>
+  </div>
+</footer>
+
+</body>
+</html>

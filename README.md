@@ -43,11 +43,15 @@ company/
                      the foot of every page that has a foot. The registered office is copied
                      from Companies House.
 brand/fonts/         Overpass, self-hosted so a visit tells Google nothing (OFL.txt).
+brand/google-play/   Google's "Get it on Google Play" badge (English, web), exactly as Google
+                     supplies it. Never edit it; a new version replaces it whole.
 brand/WEBSITE.md     The rules a page is held to, by kind of page: widths, type, parts, words.
 _template/
   privacy.html       Skeleton for the next app's privacy policy. Start here, not from
                      Roadworthy's — see below.
   guide/index.html   Skeleton for a guide, with the steps for writing one at its top.
+  app/index.html     Skeleton for an app's page, with the steps at its top, and two optional
+                     parts: live figures from the app's own server, and what it never collects.
 roadworthy/
   index.html         App page (app.css)
   privacy.html       THE privacy policy URL. Do not move it.
@@ -58,7 +62,9 @@ roadworthy/
     terms/
       index.html     Its terms of sale (style.css, a privacy policy's parts). Goes live with it.
   guides/
-    index.html       The list of Roadworthy's guides. A row for each, newest first.
+    index.html       The list of Roadworthy's guides. A card for each, with its picture, newest first.
+                     Each guide's folder below also holds its picture: picture-1200.webp,
+                     picture-600.webp and share.jpg (1200 x 630, the guide's og:image).
     buying-a-used-car/
       index.html     Buyer's guide, for someone about to buy a used car, whether they come
                      from the app or from a search. Partner links go in its "Is a paid check worth it?" panel, as

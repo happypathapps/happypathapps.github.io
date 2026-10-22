@@ -16,7 +16,12 @@
        DAY MONTH YEAR, YYYY-MM-DD, DISCLAIMER FOR THIS APP) and the example.gov.uk links.
        Search the finished page for each before it is reviewed. The two dates in the
        structured data block and the two in the Sources panel are the same pair.
-    4. Add the guide to APP-SLUG/guides/index.html (newest first) and to sitemap.xml. If
+    3a. Give the guide its picture, made in the house style kept with the business records and
+       signed off on the design canvas: picture-1200.webp, picture-600.webp and share.jpg
+       (1200 x 630, the og:image and the structured data's image) in the guide's folder. The
+       picture is decorative, so its alt is empty.
+    4. Add the guide to APP-SLUG/guides/index.html (newest first), with its picture-600.webp in
+       the card, and to sitemap.xml. If
        the app has no guides list yet, copy roadworthy/guides/index.html, change the app's
        name, icon, footer and disclaimer, and add that list to sitemap.xml too.
     5. Delete the noindex line in the head (it is there only to keep this skeleton out of
@@ -47,7 +52,7 @@
 <meta name="robots" content="noindex"><!-- skeleton only: delete this line in a real guide -->
 <meta property="og:title" content="GUIDE TITLE">
 <meta property="og:description" content="ONE-LINE SUMMARY">
-<meta property="og:image" content="https://happypathapps.co.uk/APP-SLUG/shots/A-SCREENSHOT.jpg">
+<meta property="og:image" content="https://happypathapps.co.uk/APP-SLUG/guides/GUIDE-SLUG/share.jpg">
 <link rel="icon" href="/brand/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/brand/favicon-180.png">
 <link rel="preload" href="/brand/fonts/overpass-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -62,7 +67,7 @@
   "description": "ONE-LINE SUMMARY",
   "inLanguage": "en-GB",
   "mainEntityOfPage": "https://happypathapps.co.uk/APP-SLUG/guides/GUIDE-SLUG/",
-  "image": "https://happypathapps.co.uk/APP-SLUG/shots/A-SCREENSHOT.jpg",
+  "image": "https://happypathapps.co.uk/APP-SLUG/guides/GUIDE-SLUG/share.jpg",
   "datePublished": "YYYY-MM-DD",
   "dateModified": "YYYY-MM-DD",
   "author": {
@@ -106,18 +111,41 @@
   </div>
 </nav>
 
-<header class="top solo">
+<header class="top solo pictured">
   <div class="wrap">
     <div class="text">
       <img class="icon" src="/APP-SLUG/icon.png" width="72" height="72" alt="">
       <h1>GUIDE TITLE</h1>
       <p class="lede">Who this is for and what they will know by the end, in one or two
       sentences.</p>
+      <!-- The date: the guide's last_updated, written in full; the checker holds it to the data. -->
+      <p class="meta"><time datetime="YYYY-MM-DD">DAY MONTH YEAR</time></p>
     </div>
+    <div class="top-pic"><img src="/APP-SLUG/guides/GUIDE-SLUG/picture-1200.webp" srcset="/APP-SLUG/guides/GUIDE-SLUG/picture-600.webp 600w, /APP-SLUG/guides/GUIDE-SLUG/picture-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 420px" width="1200" height="800" alt="" fetchpriority="high"></div>
   </div>
 </header>
 
-<main class="wrap">
+<main class="wrap guide-layout">
+
+  <!-- On this page: every h2 below, word for word and in order, each linked by its id. Give each
+       new h2 an id (its words, in lower case, joined by hyphens) and a line here; the checker
+       refuses a guide whose contents and headings differ. Nothing is marked as the current
+       section: that needs a script, and the site has none. -->
+  <nav class="toc" aria-label="On this page">
+    <p class="toc-head">On this page</p>
+    <ol>
+      <li><a href="#the-point-as-a-plain-heading">The point, as a plain heading</a></li>
+      <li><a href="#another-point">Another point</a></li>
+      <li><a href="#what-to-do">What to do</a></li>
+      <li><a href="#GUIDE-SLUG-table">A plain heading for the table</a></li>
+      <li><a href="#the-question-the-reader-is-asking">The question the reader is asking</a></li>
+      <li><a href="#how-do-i-do-the-thing">How do I do the thing?</a></li>
+      <li><a href="#the-detail">The detail</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ol>
+  </nav>
+
+  <div class="guide-text">
 
   <!-- A row for each point. Lead with what the reader should know or do; put the detail and
        the law after it. A footnote marker points at the numbered source below.
@@ -133,7 +161,7 @@
   <section class="row solo">
     <div class="text">
       <p class="label">ONE WORD</p>
-      <h2>The point, as a plain heading</h2>
+      <h2 id="the-point-as-a-plain-heading">The point, as a plain heading</h2>
       <p>What it means for the reader.<sup><a href="#s1">1</a></sup></p>
       <ul class="facts cards">
         <li><strong>A term.</strong> What it means, in a line.<sup><a href="#s2">2</a></sup></li>
@@ -153,16 +181,17 @@
     </div>
   </section>
 
-  <!-- A row with a screenshot, where the app shows the thing being described. Use "row flip"
-       to put the picture on the left. Two markers side by side are written "1, 2" inside one
-       sup, or they read as footnote 12. -->
+  <!-- A row with a screenshot, where the app shows the thing being described: the words across
+       the reading column, then the screenshot centred in a picture panel under them
+       (.shot-panel). "row" and "row flip" look the same in a guide. Two markers side by side are
+       written "1, 2" inside one sup, or they read as footnote 12. -->
   <section class="row flip">
     <div class="text">
       <p class="label">ONE WORD</p>
-      <h2>Another point</h2>
+      <h2 id="another-point">Another point</h2>
       <p>Text.<sup><a href="#s1">1</a>, <a href="#s2">2</a></sup></p>
     </div>
-    <div class="phone"><img src="/APP-SLUG/shots/A-SCREENSHOT.jpg" width="420" height="747" alt="What the screenshot shows" loading="lazy"></div>
+    <div class="shot-panel"><div class="phone"><img src="/APP-SLUG/shots/A-SCREENSHOT.jpg" width="420" height="747" alt="What the screenshot shows" loading="lazy"></div></div>
   </section>
 
   <!-- A checklist, if the guide has things to do. The small labels group the steps: the
@@ -175,7 +204,7 @@
        than one. A box is only for something the reader does. One sentence saying what the
        checklist is for may sit under the h2 as a plain <p>. -->
   <section class="panel steps">
-    <h2>What to do</h2>
+    <h2 id="what-to-do">What to do</h2>
     <p class="label">First</p>
     <ul>
       <li>A step.<sup><a href="#s1">1</a></sup></li>
@@ -216,7 +245,7 @@
        for goes in <strong class="price">. Any panel with more than one paragraph also takes
        the class "prose", which puts space between them. -->
   <section class="panel callout">
-    <h2>The question the reader is asking</h2>
+    <h2 id="the-question-the-reader-is-asking">The question the reader is asking</h2>
     <p>The answer.</p>
   </section>
 
@@ -230,7 +259,7 @@
        site's own button. rel="sponsored" tells search engines it is paid. The button says only
        what the link opens; any claim about the partner needs a fact like any other sentence. -->
   <section class="panel prose">
-    <h2>How do I do the thing?</h2>
+    <h2 id="how-do-i-do-the-thing">How do I do the thing?</h2>
     <p>The free way to do it.<sup><a href="#s1">1</a></sup></p>
     <div class="partner-card">
       <p class="label">Partner · Ad</p>
@@ -241,7 +270,7 @@
 
   <!-- The detail and the law, a term to each entry. -->
   <section class="panel">
-    <h2>The detail</h2>
+    <h2 id="the-detail">The detail</h2>
     <ul class="defs">
       <li><strong>A term.</strong> What the source says of it.<sup><a href="#s2">2</a></sup></li>
     </ul>
@@ -250,7 +279,7 @@
   <!-- Every source the page cites, numbered to match the markers. Name the publisher, then
        link the page's own title. -->
   <section class="panel sources">
-    <h2>Sources</h2>
+    <h2 id="sources">Sources</h2>
     <ol>
       <li id="s1">PUBLISHER, <a href="https://example.gov.uk/">Title of the page</a></li>
       <li id="s2">PUBLISHER, <a href="https://example.gov.uk/">Title of the page</a></li>
@@ -259,10 +288,12 @@
     legal advice.</p>
   </section>
 
+  </div>
+
 </main>
 
 <!-- The foot is the same on every page that has one (version A3, signed off 16 Oct 2026): the
-     studio's links, then a column for each app. A new app adds its column here, in the other template and on every
+     studio's links, then a column for each app. A new app adds its column here, in the other templates and on every
      page. The small print under it is the page's own app's disclaimer, copied from that app's page;
      a page that belongs to no app has none. -->
 <footer>
