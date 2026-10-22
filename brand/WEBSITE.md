@@ -172,7 +172,9 @@ page's section of `app.css`.
   - the app's card, once: a grey ground, the app's icon, one sentence, the small print, the
     button. In a row it has a grey ground of its own; in a panel (after a checklist) the panel's
     grey is its ground, and its button keeps ink text;
-  - a numbered checklist, with an aside for a line that is not a step;
+  - a numbered checklist, with an aside for a line that is not a step. Where the steps differ by
+    place, each place has a label with no number, as an h3 (`label place`), linked from the line
+    under the h2 (guide 6's advice for each nation, board A4, signed off 22 October 2026);
   - a table. One of three or more columns is marked "stack": on a phone each row becomes a
     block, the row's heading first and each answer under its column's name (the owner's
     decision of 14 October 2026, after the write-off guide's tables ran off a phone's screen);

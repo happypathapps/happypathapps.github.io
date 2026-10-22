@@ -74,6 +74,9 @@ roadworthy/
     before-your-mot/
       index.html     Why cars fail their MOT and the checks an owner can do first; when and how
                      to book. Carries the site's first partner link (Fixter, in its booking panel).
+    checking-if-a-car-is-stolen/
+      index.html     How to check a used car isn't stolen: what free checks can't show, the
+                     checks on the car and log book, warning signs, and what to do if it is.
   buying-a-used-car.html   Where the buyer's guide used to be. Now only redirects to it.
   shots/             Roadworthy's store screenshots, 420 wide
   icon.png, screenshot.jpg   Shown on the hub
